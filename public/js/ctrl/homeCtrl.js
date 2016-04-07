@@ -1,4 +1,5 @@
-spotifyApp.controller('HomeCtrl', function ($scope, Model) {
+spotifyApp.controller('HomeCtrl', function ($scope) {
 	
-	
+console.log("HomeCtrl loaded")
+
 });

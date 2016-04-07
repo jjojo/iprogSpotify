@@ -1,4 +1,4 @@
-spotifyApp.controller('ProfileCtrl', function ($scope, Model) {
+spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams) {
 	console.log("profile controller loaded")
 
 	$scope.items = [
@@ -17,6 +17,12 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model) {
 	{'img': "http://placehold.it/184x184",
 	'name': "item name"}
 	]
+
+	$scope.getToken = function (argument) {
+		// body...
+			$scope.token = $routeParams.access_token.substring(13)
+
+	}
 
 	
 });

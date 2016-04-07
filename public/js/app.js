@@ -10,30 +10,15 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/search.html",
 			controller: 	"SearchCtrl",
 		}).
-		when('/profile', {
+		when('/profile/:access_token', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 		}).
-		when('/toplist', {
-			templateUrl: 	"views/toplist.html",
-			controller: 	"ToplistCtrl",
+		when('/login', {
+			templateUrl: 	"views/loginTest.html",
+			controller: 	"HomeCtrl",
 		}).
-
 		otherwise({
 			redirectTo: 	"/"
 		});
 }]);
-
-// spotifyApp.config(function($httpProvider){
-// 	console.log($httpProvider.defaults.headers)
-//     $httpProvider.defaults.useXDomain = true;
-// 	$httpProvider.defaults.withCredentials = true;
-// 	delete $httpProvider.defaults.headers.common["X-Requested-With"];
-// 	$httpProvider.defaults.headers.common["Accept"] = "application/json";
-// 	$httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-// 	//$httpProvider.defaults.headers.get = { 'Access-Control-Allow-Origin' : '*' }
-// 	$httpProvider.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-// 	$httpProvider.defaults.headers.common["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, PATCH, DELETE";
-// 	$httpProvider.defaults.headers.common["Access-Control-Allow-Headers"] = "X-Requested-With,content-type";
-
-// });
