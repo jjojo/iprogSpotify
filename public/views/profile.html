@@ -1,0 +1,30 @@
+<ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
+
+<main>
+	<!-- This is where all Html for the view goes. -->
+	<div class="col-lg-10 col-lg-offset-1 profile">
+		
+		<div class="col-lg-3 avatar">
+			<h2>Name of Player</h2>
+			<img src="http://placehold.it/184x184">
+			<ul>
+				<li><button ng-click="userName()">get username</button></li>
+				<li><button ng-click="getapi()">get local func</button></li>
+				<li>rating</li>
+				<li>flexible</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-9 inventory">
+			<h2>Your inventory</h2>
+			<div class="item" ng-repeat="item in items">
+				<img src="{{item.img}}">
+				<p>{{item.name}}</p>	
+			</div>
+		</div>
+		
+	</div>
+
+</main>
+
+<ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
