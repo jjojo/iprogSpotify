@@ -9,7 +9,7 @@ Guullberg Philip <br>
 Johansson Jonas
 
 ## Short Project Description
-The web app will show different Steam accounts and compare these. A rating system will be in place as well.
+Use the Spotify API to vote on playlists
 <br>More info will be present shortly...
 
 
