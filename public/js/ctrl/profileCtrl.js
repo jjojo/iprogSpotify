@@ -20,9 +20,22 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 	$scope.getToken = function (argument) {
 		// body...
-			$scope.token = $routeParams.access_token.substring(13)
-
+		console.log(Model.settings.access_token)
 	}
 
-	
+	$scope.signed = function (argument) {
+		// body...
+		console.log(Model.signedIn())
+	}
+
+	$scope.getUser = function () {
+		// body...
+		Model.getUser().then(function (argument) {
+			// body...
+			$scope.userdata = argument.data
+		})
+	}
+
+
+	window.onload = Model.setToken($routeParams.access_token.substring(13));
 });
