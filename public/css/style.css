@@ -124,14 +124,7 @@ LOADER
 /*
 	Put all specific design below this comment
 */
-.title {
-  color: rgba(0,0,0,0.7);
-  font-family: fnt-theme;
-  letter-spacing: 2px;
-  margin: 0;
-  padding: 0.6em;
-  text-align: center;
-}
+
 
 .profile-title {
   color: rgba(0,0,0,0.7);
@@ -202,6 +195,10 @@ font-size:40px;
 width:65%;
 margin-left:10%; color:#000000;
 font-family:Racing Sans One;
+letter-spacing: 2px;
+margin: 0;
+padding: 0.6em;
+text-align: center;
 }
 
 u{
@@ -313,6 +310,56 @@ ul {
   color: black;
   font-size: 16px;
 }
+.welcome_vote{
+margin-top:2%;
+font-size:40px; 
+width:65%;
+margin-left:16%;
+color:#000000;
+font-family:Racing Sans One;
+letter-spacing: 2px;
+padding: 0.6em;
+}
+.playlist{
+border:1px solid;
+margin-top:10%;
+}
+
+.line{
+height:1px;
+margin-bottom:2%;
+border-bottom:1px solid #000;
+}
+.rate_title{
+font-size:22px;
+}
+.rate_star{
+font-size:22px;
+}
+.rate_current{
+font-size:22px;
+}
+.rate_star > span:hover:before {
+   content: "\2605"; 
+   position: absolute;
+}
+
+.rate_star {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rate_star > span:hover:before,
+.rate_star > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+
+.track{
+margin-top:2%;
+font-size:16px;
+margin-bottom:1%;
+
 
 .rl-table-line{
   border-top: solid 2px #1ED760;
@@ -324,10 +371,28 @@ ul {
   color: green;
 }
 
+}
+.suggest{
+margin-top:5%;
+}
+.suggest_title{
+font-size:18px;
+}
+.stars{
+margin-top:2%;
+height:50px;
 
 
+}
+.stars svg{
+height:20px;
+width:20px;
 
-
+}
+.stars svg polygon{
+fill:transparent;
+stroke-width:"6";
+}
 /*---------*/
 
 /*
