@@ -154,6 +154,7 @@ LOADER
   border-radius: 15px 50px 30px 5px;
 }
 
+
 .loginbt{
  margin-left:40%;
 }
@@ -252,6 +253,23 @@ ul {
   height: 100px;
 }
 /*-------------------------------------------------profileView slut------------------------------------*/
+
+/* HEADER */
+.header-buttons:link{
+  margin-top: 2%;
+  text-align: center;
+  background-color: #99ffcc;
+  border: solid 2px #009900;
+  font-size: 20px;
+}
+
+.header-buttons:hover{
+  font-size: 26px;
+}
+
+
+/*---------*/
+
 
 /*
 	Put all specific design above this comment
