@@ -7,6 +7,11 @@ Comments:
 /*
 FONT
 */
+@font-face { font-family: AdamCG; src: url('Adam-CG.otf'); } 
+@font-face { font-family: Proffs; src: url('Proffesional Edition.TTF');
+src: url('Proffesional Edition.TTF') format('embedded-opentype');
+
+}
 /*
 COLORS
 */
@@ -143,12 +148,12 @@ LOADER
 }
 .bread {
   color: #000;
-
+  font-family:Armata;
   border-radius: 15px 50px 30px 5px;
   width: 70%;
   margin-left: 10%;
   padding: 1.8%;
-  font-size:18px;
+  font-size:17px;
 }
 .bild {
   border-radius: 15px 50px 30px 5px;
@@ -185,10 +190,12 @@ position:fixed;
 }
 
 .title{
-margin-top:10%;
+margin-top:4%;
 font-size:40px; 
 width:65%;
 margin-left:10%; color:#000000;
+font-family:Racing Sans One;
+
 
 }
 u{
@@ -203,8 +210,18 @@ width:60%;
 .logo {
 height:150px;
 width:350px;
-margin-left:75%;
+margin-left:90%;
 
+}
+
+.line-separator{
+height:1px;
+width:65%;
+margin-top:2%;
+margin-left:12%;
+margin-bottom:2%;
+background: #717171;
+border-bottom:2px ridge #1ED760;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -251,6 +268,7 @@ ul {
   width: 100px;
   height: 100px;
 }
+
 /*-------------------------------------------------profileView slut------------------------------------*/
 
 /*
