@@ -1,4 +1,4 @@
-var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource']);
+var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'firebase']);
 
 spotifyApp.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.

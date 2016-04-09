@@ -1,4 +1,4 @@
-spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout) {
+spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService) {
 	console.log("profile controller loaded")
 
 	var getUserData = function (argument) {
@@ -19,6 +19,19 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		// body...
 		var url = '/vote/abc123'
 		$location.url(url)
+
+	$scope.genLink = function (playlist) {
+		// body...
+		console.log(playlist)
+		
+		var data = {
+			'playlistApiUrl': playlist.href,
+			'voteUrl':'/vote/' + playlist.id,
+			'id': playlist.id,
+			'owner': playlist.owner.id
+		}
+
+		fbService.addPlayVoteUrl(data)
 	}
 
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists();

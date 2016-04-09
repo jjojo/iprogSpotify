@@ -21,7 +21,12 @@
       	<div>
       		<ul>
       		<li class="top-grid" ng-repeat="playlist in playlists">
+<<<<<<< HEAD
 	      		<img class="top-images" ng-click="goToVote(playlist)" src="{{playlist.images[0].url}}" />
+=======
+	      		<img class="top-images" src="{{playlist.images[0].url}}" />
+              <button ng-click="genLink(playlist)">create link</button>
+>>>>>>> firebase
 	            <dt>{{playlist.name}}</dt><dd><a href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
             </li>   
         </div>
