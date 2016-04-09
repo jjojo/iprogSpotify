@@ -25,7 +25,7 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 
 		when('/vote/:playlistId', {
 			templateUrl: 	"views/voteing.html",
-			controller: 	"VotingCtrl",
+			controller: 	"VoteingCtrl",
 
 		}).
 		otherwise({
