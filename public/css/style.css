@@ -168,13 +168,13 @@ margin-left:25%;
 }
 
 .date { 
-background: green; 
-color: #ffffff;
+background: #1ED760; 
+color: black;
 display: inline-block; 
 font-family: 'Lato', sans-serif; 
 font-size: 16px; 
 font-weight: bold; 
-line-height: 12px; 
+line-height: 14px; 
 letter-spacing: 1px; 
 margin-top:3%; 
 padding: 10px 15px 8px; 
