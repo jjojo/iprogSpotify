@@ -193,10 +193,10 @@ position:fixed;
 margin-top:4%;
 font-size:40px; 
 width:65%;
-margin-left:10%; color:#000000;
+margin-left:15%;
+color:#000000;
 font-family:Racing Sans One;
 letter-spacing: 2px;
-margin: 0;
 padding: 0.6em;
 text-align: center;
 }
