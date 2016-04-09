@@ -1,4 +1,4 @@
-<header>
+<header ng-controller="HeaderCtrl">
 	<nav class="col-sm-12 navbar navbar-default">
   <div class="container-fluid">
 
@@ -13,8 +13,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="col-sm-12 nav navbar-nav">
-        <li class="col-sm-6"><a class="header-buttons" href="#/profile/user">PROFILE</a></li>
-        <li class="col-sm-6"><a class="header-buttons" href="#/ratedlists">RATED PLAYLISTS</a></li>
+        <li class="col-sm-6"><a class="header-buttons" href="#/profile/{{access_token}}">PROFILE</a></li>
+        <li class="col-sm-6"><a class="header-buttons" href="#/ratedlists/{{access_token}}">RATED PLAYLISTS</a></li>
       </ul>
      
     </div>

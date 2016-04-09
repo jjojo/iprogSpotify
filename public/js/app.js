@@ -18,7 +18,7 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/loginTest.html",
 			controller: 	"HomeCtrl",
 		}).
-		when('/ratedlists', {
+		when('/ratedlists/:access_token', {
 			templateUrl: 	"views/ratedlists.html",
 			controller: 	"RatedlistsCtrl",
 		}).
