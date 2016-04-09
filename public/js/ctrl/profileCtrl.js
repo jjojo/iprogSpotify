@@ -11,14 +11,22 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	var getTopPlaylists = function (argument) {
 		// retrievs user data from Model.
 		Model.getPlaylists().then(function (response) {
+			//console.log(response.data)
 			$scope.playlists = response.data.items;
 		});
 	}
 
-	$scope.goToVote = function (argument) {
+	$scope.getLink = function (playlist) {
 		// body...
-		var url = '/vote/abc123'
-		$location.url(url)
+		fbService.getAllSharedPlaylists(playlist.id).then(function (response) {
+			// body...
+			for (var i = response.length - 1; i >= 0; i--) {
+				if (response[i].$id === playlist.id){
+					playlist.link = response[i].voteUrl
+				}
+			};
+		})
+	}
 
 	$scope.genLink = function (playlist) {
 		// body...
@@ -26,9 +34,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		
 		var data = {
 			'playlistApiUrl': playlist.href,
-			'voteUrl':'/vote/' + playlist.id,
+			'spotifyUrl': playlist.external_urls.spotify,
+			'voteUrl':'#/vote/' + playlist.id,
 			'id': playlist.id,
-			'owner': playlist.owner.id
+			'owner': playlist.owner.id,
+			'name': playlist.name
 		}
 
 		fbService.addPlayVoteUrl(data)

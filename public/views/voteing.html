@@ -1,4 +1,11 @@
-<div class="container-fluid">
+
+<!-- alla views ska vara wrappade i en <main> tag!
+tänk på indentering i alla divs
+			<div>
+				<p> asjhdjahsd </p>
+			</div>
+ -->
+<div ng-init="getPlaylistData()" class="container-fluid">
 	<div class="welcome_vote">
 		Welcome to SpotifyParty Rate
 	</div>
@@ -6,7 +13,7 @@
 		<div class="col-lg-6 col-lg-offset-2">
 				<div class="playlist col-lg-12">
 					<div  class="col-lg-4">
-					<p class="rate_title">Rate this Playlist</p>
+					<p class="rate_title">{{title}}</p>
 					</div>
 
 					<div class="col-lg-4">
@@ -40,7 +47,8 @@
 
 		<div class="suggest col-md-4" >
 			<div class="col-lg-6">
-				<p class="suggest_title">Suggest song</p>
+				<p class="suggest_title">Owner: {{owner}}</p>
+				<a href="{{spotLink}}"><p class="suggest_title">Spotify link</p></a>
 			</div>
 		
 		</div>
