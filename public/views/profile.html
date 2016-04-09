@@ -22,6 +22,7 @@
       		<ul>
       		<li class="top-grid" ng-repeat="playlist in playlists">
 	      		<img class="top-images" src="{{playlist.images[0].url}}" />
+              <button ng-click="genLink(playlist)">create link</button>
 	            <dt>{{playlist.name}}</dt><dd><a href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
             </li>   
         </div>

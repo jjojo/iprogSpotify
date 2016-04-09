@@ -28,6 +28,12 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
 	    return uid;
 	};
 	
+	this.getVoteLink = function () {
+		// body...
+
+	}
+
+
 	this.signedIn = function () {
 		// body...
 		if (this.settings.access_token) {
@@ -61,7 +67,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
                 //console.log(response);
             }
         });
-        console.log(deferred.promise);
+        //console.log(deferred.promise);
         return deferred.promise;
 	}
 
@@ -79,7 +85,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
                 //console.log(response);
             }
         });
-        console.log(deferred.promise);
+        //console.log(deferred.promise);
         return deferred.promise;
 	}
 
