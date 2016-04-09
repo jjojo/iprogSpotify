@@ -13,6 +13,9 @@ COLORS
 /*
 	Put all general design below this comment
 */
+html,body{
+  height:100%;
+}
 .wrapper {
   float: left;
   height: 99vh;
@@ -37,6 +40,7 @@ main {
 	*/
   float: left;
   width: 100%;
+
 }
 .footer-wrapper {
 /*
@@ -142,21 +146,9 @@ padding-right 25px,
 .bild {
   border-radius: 15px 50px 30px 5px;
 }
-/* HEADER */
-.header-buttons:link{
-  margin-top: 2%;
-  text-align: center;
-  background-color: #99ffcc;
-  border: solid 2px #009900;
-  font-size: 20px;
-}
 
-.header-buttons:hover{
-  font-size: 26px;
-}
+/*login*/
 
-
-/*---------*/
 
 /*
 	Put all specific design above this comment

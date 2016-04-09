@@ -18,6 +18,10 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/loginTest.html",
 			controller: 	"HomeCtrl",
 		}).
+		when('/ratedlists', {
+			templateUrl: 	"views/ratedlists.html",
+			controller: 	"RatedlistsCtrl",
+		}).
 		otherwise({
 			redirectTo: 	"/"
 		});
