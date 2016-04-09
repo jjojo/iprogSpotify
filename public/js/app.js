@@ -22,6 +22,10 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/ratedlists.html",
 			controller: 	"RatedlistsCtrl",
 		}).
+		when('/vote/:playlistId', {
+			templateUrl: 	"views/voteing.html",
+			controller: 	"VotingCtrl",
+		}).
 		otherwise({
 			redirectTo: 	"/"
 		});

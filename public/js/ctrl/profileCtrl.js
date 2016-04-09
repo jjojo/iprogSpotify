@@ -15,5 +15,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		});
 	}
 
+	$scope.goToVote = function (argument) {
+		// body...
+		var url = '/vote/abc123'
+		$location.url(url)
+	}
+
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists();
 });
