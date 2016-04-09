@@ -4,7 +4,8 @@
 	<!-- This is where all Html for the view goes. -->
 	<div class="col-lg-10 col-lg-offset-1 profile">
 		<div class="user-profile">
-      		<h1 class="title">{{profile.$$state.value.data.display_name}}</h1>
+			<button ng-click="getUser()"> get data</button>
+      		<h1 class="title">{{userData.id}}</h1>
         <div class="pull-left">
           <img class="media-object" src="{{profile.$$state.value.data.images[0].url}}" />
         </div>
