@@ -61,7 +61,25 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
                 //console.log(response);
             }
         });
-        //console.log(deferred.promise);
+        console.log(deferred.promise);
+        return deferred.promise;
+	}
+
+	this.getPlaylists= function () {
+		// This should maybe be done by returning a promise 
+		//to the controller wher it can be resolved...
+		var deferred = $q.defer();
+		req('/me/playlists?limit=10').then(function(response) {
+            if (!response || response.error) {
+                deferred.reject('Error occured');
+                console.log(response, "ERROR");
+            } else {
+                deferred.resolve(response);
+                //console.log("SUCCESS")
+                //console.log(response);
+            }
+        });
+        console.log(deferred.promise);
         return deferred.promise;
 	}
 
