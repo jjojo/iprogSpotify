@@ -273,8 +273,10 @@ ul {
 /*-------------------------------------------------profileView slut------------------------------------*/
 
 /* HEADER */
+.header-buttons{
+  margin-top:10px;
+}
 .header-buttons:link{
-  margin-top: 2%;
   text-align: center;
   background-color: #99ffcc;
   border: solid 2px #009900;
@@ -287,7 +289,38 @@ ul {
 
 
 /*---------*/
+/* Ratedlists (RL) */
 
+.rl-h2{
+  text-align: center;
+}
+
+.rl-p{
+  text-align: center;
+}
+
+.rl-rank{
+  width: 10%;
+  margin-left: 10%
+}
+.rl-name{
+  width: 80%;
+}
+
+.rl-ratio{
+  width: 10%;
+}
+
+.rl-table{
+  background-color: #1ED760;
+  border-radius: 25px;
+  color: black;
+  font-family: aller;
+  font-size: 16px;
+}
+
+
+/*---------*/
 
 /*
 	Put all specific design above this comment
