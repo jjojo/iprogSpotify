@@ -87,6 +87,15 @@ LOADER
   padding: 0.6em;
   text-align: center;
 }
+
+.profile-title {
+  color: rgba(0,0,0,0.7);
+  font-family: fnt-theme;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0.6em;
+}
+
 .search-window {
   padding-left: 5vw;
   padding-right: 5vw;

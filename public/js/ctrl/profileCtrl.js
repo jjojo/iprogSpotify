@@ -8,14 +8,12 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		});
 	}
 
-	$scope.getProfile = function (argument) {
-		$scope.profile = Model.getProfileInfo();
+	var getTopPlaylists = function (argument) {
+		// retrievs user data from Model.
+		Model.getPlaylists().then(function (response) {
+			$scope.playlists = response.data.items;
+		});
 	}
 
-	$scope.getPlaylists = function (argument) {
-		$scope.playlists = Model.getTopPlaylists();
-	}
-
-
-	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData();
+	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists();
 });
