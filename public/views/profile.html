@@ -3,26 +3,32 @@
 <main>
 	<!-- This is where all Html for the view goes. -->
 	<div class="col-lg-10 col-lg-offset-1 profile">
-		
-		<div class="col-lg-3 avatar">
-			<h2>Name of Player</h2>
-			<img src="http://placehold.it/184x184">
-			<ul>
-				<li><button ng-click="userName()">get username</button></li>
-				<li><button ng-click="getToken()">get token</button></li>
-				<li>{{token}}</li>
-				<li>flexible</li>
-			</ul>
-		</div>
-
-		<div class="col-lg-9 inventory">
-			<h2>Your inventory</h2>
-			<div class="item" ng-repeat="item in items">
-				<img src="{{item.img}}">
-				<p>{{item.name}}</p>	
-			</div>
-		</div>
-		
+		<div class="user-profile">
+      		<h1 class="title">{{profile.$$state.value.data.display_name}}</h1>
+        <div class="pull-left">
+          <img class="media-object" src="{{profile.$$state.value.data.images[0].url}}" />
+        </div>
+        <div>
+            <dt>Username</dt><dd>{{profile.$$state.value.data.id}}</dd>
+            <dt>Email</dt><dd>{{profile.$$state.value.data.email}}</dd>
+            <dt>Spotify link</dt><dd><a href="{{profile.$$state.value.data.external_urls.spotify}}">Your profile</a></dd>        
+        </div>
+        <button class="button" ng-click="getProfile()"><span>Show profile </span></button>
+      </div>
+      
+      <div class="playlists">
+      	<div class="playlists-top">
+      		<h1 class="title">Your top 10 playlists</h1>
+      		<button class="button" ng-click="getPlaylists()"><span>Show top 10! </span></button>
+      	</div>
+      	<div>
+      		<ul>
+      		<li class="top-5-grid" ng-repeat="playlist in playlists.$$state.value.data.items">
+	      		<img class="top-5-images" src="{{playlist.images[0].url}}" />
+	            <dt>{{playlist.name}}</dt><dd><a href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
+            </li>   
+        </div>
+      </div>
 	</div>
 
 </main>

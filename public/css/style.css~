@@ -66,6 +66,50 @@ footer p {
 /*
 BUTTONS
 */
+/*-------------------------------------------------profileView button start------------------------------------*/
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: black;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+  padding: 10px;
+  width: 12vw;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button a {
+  color: white;
+  text-decoration: none;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER
 */
@@ -87,40 +131,7 @@ LOADER
   padding-left: 5vw;
   padding-right: 5vw;
 }
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #fff;
-  text-align: center;
-  font-size: 2em;
-  padding: 20px;
-  width: 15vw;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 20px;
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-.button span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-.button:hover span,
-padding-right 25px,
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
+
 .backgroundimg {
   background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -143,7 +154,6 @@ padding-right 25px,
   border-radius: 15px 50px 30px 5px;
 }
 
-
 .loginbt{
  margin-left:40%;
 }
@@ -153,7 +163,7 @@ width:30%;
 }
 .login{
 margin-top:5%;
-margin-left:27%;
+margin-left:25%;
 
 }
 
@@ -197,6 +207,51 @@ margin-left:75%;
 
 }
 
+/*-------------------------------------------------profileView start------------------------------------*/
+.col-lg-10.col-lg-offset-1.profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  padding-right: 2vw;
+  width: 31vw;
+  height: 75vh;
+  border-right: solid;
+}
+
+.media-object {
+  width: 12vw;
+  height: 34vh;
+}
+
+.playlists {
+  position: fixed;
+  margin-left: 2vw;
+}
+
+.playlists-top {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  margin-left: -4.5vw;
+}
+
+.top-5-grid {
+  list-style-type: none;
+  display: inline-block;
+  overflow: auto;
+  margin-top: 2vh;
+}
+
+.top-5-images {
+  margin-right: 4.1vw;
+  width: 100px;
+  height: 100px;
+}
+/*-------------------------------------------------profileView slut------------------------------------*/
 
 /*
 	Put all specific design above this comment
