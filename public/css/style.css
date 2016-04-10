@@ -357,7 +357,12 @@ fill:transparent;
 stroke-width:"6";
 }
 /*---------*/
-
+/*playlistsongs*/
+.tracklist{
+  overflow: scroll;
+  height: 500px;
+  width: 100%;
+}
 /*
 	Put all specific design above this comment
 */

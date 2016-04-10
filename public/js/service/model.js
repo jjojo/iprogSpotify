@@ -117,6 +117,23 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
         return deferred.promise;
 	}
 
+	this.getPlaylistSongs = function(userID,playlistID) {
+
+		var userInfo = '/users/' + userID + '/playlists/' + playlistID + '/tracks'
+		var deferred = $q.defer();
+		req(userInfo).then(function(response) {
+            if (!response || response.error) {
+                deferred.reject('Error occured');
+                console.log(response, "ERROR");
+            } else {
+                deferred.resolve(response);
+                //console.log("SUCCESS")
+                //console.log(response);
+            }
+        });
+        //console.log(deferred.promise);
+        return deferred.promise;
+	}
 
 	return this;
 });
