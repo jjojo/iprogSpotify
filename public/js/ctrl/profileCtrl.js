@@ -22,14 +22,14 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	var getTopArtists = function (argument) {
 
 		Model.getTopArtists().then(function (response) {
-			console.log(response.data.items)
+			//console.log(response.data.items)
 			$scope.topartists = response.data.items; 
 		});
 	}
 
 	var getTopTracks = function (argument) {
 		Model.getTopTracks().then(function (response) {
-			console.log(response.data.items)
+			//console.log(response.data.items)
 			$scope.toptracks = response.data.items; 
 		});
 	}
@@ -49,15 +49,23 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	$scope.genLink = function (playlist) {
 		// body...
 
+		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
+			console.log(response.data);
+
 		var data = {
 			'playlistApiUrl': playlist.href,
 			'spotifyUrl': playlist.external_urls.spotify,
 			'voteUrl':'#/vote/' + playlist.id,
 			'id': playlist.id,
 			'owner': playlist.owner.id,
-			'name': playlist.name
+			'name': playlist.name,
+			'playlist': response.data
 		}
+		
 		fbService.addPlayVoteUrl(data)
+			
+			
+		});
 	}
 
 

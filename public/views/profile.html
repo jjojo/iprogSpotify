@@ -11,7 +11,10 @@
             <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
         </div>
         <div class="info-block">
-            <dt class="info-title">Top tracks</dt><dd ng-repeat="track in toptracks"><a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a></dd>
+            <dt class="info-title">Top tracks</dt>
+            <dd ng-repeat="track in toptracks">
+              <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a>
+            </dd>
         </div>
         <div class="info-block">
             <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
