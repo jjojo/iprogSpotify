@@ -4,34 +4,30 @@
 	<!-- This is where all Html for the view goes. -->
 	<div class="container-fluid">
     <div class="row">
-		<div class="col-md-4">
-      		<h1 class="profile-title">{{userData.display_name}}</h1>
-        <div class="pull-left">
-          <img class="media-object" src="{{userData.images[0].url}}" />
+		<div class="col-md-3 col-xs-12">
+      	<h1 class="profile-title">{{userData.display_name}}</h1>
+        <img class="media-object" src="{{userData.images[0].url}}">
+        <div class="info-block">
+            <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
         </div>
-        <div>
-            <dt>Username</dt><dd>{{userData.id}}</dd>
-            <dt>Email</dt><dd>{{userData.email}}</dd>
-            <dt>Subscription</dt><dd>{{userData.product}}</dd>
-            <dt>Spotify link</dt><dd><a href="{{userData.external_urls.spotify}}">Your profile</a></dd>  
-            <dt>top artist</dt><dd>{{topartists}}</dd>      
+        <div class="info-block">
+            <dt class="info-title">Top tracks</dt><dd ng-repeat="track in toptracks"><a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a></dd>
+        </div>
+        <div class="info-block">
+            <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
         </div>
       </div>
       
-      <div class="col-md-8">
+      <div class="col-md-9">
       	<h1 class="profile-title">Your playlists</h1>
-      	<div class="grid">
+      	<div class="grid col-md-12 col-xs-12">
       		<ul>
+      		<li class="inner-grid col-md-3 col-xs-10" ng-repeat="playlist in playlists">
+	      		<a href="{{playlist.external_urls.spotify}}"><img class="top-images" src="{{playlist.images[0].url}}"/></a>
+            <dt>{{playlist.name}}</dt><dd><a class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
+            <dt><button type="button" class="btn btn-success" ng-hide="shared" ng-click="genLink(playlist); shared = !shared">Put up to vote</button></dt>
 
-      		<li class="inner-grid" ng-repeat="playlist in playlists">
-	      		<img class="top-images" src="{{playlist.images[0].url}}" />
-            <button ng-click="genLink(playlist)">create link</button>
-              <button ng-click="getLink(playlist)">get link</button>
-
-              <dt><img class="share-button" src="../images/share.png"></dt>
-              
-	            <dt>{{playlist.name}}</dt><dd><a href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
-              <dd ><a href="{{playlist.link}}" ng-init="getLink(playlist)">{{playlist.link}}</a></dd>
+            <dd><a href="{{playlist.link}}" ng-show="shared" ng-init="getLink(playlist)" class="info-text">{{playlist.link}}</a></dd>
             </li>   
         </div>
       </div>

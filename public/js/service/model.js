@@ -30,7 +30,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
 	
 	this.getVoteLink = function () {
 		// body...
-
 	}
 
 
@@ -74,19 +73,30 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
 	this.getTopArtists = function () {
 
 		var deferred = $q.defer();
-		req('/me/top/artists').then(function(response) {
+		req('/me/top/artists?limit=3').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
                 //console.log("SUCCESS")
-                console.log(response);
             }
         });
-        console.log(deferred.promise);
         return deferred.promise;
+	}
 
+	this.getTopTracks = function () {
+		var deferred = $q.defer();
+		req('/me/top/tracks?limit=3').then(function(response) {
+            if (!response || response.error) {
+                deferred.reject('Error occured');
+                console.log(response, "ERROR");
+            } else {
+                deferred.resolve(response);
+                //console.log("SUCCESS")
+            }
+        });
+        return deferred.promise;
 	}
 
 	this.getPlaylists= function () {
