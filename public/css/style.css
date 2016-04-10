@@ -10,8 +10,8 @@ FONT
 @font-face { font-family: AdamCG; src: url('Adam-CG.otf'); } 
 @font-face { font-family: Proffs; src: url('Proffesional Edition.TTF');
 src: url('Proffesional Edition.TTF') format('embedded-opentype');
-
 }
+
 /*
 COLORS
 */
@@ -72,7 +72,7 @@ footer p {
 BUTTONS
 */
 /*-------------------------------------------------profileView button start------------------------------------*/
-.share-button {
+#put-up-vote {
   width: 10vw;
   height: 3vh;
 }
@@ -194,6 +194,21 @@ border-bottom:2px ridge #1ED760;
   display: flex;
   align-items: center;
 }
+
+.info-block {
+  margin-bottom: 2vh;
+}
+
+.info-title {
+  font-family: 'Helvetica';
+  padding-bottom: 0.5vh;
+}
+
+.info-text {
+  font-family: 'Palatino Linotype';
+  color: green;
+}
+
 .grid {
   margin-left: -3vw;
 }
@@ -201,19 +216,19 @@ border-bottom:2px ridge #1ED760;
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  overflow: auto;
-  margin-right: 2vw;
-  margin-bottom: 2vh;
+  padding: 0;
+  margin-right: 5vw;
+  margin-bottom: 5vh;
 }
 
 .media-object {
-  width: 12vw;
-  height: 34vh;
+  width: 74%;
+  border-radius: 3px;
 }
 
 .top-images {
-  width: 10vw;
-  height: 15vh;
+  width: 100%;
+  border-radius: 3px;
 }
 
 /*-------------------------------------------------profileView slut------------------------------------*/
