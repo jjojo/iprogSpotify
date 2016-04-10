@@ -18,8 +18,17 @@ tänk på indentering i alla divs
 					<p class="rate_title">{{title}}</p>
 					</div>
 
-					<div class="col-xs-4">
-						<div class="stars col-lg-2" ng-repeat="star in [0,1,2,3,4]" ng-include="'resources/spoti_star.svg'" ng-click="fillstars($index)" ng-style="styleStar()"></div>
+					<div class="col-xs-4" ng-mouseleave="hollowStars()">
+						<div class="stars" ng-repeat="star in stars">
+							<img ng-show="star.hide" 
+							ng-mouseover="fillStar(star)" 
+							src="resources/spoti_star_hollow.png"/>
+							
+							<img ng-show="!star.hide" 
+							ng-mouseover="hollowStar(star)" 
+							ng-click="setLock()" 
+							src="resources/spoti_star_filled.png"/>
+						</div>
 					</div>
 
 					<div class="col-xs-4">
