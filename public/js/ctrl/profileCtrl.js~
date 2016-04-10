@@ -60,7 +60,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		fbService.addPlayVoteUrl(data)
 	}
 
+<<<<<<< HEAD
+	
 
+	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(),getTopArtists();;
+=======
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
-
+>>>>>>> 7c370eece62a8653c4c02fef3cd8ef668a4fb809
 });
