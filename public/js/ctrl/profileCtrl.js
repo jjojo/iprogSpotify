@@ -7,11 +7,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 			$scope.userData = response.data;
 
 		});
-
 	}
 
+	$scope.shared;
 	
-
 	var getTopPlaylists = function (argument) {
 		// retrievs user data from Model.
 		Model.getPlaylists().then(function (response) {
@@ -23,10 +22,18 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	var getTopArtists = function (argument) {
 
 		Model.getTopArtists().then(function (response) {
-			console.log(response)
-			$scope.topartists = response; 
+			console.log(response.data.items)
+			$scope.topartists = response.data.items; 
 		});
 	}
+
+	var getTopTracks = function (argument) {
+		Model.getTopTracks().then(function (response) {
+			console.log(response.data.items)
+			$scope.toptracks = response.data.items; 
+		});
+	}
+
 	$scope.getLink = function (playlist) {
 		// body...
 		fbService.getAllSharedPlaylists(playlist.id).then(function (response) {
@@ -41,7 +48,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 	$scope.genLink = function (playlist) {
 		// body...
+<<<<<<< HEAD
 		console.log(playlist)
+=======
+>>>>>>> 7c370eece62a8653c4c02fef3cd8ef668a4fb809
 		var data = {
 			'playlistApiUrl': playlist.href,
 			'spotifyUrl': playlist.external_urls.spotify,
@@ -53,7 +63,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		fbService.addPlayVoteUrl(data)
 	}
 
+<<<<<<< HEAD
 	
 
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(),getTopArtists();;
+=======
+	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
+>>>>>>> 7c370eece62a8653c4c02fef3cd8ef668a4fb809
 });
