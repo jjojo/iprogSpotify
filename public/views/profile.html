@@ -2,8 +2,9 @@
 
 <main>
 	<!-- This is where all Html for the view goes. -->
-	<div class="col-lg-10 col-lg-offset-1 profile">
-		<div class="user-profile">
+	<div class="container-fluid">
+    <div class="row">
+		<div class="col-md-4">
       		<h1 class="profile-title">{{userData.display_name}}</h1>
         <div class="pull-left">
           <img class="media-object" src="{{userData.images[0].url}}" />
@@ -17,20 +18,24 @@
         </div>
       </div>
       
-      <div class="playlists">
-      	<h1 class="profile-title">Your top playlists</h1>
-      	<div>
+      <div class="col-md-8">
+      	<h1 class="profile-title">Your playlists</h1>
+      	<div class="grid">
       		<ul>
-      		<li class="top-grid" ng-repeat="playlist in playlists">
 
-	      		<img class="top-images" ng-click="goToVote(playlist)" src="{{playlist.images[0].url}}" />
-              <button ng-click="genLink(playlist)">create link</button>
+      		<li class="inner-grid" ng-repeat="playlist in playlists">
+	      		<img class="top-images" src="{{playlist.images[0].url}}" />
+            <button ng-click="genLink(playlist)">create link</button>
               <button ng-click="getLink(playlist)">get link</button>
+
+              <dt><img class="share-button" src="../images/share.png"></dt>
+              
 	            <dt>{{playlist.name}}</dt><dd><a href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
               <dd ><a href="{{playlist.link}}" ng-init="getLink(playlist)">{{playlist.link}}</a></dd>
             </li>   
         </div>
       </div>
+    </div>
 	</div>
 
 </main>
