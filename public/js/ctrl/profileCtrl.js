@@ -5,8 +5,12 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		// retrievs user data from Model.
 		Model.getUser().then(function (response) {
 			$scope.userData = response.data;
+
 		});
+
 	}
+
+	
 
 	var getTopPlaylists = function (argument) {
 		// retrievs user data from Model.
@@ -16,6 +20,13 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		});
 	}
 
+	var getTopArtists = function (argument) {
+
+		Model.getTopArtists().then(function (response) {
+			console.log(response)
+			$scope.topartists = response; 
+		});
+	}
 	$scope.getLink = function (playlist) {
 		// body...
 		fbService.getAllSharedPlaylists(playlist.id).then(function (response) {
@@ -43,6 +54,8 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 		fbService.addPlayVoteUrl(data)
 	}
+
+	getTopArtists();
 
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists();
 });
