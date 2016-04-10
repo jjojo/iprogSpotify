@@ -113,25 +113,13 @@ LOADER
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
   width: 70%;
-  margin-left: 10%;
   padding: 1.8%;
   font-size:17px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .bild {
   border-radius: 15px 50px 30px 5px;
-}
-
-.loginbt{
- margin-left:40%;
-}
-.steamimg{
-height:30%;
-width:30%;
-}
-.login{
-margin-top:5%;
-margin-left:25%;
-
 }
 
 .date { 
@@ -151,16 +139,23 @@ position:fixed;
 
 }
 
-.title{
-margin-top:4%;
+.login-title{
+margin-top:3%;
 font-size:40px; 
-width:65%;
-margin-left:12%;
 color:#000000;
 font-family:Racing Sans One;
 letter-spacing: 2px;
-padding: 0.6em;
 text-align: center;
+}
+
+.login-info{
+font-size:30px;
+width: 45vw;
+color:#000000;
+font-family:Racing Sans One;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
 }
 
 u{
@@ -168,25 +163,34 @@ text-decoration:none;
 box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
 }
 
-.container{
-width:60%;
-
+.center {
+float: none;
+margin-left: auto;
+margin-right: auto;
 }
-.logo {
+
+.center-image {
 height:150px;
 width:350px;
-margin-left:90%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
 
+.login-button {
+display: block;
+margin-left: auto;
+margin-right: auto;
 }
 
 .line-separator{
 height:1px;
 width:65%;
-margin-top:2%;
-margin-left:12%;
-margin-bottom:2%;
+margin-top:1%;
 background: #717171;
 border-bottom:2px ridge #1ED760;
+margin-left: auto;
+margin-right: auto;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -207,6 +211,7 @@ border-bottom:2px ridge #1ED760;
 .info-text {
   font-family: 'Palatino Linotype';
   color: green;
+  margin: 0;
 }
 
 .grid {

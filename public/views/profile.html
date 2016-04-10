@@ -23,11 +23,24 @@
       	<div class="grid col-md-12 col-xs-12">
       		<ul>
       		<li class="inner-grid col-md-3 col-xs-10" ng-repeat="playlist in playlists">
-	      		<a href="{{playlist.external_urls.spotify}}"><img class="top-images" src="{{playlist.images[0].url}}"/></a>
-            <dt>{{playlist.name}}</dt><dd><a class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
-            <dt><button type="button" class="btn btn-success" ng-hide="shared" ng-click="genLink(playlist); shared = !shared">Put up to vote</button></dt>
-
-            <dd><a href="{{playlist.link}}" ng-show="shared" ng-init="getLink(playlist)" class="info-text">{{playlist.link}}</a></dd>
+	      		<a href="{{playlist.external_urls.spotify}}">
+              <img class="top-images" src="{{playlist.images[0].url}}"/>
+            </a>
+            <dt>
+              {{playlist.name}}
+            </dt>
+            <dd>
+              <a ng-hide="shared" class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
+            </dd>
+            <dt>
+              <button type="button" class="btn btn-success" ng-hide="shared" ng-click="genLink(playlist); shared = !shared">Put up to vote</button>
+            </dt>
+            <dd>
+              <p ng-show="shared" class="info-text">Share this link: </p>
+            </dd>
+            <dd>
+              <a href="{{playlist.link}}" ng-show="shared" ng-init="getLink(playlist)" class="info-text">{{playlist.link}}</a>
+            </dd>
             </li>   
         </div>
       </div>
