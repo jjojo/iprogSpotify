@@ -33,16 +33,16 @@
               {{playlist.name}}
             </dt>
             <dd>
-              <a ng-hide="shared" class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
+              <a ng-hide="playlist.sharedList" class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
             </dd>
             <dt>
-              <button type="button" class="btn btn-success" ng-hide="shared" ng-click="genLink(playlist); shared = !shared">Put up to vote</button>
+              <button type="button" class="btn btn-success" ng-hide="playlist.status" ng-click="genLink(playlist); getLink(playlist)">Put up to vote</button>{{playlist.status}}
             </dt>
             <dd>
-              <p ng-show="shared" class="info-text">Share this link: </p>
+              <p ng-show="playlist.sharedList" class="info-text">Share this link: </p>
             </dd>
             <dd>
-              <a href="{{playlist.link}}" ng-show="shared" ng-init="getLink(playlist)" class="info-text">{{playlist.link}}</a>
+              <a href="{{playlist.link}}" ng-show="playlist.sharedList" class="info-text">{{playlist.link}}</a>
             </dd>
             </li>   
         </div>
