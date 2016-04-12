@@ -1,39 +1,30 @@
 <ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
 <main>
 
-<div class="container">
-  <h2 class="rl-h2">Your rated playlists</h2>
-  <p class="rl-p">Here you can see your rated playlists, enjoy!</p>            
-  <table class="table rl-table">
-      <tr>
-      	<th class="rl-th">Rank</th>
-        <th>Name</th>
-        <th>Ratio</th>
-      </tr>
-
-    <tbody class="rl-head">
-      <tr class="rl-table-line">
-        <td class="rl-rank">1</td>
-        <td class="rl-name">Sommarlåtar</td>
-        <td class="rl-ratio">5.0</td>
-      </tr>
-      <tr class="rl-table-line">
-        <td>2</td>
-        <td>Partyhits!</td>
-        <td>4.8</td>
-      </tr>
-      <tr class="rl-table-line">
-        <td>3</td>
-        <td>Rock N Roll</td>
-        <td>4.6</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="container rated-list">
+    <h2 class="rl-h2">Your Rated Playlists</h2>          
+    <table class="rl-table col-xs-12">
+        <tr>
+        	<th class="col-xs-3" ng-repeat="head in tableHeads">{{head}}</th>
+        </tr>
+        <tr>
+          <td class="col-xs-3">
+            <img src="http://placehold.it/200x200">
+          </td>
+          <td class="col-xs-3">
+            Min spellista
+          </td>
+          <td class="col-xs-3">
+          <!-- change 5 to what ever object we are loopin.rating -->
+          <p>6.3</p>
+            <img ng-repeat="i in range(6) track by $index" src="resources/spoti_star_filled.png">
+            <img class="hollow-star" ng-repeat="i in range(10-6) track by $index" src="resources/spoti_star_hollow.png">
+          </td>
+          <td class="col-xs-3">
+            <!-- {{loopin.rating}} -->67
+          </td>
+        </tr>
+    </table>
+  </div>
 
 </main>
