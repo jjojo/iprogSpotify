@@ -15,6 +15,7 @@ src: url('Proffesional Edition.TTF') format('embedded-opentype');
 /*
 COLORS
 */
+
 /*
 	Put all general design below this comment
 */
@@ -49,7 +50,7 @@ header a {
   font-weight: 700;
   width: 100%;
   text-decoration: none;
-  color: green;
+  color: #169145;
   margin-right: 3%;
 }
 
@@ -262,34 +263,16 @@ margin-right: auto;
 /*-------------------------------------------------profileView slut------------------------------------*/
 
 /* HEADER */
-.header-buttons{
-  margin-top:10px;
-}
-.header-buttons:link{
-  text-align: center;
-  background-color: #99ffcc;
-  border: solid 2px #009900;
-  font-size: 20px;
-}
 
-.header-buttons:hover{
-  font-size: 26px;
-}
 
-.navbar{
-  background-color: #fff;
-  border: none;
-  box-shadow: none;
-}
-
-.navbar-brand img{
-  width: 100px
-}
 /*---------*/
 /* Ratedlists (RL) */
 
 .rl-h2{
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
 }
 
 .rl-p{
@@ -304,12 +287,29 @@ margin-right: auto;
 }
 
 .rl-table{
-  background-color: #1ED760;
-  border-radius: 25px;
-  border-top: solid 2px white;
-  color: black;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #169145;
+  text-align: center;
+  margin-top: 4%
 }
+
+.rl-table th{
+  text-align: center;
+}
+
+.rl-table td{
+  text-align: center;
+  color: #777;
+}
+
+.rl-table td p{
+  margin: -50px 0px -7px 0px;
+  font-size: 40px;
+  color: #777;
+}
+
 .welcome_vote{
 margin-top:2%;
 font-size:40px; 
