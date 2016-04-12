@@ -1,4 +1,4 @@
-spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams) {
+spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce) {
 	
 	var locked = false;
 
@@ -31,13 +31,16 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams) 
 		// fetches specific playlist data from firebase.
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
-			//console.log(response)
+			console.log(response.playlistSongs.items)
 			$scope.owner = response.owner
 			$scope.title = response.name
 			$scope.spotLink = response.spotifyUrl
-			console.log(response)
 			$scope.playlistSongs = response.playlistSongs.items
 		})
+	}
+
+	$scope.trustSrc = function (src) {
+		return $sce.trustAsResourceUrl(src);
 	}
 
 	$scope.setLock = function () {
