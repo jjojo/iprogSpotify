@@ -5,41 +5,49 @@ tänk på indentering i alla divs
 				<p> asjhdjahsd </p>
 			</div>
  -->
+<div ng-include="'views/voteHeader.html'"></div>
+
 <div ng-init="getPlaylistData()" class="container-fluid">
 	<div class="welcome_vote">
 		Welcome to SpotifyParty Rate
 	</div>
 	<div class="row">
-		<div class="col-lg-6 col-lg-offset-2">
-				<div class="playlist col-lg-12">
-					<div  class="col-lg-4">
+		<div class="col-xs-6 col-xs-offset-2">
+				<div class="playlist col-xs-12">
+					<div  class="col-xs-4">
 					<p class="rate_title">{{title}}</p>
 					</div>
 
-					<div class="col-lg-4">
-						<div class="stars col-lg-2" ng-repeat="star in [0,1,2,3,4]" ng-include="'resources/spoti_star.svg'" ng-click="fillstars($index)" ng-style="styleStar()"></div>
+					<div class="col-xs-4" ng-mouseleave="hollowStars()">
+						<div class="stars" ng-repeat="star in stars">
+							<img ng-show="star.hide" 
+							ng-mouseover="fillStar(star)" 
+							src="resources/spoti_star_hollow.png"/>
+							
+							<img ng-show="!star.hide" 
+							ng-mouseover="hollowStar(star)" 
+							ng-click="setLock()" 
+							src="resources/spoti_star_filled.png"/>
+						</div>
 					</div>
 
-					<div class="col-lg-4">
+					<div class="col-xs-4">
 					<p class="rate_current">Current rating (4.5)</p>
 					</div>
-					<div class="line col-lg-12"></div>
+					
+					<div class="tracklist">
 
 					<div><!-- ng-repeat låtar-->
-						<div class=" track col-lg-8">
-							Love |  Madonna
+						<div ng-repeat="track in playlistSongs">
+							<div class="track col-xs-8">
+
+							<div ng-repeat="name in track.track.artists">{{name.name}}</div> - {{track.track.name}}
+							</div>
+
+							<audio src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
 						</div>
-						<div class="track glyphicon glyphicon-play col-lg-1"></div>
-						<div class="track col-lg-3">
-							<a>spotify link</a>
-						</div>
-						<div class="track col-lg-8">
-							Mega best hit | Philip Gullberg
-						</div>
-						<div class="track glyphicon glyphicon-play col-lg-1"></div>
-						<div class="track col-lg-3">
-							<a>spotify link</a>
-						</div>
+					</div>
+
 					</div>
 				</div>
 		</div>

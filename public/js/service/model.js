@@ -1,4 +1,4 @@
-spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
+spotifyApp.factory('Model', function ($resource, $http, $q) {
 
 	// a object containing settings for our app
 	this.settings = {
@@ -103,20 +103,31 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $timeout) {
 		// This should maybe be done by returning a promise 
 		//to the controller wher it can be resolved...
 		var deferred = $q.defer();
-		req('/me/playlists?limit=10').then(function(response) {
+		req('/me/playlists').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
-                //console.log(response);
             }
         });
-        //console.log(deferred.promise);
         return deferred.promise;
 	}
 
+	this.getPlaylistSongs = function(userID,playlistID) {
+
+		var userInfo = '/users/' + userID + '/playlists/' + playlistID + '/tracks'
+		var deferred = $q.defer();
+		req(userInfo).then(function(response) {
+            if (!response || response.error) {
+                deferred.reject('Error occured');
+                console.log(response, "ERROR");
+            } else {
+                deferred.resolve(response);
+            }
+        });
+        return deferred.promise;
+	}
 
 	return this;
 });

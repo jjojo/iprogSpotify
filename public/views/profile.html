@@ -11,7 +11,10 @@
             <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
         </div>
         <div class="info-block">
-            <dt class="info-title">Top tracks</dt><dd ng-repeat="track in toptracks"><a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a></dd>
+            <dt class="info-title">Top tracks</dt>
+            <dd ng-repeat="track in toptracks">
+              <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a>
+            </dd>
         </div>
         <div class="info-block">
             <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
@@ -23,11 +26,24 @@
       	<div class="grid col-md-12 col-xs-12">
       		<ul>
       		<li class="inner-grid col-md-3 col-xs-10" ng-repeat="playlist in playlists">
-	      		<a href="{{playlist.external_urls.spotify}}"><img class="top-images" src="{{playlist.images[0].url}}"/></a>
-            <dt>{{playlist.name}}</dt><dd><a class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a></dd>
-            <dt><button type="button" class="btn btn-success" ng-hide="shared" ng-click="genLink(playlist); shared = !shared">Put up to vote</button></dt>
-
-            <dd><a href="{{playlist.link}}" ng-show="shared" ng-init="getLink(playlist)" class="info-text">{{playlist.link}}</a></dd>
+	      		<a href="{{playlist.external_urls.spotify}}">
+              <img class="top-images" src="{{playlist.images[0].url}}"/>
+            </a>
+            <dt>
+              {{playlist.name}}
+            </dt>
+            <dd>
+              <a ng-hide="playlist.sharedList" class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
+            </dd>
+            <dt>
+              <button type="button" class="btn btn-success" ng-hide="playlist.status" ng-click="genLink(playlist); getLink(playlist)">Put up to vote</button>{{playlist.status}}
+            </dt>
+            <dd>
+              <p ng-show="playlist.sharedList" class="info-text">Share this link: </p>
+            </dd>
+            <dd>
+              <a href="{{playlist.link}}" ng-show="playlist.sharedList" class="info-text">{{playlist.link}}</a>
+            </dd>
             </li>   
         </div>
       </div>

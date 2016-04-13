@@ -15,6 +15,7 @@ src: url('Proffesional Edition.TTF') format('embedded-opentype');
 /*
 COLORS
 */
+
 /*
 	Put all general design below this comment
 */
@@ -32,10 +33,34 @@ COLORS
   width: 100%;
 }
 header {
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
   float: left;
   width: 100%;
+  min-width: 550px;
+  margin-top: 1%;
 }
+
+header img {
+  width: 100px;
+  margin-left: 1%;
+}
+
+header a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  width: 100%;
+  text-decoration: none;
+  color: #169145;
+  margin-right: 3%;
+}
+
+header a:hover{
+
+  text-decoration: none;
+  color: green;
+
+}
+
 main {
 /*
 		This is where all the content shoud go
@@ -113,25 +138,13 @@ LOADER
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
   width: 70%;
-  margin-left: 10%;
   padding: 1.8%;
   font-size:17px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .bild {
   border-radius: 15px 50px 30px 5px;
-}
-
-.loginbt{
- margin-left:40%;
-}
-.steamimg{
-height:30%;
-width:30%;
-}
-.login{
-margin-top:5%;
-margin-left:25%;
-
 }
 
 .date { 
@@ -151,16 +164,23 @@ position:fixed;
 
 }
 
-.title{
-margin-top:4%;
+.login-title{
+margin-top:3%;
 font-size:40px; 
-width:65%;
-margin-left:12%;
 color:#000000;
 font-family:Racing Sans One;
 letter-spacing: 2px;
-padding: 0.6em;
 text-align: center;
+}
+
+.login-info{
+font-size:30px;
+width: 45vw;
+color:#000000;
+font-family:Racing Sans One;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
 }
 
 u{
@@ -168,25 +188,33 @@ text-decoration:none;
 box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
 }
 
-.container{
-width:60%;
-
+.center {
+float: none;
+margin-left: auto;
+margin-right: auto;
 }
-.logo {
-height:150px;
-width:350px;
-margin-left:90%;
 
+.center-image {
+width:350px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.login-button {
+display: block;
+margin-left: auto;
+margin-right: auto;
 }
 
 .line-separator{
 height:1px;
 width:65%;
-margin-top:2%;
-margin-left:12%;
-margin-bottom:2%;
+margin-top:1%;
 background: #717171;
 border-bottom:2px ridge #1ED760;
+margin-left: auto;
+margin-right: auto;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -207,6 +235,7 @@ border-bottom:2px ridge #1ED760;
 .info-text {
   font-family: 'Palatino Linotype';
   color: green;
+  margin: 0;
 }
 
 .grid {
@@ -234,25 +263,16 @@ border-bottom:2px ridge #1ED760;
 /*-------------------------------------------------profileView slut------------------------------------*/
 
 /* HEADER */
-.header-buttons{
-  margin-top:10px;
-}
-.header-buttons:link{
-  text-align: center;
-  background-color: #99ffcc;
-  border: solid 2px #009900;
-  font-size: 20px;
-}
 
-.header-buttons:hover{
-  font-size: 26px;
-}
 
 /*---------*/
 /* Ratedlists (RL) */
 
 .rl-h2{
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
 }
 
 .rl-p{
@@ -267,12 +287,29 @@ border-bottom:2px ridge #1ED760;
 }
 
 .rl-table{
-  background-color: #1ED760;
-  border-radius: 25px;
-  border-top: solid 2px white;
-  color: black;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #169145;
+  text-align: center;
+  margin-top: 4%
 }
+
+.rl-table th{
+  text-align: center;
+}
+
+.rl-table td{
+  text-align: center;
+  color: #777;
+}
+
+.rl-table td p{
+  margin: -50px 0px -7px 0px;
+  font-size: 40px;
+  color: #777;
+}
+
 .welcome_vote{
 margin-top:2%;
 font-size:40px; 
@@ -342,11 +379,12 @@ margin-top:5%;
 font-size:18px;
 }
 .stars{
+display: inline;
 margin-top:2%;
 height:50px;
-
-
 }
+
+
 .stars svg{
 height:20px;
 width:20px;
@@ -357,7 +395,12 @@ fill:transparent;
 stroke-width:"6";
 }
 /*---------*/
-
+/*playlistsongs*/
+.tracklist{
+  overflow: scroll;
+  height: 500px;
+  width: 100%;
+}
 /*
 	Put all specific design above this comment
 */

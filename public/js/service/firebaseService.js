@@ -11,7 +11,9 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	    	'rating':0, 
 	    	'voteUrl': data.voteUrl,
 	    	'owner': data.owner,
-	    	'name' : data.name
+	    	'name' : data.name,
+	    	'playlistSongs' : data.playlist,
+	    	'shared' : data.shared
 	    	} );
 	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
 	}
@@ -29,6 +31,5 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
     		return playVoteRef.$getRecord(playlistId)
     	})
 	}
-
 	return this;
 });
