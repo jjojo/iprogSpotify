@@ -31,39 +31,48 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		});
 	}
 
-	$scope.getLink = function (playlist) {
+	$scope.checkLink = function (playlist) {
 		// returns the voteURL for one playlist
-		playlist.status = "Generating link...";
+		
 		fbService.getPlaylist(playlist.id).then(function (response) {
-			playlist.status = " ";
-			playlist.link = response.voteUrl
-			playlist.sharedList = response.shared
-			console.log(playlist.sharedList)
-			// for (var i = response.length - 1; i >= 0; i--) {
-			// 	if (response[i].$id === playlist.id){
-			// 		playlist.link = response[i].voteUrl
-			// 		playlist.sharedList = response[i].shared
-			// 		console.log(playlist.sharedList)
-			// 	}
-			// };
-		})
+			try {
+					playlist.shared = true
+					playlist.link = response.voteUrl
+			} catch (err) {
+					console.log("ej registrerad")
+					playlist.shared = false
+				}
+		});
 	}
 
 	$scope.genLink = function (playlist) {
 		// body...
+		playlist.status = "Generating link...";
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
-		var data = {
-			'playlistApiUrl': playlist.href,
-			'spotifyUrl': playlist.external_urls.spotify,
-			'voteUrl':'#/vote/' + playlist.id,
-			'id': playlist.id,
-			'owner': playlist.owner.id,
-			'name': playlist.name,
-			'playlist': response.data,
-			'shared': true
-		}
+			playlist.status = " ";
+			var data = {
+				'playlistApiUrl': playlist.href,
+				'spotifyUrl': playlist.external_urls.spotify,
+				'voteUrl':'#/vote/' + playlist.id,
+				'id': playlist.id,
+				'owner': playlist.owner.id,
+				'name': playlist.name,
+				'playlist': response.data,
+				'shared': true
+			}
 		fbService.addPlayVoteUrl(data)
+		playlist.shared = true
+		playlist.link = data.voteUrl
 		});
+	}
+
+
+	$scope.stopSharing = function (playlist) {
+		// body...
+		playlist.shared = false
+		console.log(playlist.id + 'deleted')
+		fbService.deletePlaylistUrl(playlist)
+
 	}
 
 
