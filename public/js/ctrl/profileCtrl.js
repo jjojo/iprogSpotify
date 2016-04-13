@@ -38,7 +38,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 			playlist.status = " ";
 			playlist.link = response.voteUrl
 			playlist.sharedList = response.shared
-			console.log(playlist.sharedList)
 			// for (var i = response.length - 1; i >= 0; i--) {
 			// 	if (response[i].$id === playlist.id){
 			// 		playlist.link = response[i].voteUrl
