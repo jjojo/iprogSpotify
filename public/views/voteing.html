@@ -2,7 +2,7 @@
 <!-- alla views ska vara wrappade i en <main> tag!
 tänk på indentering i alla divs
 			<div>
-				<p> asjhdjahsd </p>
+				<p></p>
 			</div>
  -->
 <div ng-include="'views/voteHeader.html'"></div>
@@ -17,13 +17,12 @@ tänk på indentering i alla divs
 					<div  class="col-xs-4">
 					<p class="rate_title">{{title}}</p>
 					</div>
-
 					<div class="col-xs-4" ng-mouseleave="hollowStars()">
 						<div class="stars" ng-repeat="star in stars">
 							<img ng-show="star.hide" 
 							ng-mouseover="fillStar(star)" 
 							src="resources/spoti_star_hollow.png"/>
-							
+
 							<img ng-show="!star.hide" 
 							ng-mouseover="hollowStar(star)" 
 							ng-click="setLock(playlist, star)" 
@@ -32,8 +31,8 @@ tänk på indentering i alla divs
 					</div>
 
 					<div class="col-xs-4">
-					<p class="rate_current">Votes {{votes}}</p>
-					<p class="rate_current">Current rating {{rating}}</p>
+					<p class="rate_current">Votes: {{votes}}</p>
+					<p class="rate_current">Rating: {{rating}}</p>
 					</div>
 					
 					<div class="tracklist">

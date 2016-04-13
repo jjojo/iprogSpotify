@@ -45,16 +45,9 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		// sets lock
 		locked = true;
 		fbService.addVoteRating(playlist, star.value)
-		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
-			$scope.votes = response.votes
-			if (response.votes) {
-				$scope.rating = Math.round((response.totalRating/response.votes) * 100) / 100
-			} else {
-				$scope.rating = 0
-			} 
-			
-			
-		});console.log(response.votes)
+		playlist.totalRating += star.value
+		$scope.votes = playlist.votes +1
+		$scope.rating = Math.round((playlist.totalRating/(playlist.votes +1)) * 100) / 100 
 	}
 
 	$scope.hollowStars = function (star) {
@@ -81,6 +74,4 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 			};
 		}
 	}
-
-
 });

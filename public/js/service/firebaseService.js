@@ -15,7 +15,6 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
   			var rateSnapshot = snapshot.child("totalRating");
  			this.rating = rateSnapshot.val();
   		});
-
 	    playVoteRef.update ({
 	    	'votes': votes + 1,
 	    	'totalRating' : rating + value,
