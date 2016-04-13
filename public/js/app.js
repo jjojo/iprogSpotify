@@ -6,10 +6,6 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/home.html",
 			controller: 	"HomeCtrl",
 		}).
-		when('/search', {
-			templateUrl: 	"views/search.html",
-			controller: 	"SearchCtrl",
-		}).
 		when('/profile/:access_token', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
@@ -18,6 +14,10 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/loginTest.html",
 			controller: 	"HomeCtrl",
 		}).
+		when('/about/:access_token', {
+			templateUrl: 	"views/about.html",
+			controller: 	"AboutCtrl",
+		}).	
 		when('/ratedlists/:access_token', {
 			templateUrl: 	"views/ratedlists.html",
 			controller: 	"RatedlistsCtrl",

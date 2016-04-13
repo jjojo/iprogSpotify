@@ -39,7 +39,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 					playlist.shared = true
 					playlist.link = response.voteUrl
 			} catch (err) {
-					console.log("ej registrerad")
 					playlist.shared = false
 				}
 		});
@@ -70,9 +69,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	$scope.stopSharing = function (playlist) {
 		// body...
 		playlist.shared = false
-		console.log(playlist.id + 'deleted')
 		fbService.deletePlaylistUrl(playlist)
-
 	}
 
 
