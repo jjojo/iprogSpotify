@@ -2,14 +2,14 @@
 <!-- alla views ska vara wrappade i en <main> tag!
 tänk på indentering i alla divs
 			<div>
-				<p> asjhdjahsd </p>
+				<p></p>
 			</div>
  -->
 <div ng-include="'views/voteHeader.html'"></div>
 
 <div ng-init="getPlaylistData()" class="container-fluid">
 	<div class="welcome_vote">
-		Welcome to SpotifyParty Rate
+		Welcome to Voteify
 	</div>
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-2">
@@ -17,22 +17,22 @@ tänk på indentering i alla divs
 					<div  class="col-xs-4">
 					<p class="rate_title">{{title}}</p>
 					</div>
-
 					<div class="col-xs-4" ng-mouseleave="hollowStars()">
 						<div class="stars" ng-repeat="star in stars">
 							<img ng-show="star.hide" 
 							ng-mouseover="fillStar(star)" 
 							src="resources/spoti_star_hollow.png"/>
-							
+
 							<img ng-show="!star.hide" 
 							ng-mouseover="hollowStar(star)" 
-							ng-click="setLock()" 
+							ng-click="setLock(playlist, star)" 
 							src="resources/spoti_star_filled.png"/>
 						</div>
 					</div>
 
 					<div class="col-xs-4">
-					<p class="rate_current">Current rating (4.5)</p>
+					<p class="rate_current">Votes: {{votes}}</p>
+					<p class="rate_current">Rating: {{rating}}</p>
 					</div>
 					
 					<div class="tracklist">
