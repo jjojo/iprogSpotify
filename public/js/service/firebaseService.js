@@ -28,7 +28,6 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	    	'spotifyUrl': data.spotifyUrl,
 	    	'votes': 0, 
 	    	'totalRating': 0,
-	    	'averageRating': 0,
 	    	'voteUrl': data.voteUrl,
 	    	'owner': data.owner,
 	    	'name' : data.name,
@@ -36,6 +35,11 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	    	'shared' : data.shared
 	    	});
 	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
+	}
+
+	this.deletePlaylistUrl = function(data) {
+		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + data.id);
+	    playVoteRef.remove();
 	}
 
 	this.getAllSharedPlaylists = function() {
