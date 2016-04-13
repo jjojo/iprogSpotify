@@ -15,6 +15,7 @@ src: url('Proffesional Edition.TTF') format('embedded-opentype');
 /*
 COLORS
 */
+
 /*
 	Put all general design below this comment
 */
@@ -32,10 +33,34 @@ COLORS
   width: 100%;
 }
 header {
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
   float: left;
   width: 100%;
+  min-width: 550px;
+  margin-top: 1%;
 }
+
+header img {
+  width: 100px;
+  margin-left: 1%;
+}
+
+header a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  width: 100%;
+  text-decoration: none;
+  color: #169145;
+  margin-right: 3%;
+}
+
+header a:hover{
+
+  text-decoration: none;
+  color: green;
+
+}
+
 main {
 /*
 		This is where all the content shoud go
@@ -170,7 +195,6 @@ margin-right: auto;
 }
 
 .center-image {
-height:150px;
 width:350px;
 display: block;
 margin-left: auto;
@@ -208,6 +232,11 @@ margin-right: auto;
   padding-bottom: 0.5vh;
 }
 
+.playlist-title {
+  font-family: 'Helvetica';
+  margin: 0;
+}
+
 .info-text {
   font-family: 'Palatino Linotype';
   color: green;
@@ -215,15 +244,14 @@ margin-right: auto;
 }
 
 .grid {
-  margin-left: -3vw;
+  margin-left: -4vw;
 }
 
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  padding: 0;
-  margin-right: 5vw;
-  margin-bottom: 5vh;
+  padding: 0 2vw 2vh 0;
+  overflow-wrap: break-word;
 }
 
 .media-object {
@@ -239,25 +267,16 @@ margin-right: auto;
 /*-------------------------------------------------profileView slut------------------------------------*/
 
 /* HEADER */
-.header-buttons{
-  margin-top:10px;
-}
-.header-buttons:link{
-  text-align: center;
-  background-color: #99ffcc;
-  border: solid 2px #009900;
-  font-size: 20px;
-}
 
-.header-buttons:hover{
-  font-size: 26px;
-}
 
 /*---------*/
 /* Ratedlists (RL) */
 
 .rl-h2{
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
 }
 
 .rl-p{
@@ -272,12 +291,29 @@ margin-right: auto;
 }
 
 .rl-table{
-  background-color: #1ED760;
-  border-radius: 25px;
-  border-top: solid 2px white;
-  color: black;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #169145;
+  text-align: center;
+  margin-top: 4%
 }
+
+.rl-table th{
+  text-align: center;
+}
+
+.rl-table td{
+  text-align: center;
+  color: #777;
+}
+
+.rl-table td p{
+  margin: -50px 0px -7px 0px;
+  font-size: 40px;
+  color: #777;
+}
+
 .welcome_vote{
 margin-top:2%;
 font-size:40px; 
@@ -347,11 +383,12 @@ margin-top:5%;
 font-size:18px;
 }
 .stars{
+display: inline;
 margin-top:2%;
 height:50px;
-
-
 }
+
+
 .stars svg{
 height:20px;
 width:20px;
@@ -362,7 +399,12 @@ fill:transparent;
 stroke-width:"6";
 }
 /*---------*/
-
+/*playlistsongs*/
+.tracklist{
+  overflow: scroll;
+  height: 500px;
+  width: 100%;
+}
 /*
 	Put all specific design above this comment
 */
