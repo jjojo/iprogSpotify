@@ -232,6 +232,11 @@ margin-right: auto;
   padding-bottom: 0.5vh;
 }
 
+.playlist-title {
+  font-family: 'Helvetica';
+  margin: 0;
+}
+
 .info-text {
   font-family: 'Palatino Linotype';
   color: green;
@@ -239,15 +244,14 @@ margin-right: auto;
 }
 
 .grid {
-  margin-left: -3vw;
+  margin-left: -4vw;
 }
 
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  padding: 0;
-  margin-right: 5vw;
-  margin-bottom: 5vh;
+  padding: 0 2vw 2vh 0;
+  overflow-wrap: break-word;
 }
 
 .media-object {
