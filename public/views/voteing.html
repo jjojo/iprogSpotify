@@ -39,15 +39,12 @@ tänk på indentering i alla divs
 
 					<div><!-- ng-repeat låtar-->
 						<div ng-repeat="track in playlistSongs">
-							<div class=" track col-xs-8">
-								{{track.track.name}}
+							<div class="track col-xs-8">
+
+							<div ng-repeat="name in track.track.artists">{{name.name}}</div> - {{track.track.name}}
 							</div>
 
-							<audio src="https://p.scdn.co/mp3-preview/16934eff613fc29419342949db940ff154750a50" controls="1"></audio>
-							
-
-
-							
+							<audio src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
 						</div>
 					</div>
 
