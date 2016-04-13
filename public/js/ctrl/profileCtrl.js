@@ -1,20 +1,17 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService) {
 	console.log("profile controller loaded")
 
+
 	var getUserData = function (argument) {
 		// retrievs user data from Model.
 		Model.getUser().then(function (response) {
 			$scope.userData = response.data;
-
 		});
 	}
-
-	$scope.shared;
 	
 	var getTopPlaylists = function (argument) {
 		// retrievs user data from Model.
 		Model.getPlaylists().then(function (response) {
-			//console.log(response.data)
 			$scope.playlists = response.data.items;
 		});
 	}
@@ -35,23 +32,26 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	}
 
 	$scope.getLink = function (playlist) {
-		// body...
-		fbService.getAllSharedPlaylists(playlist.id).then(function (response) {
-			// body...
-			for (var i = response.length - 1; i >= 0; i--) {
-				if (response[i].$id === playlist.id){
-					playlist.link = response[i].voteUrl
-				}
-			};
+		// returns the voteURL for one playlist
+		playlist.status = "Generating link...";
+		fbService.getPlaylist(playlist.id).then(function (response) {
+			playlist.status = " ";
+			playlist.link = response.voteUrl
+			playlist.sharedList = response.shared
+			console.log(playlist.sharedList)
+			// for (var i = response.length - 1; i >= 0; i--) {
+			// 	if (response[i].$id === playlist.id){
+			// 		playlist.link = response[i].voteUrl
+			// 		playlist.sharedList = response[i].shared
+			// 		console.log(playlist.sharedList)
+			// 	}
+			// };
 		})
 	}
 
 	$scope.genLink = function (playlist) {
 		// body...
-
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
-			console.log(response.data);
-
 		var data = {
 			'playlistApiUrl': playlist.href,
 			'spotifyUrl': playlist.external_urls.spotify,
@@ -59,12 +59,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 			'id': playlist.id,
 			'owner': playlist.owner.id,
 			'name': playlist.name,
-			'playlist': response.data
+			'playlist': response.data,
+			'shared': true
 		}
-		
 		fbService.addPlayVoteUrl(data)
-			
-			
 		});
 	}
 
