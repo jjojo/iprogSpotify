@@ -44,6 +44,9 @@
               <div ng-show="playlist.shared">
                 <p class="info-text">Share this link: </p>
                 <a href="{{playlist.link}}" class="info-text">{{playlist.link}}</a>
+                <p>
+                  <button type="button" class="btn btn-warning" ng-click="stopSharing(playlist)">Close vote</button>
+                </p>
               </div>
 
             </li>   

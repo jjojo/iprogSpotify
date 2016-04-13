@@ -33,18 +33,16 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 	$scope.checkLink = function (playlist) {
 		// returns the voteURL for one playlist
-		try {
-			fbService.getPlaylist(playlist.id).then(function (response) {
-				if (response.shared) {
-					playlist.link = response.voteUrl
+		
+		fbService.getPlaylist(playlist.id).then(function (response) {
+			try {
 					playlist.shared = true
-				} else {
+					playlist.link = response.voteUrl
+			} catch (err) {
+					console.log("ej registrerad")
 					playlist.shared = false
 				}
-			})
-		} catch (err) {
-			console.log(err)
-		}
+		});
 	}
 
 	$scope.genLink = function (playlist) {
@@ -66,6 +64,15 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		playlist.shared = true
 		playlist.link = data.voteUrl
 		});
+	}
+
+
+	$scope.stopSharing = function (playlist) {
+		// body...
+		playlist.shared = false
+		console.log(playlist.id + 'deleted')
+		fbService.deletePlaylistUrl(playlist)
+
 	}
 
 
