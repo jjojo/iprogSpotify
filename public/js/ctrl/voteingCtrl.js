@@ -1,6 +1,7 @@
 spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce) {
 	
 	var locked = false;
+	var voted = false;
 
 	$scope.hide = true;
 
@@ -14,26 +15,36 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		{value: 4,
 		hide : true},
 		{value: 5,
-		hide : true},	
+		hide : true},
+		{value: 6,
+		hide : true},
+		{value: 7,
+		hide : true},
+		{value: 8,
+		hide : true},
+		{value: 9,
+		hide : true},
+		{value: 10,
+		hide : true}	
 	]
 
 	$scope.getPlaylistData = function () {
 		// fetches specific playlist data from firebase.
+		$scope.loading = true;
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
-			$scope.playlist = response
-			$scope.owner = response.owner
-			$scope.title = response.name
-			$scope.spotLink = response.spotifyUrl
-			$scope.playlistSongs = response.playlistSongs.items
-			$scope.votes = response.votes
-			$scope.totalRate = response.totalRating
-			
-			if (response.votes) {
-				$scope.rating = Math.round((response.totalRating/response.votes) * 100) / 100
+			if (response) {
+				$scope.playlist = response
+				$scope.owner = response.owner
+				$scope.title = response.name
+				$scope.spotLink = response.spotifyUrl
+				$scope.playlistSongs = response.playlistSongs.items		
+				$scope.loading = false;
 			} else {
-				$scope.rating = 0
-			} 
+				$scope.loading = false;
+				$scope.badLink = true;
+			}
+
 		})
 	}
 
@@ -41,13 +52,22 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		return $sce.trustAsResourceUrl(src);
 	}
 
-	$scope.setLock = function (playlist, star) {
+	$scope.setLock = function () {
 		// sets lock
 		locked = true;
-		fbService.addVoteRating(playlist, star.value)
-		playlist.totalRating += star.value
-		$scope.votes = playlist.votes +1
-		$scope.rating = Math.round((playlist.totalRating/(playlist.votes +1)) * 100) / 100 
+	}
+
+	$scope.setVote = function (star) {
+		// sets vote
+		if (!voted) {
+			$scope.playlist.totalRating += star.value
+			$scope.playlist.votes += 1
+			$scope.playlist.rating = Math.round(($scope.playlist.totalRating/($scope.playlist.votes)) * 100) / 100 
+			fbService.addVoteRating($scope.playlist, star.value)
+			voted = true;
+		} else {
+			return
+		}
 	}
 
 	$scope.hollowStars = function (star) {

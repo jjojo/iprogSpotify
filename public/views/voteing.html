@@ -7,62 +7,76 @@ tänk på indentering i alla divs
  -->
 <div ng-include="'views/voteHeader.html'"></div>
 
-<div ng-init="getPlaylistData()" class="container-fluid">
-	<div class="welcome_vote">
-		Welcome to Voteify
-	</div>
-	<div class="row">
-		<div class="col-xs-6 col-xs-offset-2">
-				<div class="playlist col-xs-12">
-					<div  class="col-xs-4">
-					<p class="rate_title">{{title}}</p>
-					</div>
-					<div class="col-xs-4" ng-mouseleave="hollowStars()">
-						<div class="stars" ng-repeat="star in stars">
-							<img ng-show="star.hide" 
-							ng-mouseover="fillStar(star)" 
-							src="resources/spoti_star_hollow.png"/>
+<!--Loading page-->
+<div ng-show="loading">
+	<img src="https://animationfascination.files.wordpress.com/2014/05/spotify-logo-1024x640.png"></img>
+</div>
 
-							<img ng-show="!star.hide" 
-							ng-mouseover="hollowStar(star)" 
-							ng-click="setLock(playlist, star)" 
-							src="resources/spoti_star_filled.png"/>
-						</div>
-					</div>
-
-					<div class="col-xs-4">
-					<p class="rate_current">Votes: {{votes}}</p>
-					<p class="rate_current">Rating: {{rating}}</p>
-					</div>
-					
-					<div class="tracklist">
-
-					<div><!-- ng-repeat låtar-->
-						<div ng-repeat="track in playlistSongs">
-							<div class="track col-xs-8">
-
-							<div ng-repeat="name in track.track.artists">{{name.name}}</div> - {{track.track.name}}
-							</div>
-
-							<audio src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
-						</div>
-					</div>
-
-					</div>
-				</div>
-		</div>
-
-
-		<div class="suggest col-md-4" >
-			<div class="col-lg-6">
-				<p class="suggest_title">Owner: {{owner}}</p>
-				<a href="{{spotLink}}"><p class="suggest_title">Spotify link</p></a>
+<!--Voting page-->
+<div ng-init="getPlaylistData()" ng-hide ="loading || badLink" class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<p class="welcome-vote"> 
+					Welcome to Voteify 
+				</p>
 			</div>
-		
+			<div class="col-xs-10 col-xs-offset-1">
+				<span>Go ahead and check out the playlist below. You can even get a free taste of the tracks. Do you like them? Hate them? Make sure to let everyone know how you feel by rating the playlist. 
+				<br>
+				And no need to worry, we won't store any information about your evil opinions and sell them later on. We simply believe in every beings freedom of expression. Want to know more? <a class="info-text" href="#/" ng-style="active('home')">Check us out!</a>
+				<br><br>
+				</span>
+			</div>
+		</div>
+	<div class="center container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+					<div class="playlist col-xs-12">
+						<div  class="vote-top col-xs-12" ng-mouseleave="hollowStars()">
+							<ul class="track-bar">
+							<li>
+								<p><a class="rate_title" href="{{spotLink}}">{{title}}</a> </p>
+							</li>
+							<li>
+								<div class="stars" ng-repeat="star in stars">
+									<img ng-show="star.hide" 
+									ng-mouseover="fillStar(star)" 
+									src="resources/spoti_star_hollow.png"/>
+
+									<img ng-show="!star.hide" 
+									ng-mouseover="hollowStar(star)" 
+									ng-click="setLock(); setVote(star)" 
+									src="resources/spoti_star_filled.png"/>
+								</div>
+							</li>
+							<li>
+								<p class="rate_title">Votes: {{playlist.votes}} Rating: {{playlist.rating}}</p>
+							</li>
+							</ul>
+						</div>			
+						<div class="col-xs-12">
+							<div><!-- ng-repeat låtar-->
+								<ul class="track-bar" ng-repeat="track in playlistSongs">
+									<li>
+										<a class="info-text" href="{{track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
+									</li>	
+									<li>
+										<audio src="{{trustSrc(track.track.preview_url)}}" controls="1">Your browser does not support the audio element.</audio>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+			</div>
 		</div>
 	</div>
 </div>
 
+<!--Bad link page-->
+<div ng-show="badLink">
+	<img src="http://www.articlesdiscussion.com/wp-content/uploads/2014/07/links.jpg"></img>
+</div>
 
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
 

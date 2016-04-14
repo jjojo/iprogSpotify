@@ -336,19 +336,33 @@ margin-right: auto;
   color: #777;
 }
 
-.welcome_vote{
+.welcome-vote{
 margin-top:2%;
 font-size:40px; 
-width:65%;
-margin-left:16%;
 color:#000000;
 font-family:Racing Sans One;
 letter-spacing: 2px;
-padding: 0.6em;
 }
-.playlist{
-border:1px solid;
-margin-top:10%;
+
+.vote-bar {
+display: flex;
+align-items: center;
+}
+
+.track-bar {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+justify-content: space-between;
+font-family: 'Palatino Linotype';
+font-size: 85%;
+color: green;
+}
+
+audio {
+background-color: green;
+border-radius: 8%;
 }
 
 .line{
@@ -358,6 +372,7 @@ border-bottom:1px solid #000;
 }
 .rate_title{
 font-size:22px;
+color: green;
 }
 .rate_star{
 font-size:22px;
@@ -398,18 +413,16 @@ margin-bottom:1%;
 }
 
 }
-.suggest{
-margin-top:5%;
-}
+
 .suggest_title{
 font-size:18px;
 }
+
 .stars{
 display: inline;
 margin-top:2%;
 height:50px;
 }
-
 
 .stars svg{
 height:20px;
@@ -422,10 +435,8 @@ stroke-width:"6";
 }
 /*---------*/
 /*playlistsongs*/
-.tracklist{
-  overflow: scroll;
-  height: 500px;
-  width: 100%;
+.vote-top{
+border-bottom:2px ridge #1ED760;
 }
 .playlist-Search{
 margin-top:3%;
