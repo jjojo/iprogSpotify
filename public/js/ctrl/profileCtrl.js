@@ -2,10 +2,13 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	console.log("profile controller loaded")
 
 
+
 	var getUserData = function (argument) {
 		// retrievs user data from Model.
 		Model.getUser().then(function (response) {
+			Model.user=response.data.id
 			$scope.userData = response.data;
+			//console.log($scope.userData)
 		});
 	}
 	
@@ -57,8 +60,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 				'owner': playlist.owner.id,
 				'name': playlist.name,
 				'playlist': response.data,
-				'shared': true
+				'shared': true,
+				'sharedBy': $scope.userData.id,
+				'image' : playlist.images[0].url
 			}
+		console.log($scope.userData)
 		fbService.addPlayVoteUrl(data)
 		playlist.shared = true
 		playlist.link = data.voteUrl

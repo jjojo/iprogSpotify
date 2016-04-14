@@ -6,6 +6,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q) {
 	}
 
 	var self = this;
+	var user = "";
 
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument

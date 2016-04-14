@@ -7,21 +7,21 @@
         <tr>
         	<th class="col-xs-3" ng-repeat="head in tableHeads">{{head}}</th>
         </tr>
-        <tr>
+        <tr ng-repeat="list in userRatingList">
           <td class="col-xs-3">
-            <img src="http://placehold.it/200x200">
+            <img class="ratedPic" src="{{list.image}}">
           </td>
           <td class="col-xs-3">
-            Min spellista
+            {{list.name}}
           </td>
           <td class="col-xs-3">
           <!-- change 5 to what ever object we are loopin.rating -->
-          <p>6.3</p>
+          <p>{{list.rating}}</p>
             <img ng-repeat="i in range(6) track by $index" src="resources/spoti_star_filled.png">
             <img class="hollow-star" ng-repeat="i in range(10-6) track by $index" src="resources/spoti_star_hollow.png">
           </td>
           <td class="col-xs-3">
-            <!-- {{loopin.rating}} -->67
+            {{list.votes}}
           </td>
         </tr>
     </table>
