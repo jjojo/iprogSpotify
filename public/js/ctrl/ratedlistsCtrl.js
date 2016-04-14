@@ -8,7 +8,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	"Rating",
 	"#Votes"]
 
-	var getRatingList = function(){
+	$scope.getRatingList = function(){
 		fbService.getUsersPlaylists(Model.user).then(function(response){
 			//console.log("körs onload");
 			var user_lists = [];
@@ -29,7 +29,5 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	$scope.range = function(n) {
         return new Array(n);
     };
-
-    window.onload = getRatingList();
 
 });

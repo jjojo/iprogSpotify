@@ -48,7 +48,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	}
 
 	$scope.genLink = function (playlist) {
-		// body...
+		// Generate link and adds data to database.
 		playlist.status = "Generating link...";
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
 			playlist.status = " ";
@@ -62,7 +62,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 				'playlist': response.data,
 				'shared': true,
 				'sharedBy': $scope.userData.id,
-				'image' : playlist.images[0].url
+				'image': playlist.images[0].url
 			}
 		console.log($scope.userData)
 		fbService.addPlayVoteUrl(data)
