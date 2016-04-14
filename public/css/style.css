@@ -449,6 +449,16 @@ margin-bottom:1%;
   height: 200px;
   width: 200px;
 }
+
+.sorry-img {
+  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
+  width: 100vw;
+  height: 100vh;
+}
+
+#sorry img {
+  display: none;
+}
 /*
 	Put all specific design above this comment
 */
