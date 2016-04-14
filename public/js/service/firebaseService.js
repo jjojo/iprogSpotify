@@ -32,7 +32,9 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	    	'owner': data.owner,
 	    	'name' : data.name,
 	    	'playlistSongs' : data.playlist,
-	    	'shared' : data.shared
+	    	'shared' : data.shared,
+	    	'sharedBy' : data.sharedBy,
+	    	'image' : data.image
 	    	});
 	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
 	}
@@ -55,5 +57,17 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
     		return playVoteRef.$getRecord(playlistId)
     	})
 	}
+	
+
+	this.getUsersPlaylists = function(user) {
+		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/");
+		var playVoteRef = $firebaseArray(playVoteRef);
+		return playVoteRef.$loaded().then(function (response){
+			return playVoteRef.$getRecord("playVoteUrls")
+    		
+    	})
+
+	}
+
 	return this;
 });

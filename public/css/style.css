@@ -433,5 +433,11 @@ margin-bottom:1%;
 
 }
 /*
+/*ratedlist*/
+.ratedPic {
+  height: 200px;
+  width: 200px;
+}
+/*
 	Put all specific design above this comment
 */
