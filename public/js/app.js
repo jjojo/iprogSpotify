@@ -1,4 +1,4 @@
-var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase']);
+var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies']);
 
 spotifyApp.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
@@ -6,7 +6,11 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/home.html",
 			controller: 	"HomeCtrl",
 		}).
-		when('/profile/:access_token', {
+		when('/profile/:tokens', {
+			templateUrl: 	"views/profile.html",
+			controller: 	"ProfileCtrl",
+		}).
+		when('/profile', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 		}).
@@ -14,19 +18,19 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/loginTest.html",
 			controller: 	"HomeCtrl",
 		}).
-		when('/sorry/:access_token', {
+		when('/sorry', {
 			templateUrl: 	"views/sorry.html",
 			controller: 	"HeaderCtrl",
 		}).
-		when('/about/:access_token', {
+		when('/about', {
 			templateUrl: 	"views/about.html",
 			controller: 	"HeaderCtrl",
 		}).	
-		when('/ratedlists/:access_token', {
+		when('/ratedlists', {
 			templateUrl: 	"views/ratedlists.html",
 			controller: 	"RatedlistsCtrl",
 		}).
-		when('/vote/:playlistId', {
+		when('/vote', {
 			templateUrl: 	"views/voteing.html",
 			controller: 	"VoteingCtrl",
 

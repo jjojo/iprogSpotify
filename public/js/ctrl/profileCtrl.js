@@ -1,7 +1,5 @@
-spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService) {
-	console.log("profile controller loaded")
-
-
+spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService, $http) {
+	//console.log("profile controller loaded")
 
 	var getUserData = function () {
 		// retrievs user data from Model.
@@ -79,6 +77,22 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	}
 	
 
-	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
+	$scope.getAccessToken = function () {
+		// body...
+
+		console.log($routeParams.access_token.substring(13))
+		$http.get('/callback').then(function (argument) {
+			// body...
+			console.log(argument)
+		})
+
+		// console.log($routeParams.access_token.substring(13))
+		// $http.get('/refresh_token/?refresh_token=' + $routeParams.access_token.substring(13)).then(function (argument) {
+		// 	// body...
+		// 	console.log(argument)
+		// })
+	}
+
+	window.onload = Model.setTokens($location.search()),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
 
 });

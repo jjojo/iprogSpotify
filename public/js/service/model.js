@@ -1,4 +1,4 @@
-spotifyApp.factory('Model', function ($resource, $http, $q) {
+spotifyApp.factory('Model', function ($resource, $http, $q, $cookies) {
 
 	// a object containing settings for our app
 	this.settings = {
@@ -12,7 +12,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q) {
 		// returns a "spotify-ready" http request from the url argument
 		return $http({ 
 			url: 'https://api.spotify.com/v1' + url,
-			headers: {'Authorization': 'Bearer ' + self.settings.access_token}
+			headers: {'Authorization': 'Bearer ' + self.getToken()}
 			});
 	}
 
@@ -29,28 +29,25 @@ spotifyApp.factory('Model', function ($resource, $http, $q) {
 	    return uid;
 	};
 	
-	this.getVoteLink = function () {
-		// body...
-	}
-
-
-	this.signedIn = function () {
-		// body...
-		if (this.settings.access_token) {
-			return true
+	
+	this.setTokens = function (tokens) {
+		// stores access token to cookies
+		//console.log($cookies.get("refresh_token"))
+		if (typeof($cookies.get("refresh_token")) !== 'undefined'
+			|| typeof($cookies.get("access_token")) !== 'undefined') {
+				return
 		}else{
-			return false
+			$cookies.put("access_token", tokens.access_token);
+			$cookies.put("refresh_token", tokens.access_token);
 		}
-	}
+		//console.log($cookies.get("refresh_token"))
 
-	this.setToken = function (token) {
-		// sets access token.
-		this.settings.access_token = token;
+		// this.settings.access_token = token;
 	}
 
 	this.getToken = function () {
 		// returns acess_token
-		return this.settings.access_token;
+		return $cookies.get("access_token");
 	}
 
 	this.getUser = function () {
