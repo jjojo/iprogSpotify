@@ -336,6 +336,10 @@ margin-right: auto;
   color: #777;
 }
 
+.rl-row{
+  width: 100%;
+}
+
 .welcome-vote{
 margin-top:2%;
 font-size:40px; 
@@ -446,6 +450,8 @@ margin-bottom:1%;
 /*
 /*ratedlist*/
 .ratedPic {
+  margin-top: 15%;
+  margin-bottom: 15%;
   height: 200px;
   width: 200px;
 }

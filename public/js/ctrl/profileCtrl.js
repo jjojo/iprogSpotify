@@ -3,10 +3,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 
 
-	var getUserData = function (argument) {
+	var getUserData = function () {
 		// retrievs user data from Model.
 		Model.getUser().then(function (response) {
-			Model.user=response.data.id
+			Model.user = response.data.id
 			$scope.userData = response.data;
 			//console.log($scope.userData)
 		});
