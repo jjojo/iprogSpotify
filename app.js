@@ -12,8 +12,8 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '786a77edea6c4a788b315082574a0911'; // Your client id
-var client_secret = 'e7635da57f104bacbf7e8cf76d0f9d8c'; // Your client secret
+var client_id = '3b87b8aea41c41e7882a107e23b9b690'; // Your client id
+var client_secret = 'dbf4fbfb800b4098a89bd7b18529e181'; // Your client secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 
@@ -37,7 +37,7 @@ var stateKey = 'spotify_auth_state';
 var app = express();
 
 app.use(express.static(__dirname + '/public'))
-   .use(cookieParser());
+app.use(cookieParser());
 
 app.get('/login', function(req, res) {
 
@@ -106,7 +106,7 @@ app.get('/callback', function(req, res) {
 
         //res.redirect('/#/profile');
 
-        res.redirect('/#/profile/' + 
+        res.redirect('/#/profile/tokens?' + 
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
@@ -118,8 +118,11 @@ app.get('/callback', function(req, res) {
           }));
       }
     });
-  }
 
+    
+
+  }
+//res.send({'test':"this shit works"})
 });
 
 app.get('/refresh_token', function(req, res) {
@@ -137,6 +140,7 @@ app.get('/refresh_token', function(req, res) {
   };
 
   request.post(authOptions, function(error, response, body) {
+    console.log(body)
     if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
       res.send({

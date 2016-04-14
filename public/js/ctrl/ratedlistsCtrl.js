@@ -1,6 +1,6 @@
 spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	
-	console.log("RatedlistsCtrl loaded")
+	//console.log("RatedlistsCtrl loaded")
 
 	$scope.tableHeads = [
 	"Playlist Avatar",
@@ -9,7 +9,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	"#Votes"]
 
 	var getRatingList = function(){
-		console.log(Model.user)
+		//console.log(Model.user)
 		fbService.getUsersPlaylists(Model.user).then(function(response){
 			//console.log("körs onload");
 			var user_lists = [];
