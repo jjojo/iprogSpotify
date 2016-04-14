@@ -8,7 +8,8 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	"Rating",
 	"#Votes"]
 
-	$scope.getRatingList = function(){
+	var getRatingList = function(){
+		console.log(Model.user)
 		fbService.getUsersPlaylists(Model.user).then(function(response){
 			//console.log("körs onload");
 			var user_lists = [];
@@ -20,14 +21,23 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 				}
 				
 			}
-			console.log(user_lists);
+			//console.log(user_lists);
 			$scope.userRatingList = user_lists;
 		})
 	}
 
 
 	$scope.range = function(n) {
-        return new Array(n);
+		//console.log(n)
+				if(typeof(n) === 'undefined'){
+			n = 0;
+		}
+		num = Math.round(n);
+
+		//console.log(num)
+        return new Array(num);
     };
+
+    window.onload=getRatingList();
 
 });
