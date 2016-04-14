@@ -32,7 +32,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 	}
 
 	$scope.checkLink = function (playlist) {
-		// returns the voteURL for one playlist
+		// assigns t/f for shared/not shared playlists
 		
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
@@ -71,7 +71,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
-
+	
 
 	window.onload = Model.setToken($routeParams.access_token.substring(13)),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
 
