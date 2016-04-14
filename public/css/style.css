@@ -134,6 +134,7 @@ LOADER
   margin-top: -20%;
 }
 .bread {
+  text-align: justify;
   color: #000;
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
@@ -143,6 +144,19 @@ LOADER
   margin-left: auto;
   margin-right: auto;
 }
+
+.bread-center {
+  text-align: center;
+  color: #000;
+  font-family:Armata;
+  border-radius: 15px 50px 30px 5px;
+  width: 70%;
+  padding: 1.8%;
+  font-size:17px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .bild {
   border-radius: 15px 50px 30px 5px;
 }
@@ -232,22 +246,34 @@ margin-right: auto;
   padding-bottom: 0.5vh;
 }
 
+.playlist-title {
+  font-family: 'Helvetica';
+  margin: 0;
+}
+
 .info-text {
   font-family: 'Palatino Linotype';
   color: green;
   margin: 0;
 }
 
+.link-text {
+  font-family: 'Palatino Linotype';
+  font-size: 85%;
+  color: green;
+  margin: 0;
+}
+
 .grid {
-  margin-left: -3vw;
+  margin-left: -4vw;
 }
 
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  padding: 0;
-  margin-right: 5vw;
-  margin-bottom: 5vh;
+  padding: 0 2vw 2vh 0;
+  height: 65vh;
+  overflow-wrap: break-word;
 }
 
 .media-object {
