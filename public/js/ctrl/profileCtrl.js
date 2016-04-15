@@ -93,6 +93,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		// })
 	}
 
-	window.onload = Model.setTokens($location.search()),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
+	window.onload = Model.setTokens( ),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
 
 });
