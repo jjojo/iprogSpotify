@@ -16,5 +16,9 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location) {
 		return {'opacity':0.5};
 	}
 
+	$scope.clearCookie = function() {
+		Model.clearCookie();
+	}
+
 	$scope.access_token = 'access_token=' + Model.settings.access_token;
 });

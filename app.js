@@ -52,7 +52,8 @@ app.get('/login', function(req, res) {
       client_id: client_id,
       scope: scope,
       redirect_uri: redirect_uri,
-      state: state
+      state: state,
+      show_dialog: true
     }));
 });
 
@@ -60,6 +61,7 @@ app.get('/callback', function(req, res) {
 	//console.log(req)
   // your application requests refresh and access tokens
   // after checking the state parameter
+
 
   var code = req.query.code || null;
   var state = req.query.state || null;

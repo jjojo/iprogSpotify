@@ -321,6 +321,21 @@ margin-right: auto;
   margin-top: 4%
 }
 
+.rl-table a{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  width: 100%;
+  text-decoration: none;
+  color: #169145;
+}
+
+.rl-table a:hover{
+  text-decoration: none;
+  color: green;
+  cursor: pointer;
+}
+
 .rl-table th{
   text-align: center;
 }

@@ -62,9 +62,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 				'sharedBy': $scope.userData.id,
 				'image': playlist.images[0].url
 			}
-		console.log($scope.userData)
+		//console.log($scope.userData)
 		fbService.addPlayVoteUrl(data)
 		playlist.shared = true
+		console.log(data.voteUrl)
 		playlist.link = data.voteUrl
 		});
 	}
