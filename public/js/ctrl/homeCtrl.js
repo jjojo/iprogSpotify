@@ -1,4 +1,4 @@
-spotifyApp.controller('HomeCtrl', function ($scope, $http) {
+spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies) {
 	
 console.log("HomeCtrl loaded")
 
@@ -18,9 +18,13 @@ $scope.getDate = function(){
 	
 	var datestring = monthNames[monthIndex]+"  "+ day+", "+ year;
 	return datestring;
-
-
 }
 
+
+$scope.clearCookies = function () {
+	// clears cookies if any from previous sessions
+	$cookies.remove("access_token");
+	$cookies.remove("refresh_token");
+}
 
 });

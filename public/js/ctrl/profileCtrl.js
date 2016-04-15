@@ -75,24 +75,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
-	
 
-	$scope.getAccessToken = function () {
-		// body...
-
-		console.log($routeParams.access_token.substring(13))
-		$http.get('/callback').then(function (argument) {
-			// body...
-			console.log(argument)
-		})
-
-		// console.log($routeParams.access_token.substring(13))
-		// $http.get('/refresh_token/?refresh_token=' + $routeParams.access_token.substring(13)).then(function (argument) {
-		// 	// body...
-		// 	console.log(argument)
-		// })
-	}
-
-	window.onload = Model.setTokens( ),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
+	window.onload = Model.setTokens($location.search()),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
 
 });
