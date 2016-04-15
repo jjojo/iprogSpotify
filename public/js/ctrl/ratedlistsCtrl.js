@@ -3,10 +3,17 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	//console.log("RatedlistsCtrl loaded")
 
 	$scope.tableHeads = [
-	"Playlist Avatar",
 	"Name",
 	"Rating",
-	"#Votes"]
+	"Votes"]
+
+	$scope.predicate = 'rating';
+  	$scope.reverse = true;
+  	$scope.order = function(predicate) {
+  		console.log(predicate)
+    	$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+    	$scope.predicate = predicate;
+    }
 
 	var getRatingList = function(){
 		//console.log(Model.user)
