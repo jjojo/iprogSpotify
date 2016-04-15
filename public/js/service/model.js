@@ -1,5 +1,5 @@
-spotifyApp.factory('Model', function ($resource, $http, $q, $cookies) {
-
+spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval) {
+	console.log("MODEL LOADED MUAHAHAHHAHAAHHAHAHAHHAHAHAHH")
 	// a object containing settings for our app
 	this.settings = {
 		'access_token' : "",
@@ -38,7 +38,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies) {
 				return
 		}else{
 			$cookies.put("access_token", tokens.access_token);
-			$cookies.put("refresh_token", tokens.access_token);
+			$cookies.put("refresh_token", tokens.refresh_token);
+			$interval(function () {
+				refreshToken();
+			},(1000*60*59));
 		}
 		//console.log($cookies.get("refresh_token"))
 
@@ -48,6 +51,18 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies) {
 	this.getToken = function () {
 		// returns acess_token
 		return $cookies.get("access_token");
+	}
+
+	var refreshToken = function () {
+		// refreshes acess_token
+		var refresh_token = $cookies.get("refresh_token");
+		$http.get('/refresh_token/?refresh_token=' + refresh_token)
+			.then(function (res) {
+				console.log(res.data.access_token);
+				// sets new access_token in acess-cookie
+				$cookies.put("access_token", res.data.access_token);
+				console.log("token was refreshed to " + $cookies.get("access_token"));
+			})
 	}
 
 	this.getUser = function () {

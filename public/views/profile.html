@@ -6,7 +6,6 @@
     <div class="row">
 		<div class="col-md-3 col-xs-12">
       	<h1 class="profile-title">{{userData.display_name}}</h1>
-        <button ng-click="getAccessToken()">Get acess token</button>
         <img class="media-object" src="{{userData.images[0].url}}">
         <div class="info-block">
             <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
