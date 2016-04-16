@@ -1,5 +1,5 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval) {
-	console.log("MODEL LOADED MUAHAHAHHAHAAHHAHAHAHHAHAHAHH")
+	//console.log("MODEL LOADED MUAHAHAHHAHAAHHAHAHAHHAHAHAHH")
 	// a object containing settings for our app
 	this.settings = {
 		'access_token' : "",
@@ -35,10 +35,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval)
 		//console.log($cookies.get("refresh_token"))
 		if (typeof($cookies.get("refresh_token")) !== 'undefined'
 			|| typeof($cookies.get("access_token")) !== 'undefined') {
-				console.log("har redan Tokens");
 				return
 		}else{
-			console.log("har inte Tokens");
 			$cookies.put("access_token", tokens.access_token);
 			$cookies.put("refresh_token", tokens.refresh_token);
 			$interval(function () {

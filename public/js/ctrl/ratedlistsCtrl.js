@@ -1,6 +1,13 @@
 spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	
 	//console.log("RatedlistsCtrl loaded")
+	var getUserData = function () {
+		// retrievs user data from Model.
+		Model.getUser().then(function (response) {
+			Model.user = response.data.id
+			//console.log($scope.userData)
+		});
+	}
 
 	$scope.tableHeads = [
 	"Name",
@@ -10,7 +17,6 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	$scope.predicate = 'rating';
   	$scope.reverse = true;
   	$scope.order = function(predicate) {
-  		console.log(predicate)
     	$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
     	$scope.predicate = predicate;
     }
@@ -20,8 +26,9 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 		// This solution is not valid for refresh requests! When refreching this function trys to fetch 
 		// Model.user even thoug Model.user is not set after refresh. A better way might be setting a user-cookie 
 		// on login. This way we can retrive it even on refresh.
+		$scope.loading = true;
 		fbService.getUsersPlaylists(Model.user).then(function(response){
-			//console.log("körs onload");
+
 			var user_lists = [];
 			var keys = Object.keys(response);
 			for(i=0; i<keys.length-1; i++){
@@ -32,6 +39,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 				
 			}
 			//console.log(user_lists);
+			$scope.loading = false;
 			$scope.userRatingList = user_lists;
 		})
 	}
@@ -48,6 +56,5 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
         return new Array(num);
     };
 
-    window.onload = getRatingList();
-
+    window.onload = getUserData(), getRatingList();
 });
