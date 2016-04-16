@@ -1,5 +1,6 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService, $http) {
 	//console.log("profile controller loaded")
+	$scope.loading = true;
 
 	var getUserData = function () {
 		// retrievs user data from Model.
@@ -14,6 +15,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		// retrievs user data from Model.
 		Model.getPlaylists().then(function (response) {
 			$scope.playlists = response.data.items;
+			$scope.loading = false;
 		});
 	}
 
@@ -34,13 +36,15 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
-		
+		$scope.loading = true;
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
 					playlist.shared = true
 					playlist.link = response.voteUrl
+					$scope.loading = false;
 			} catch (err) {
 					playlist.shared = false
+					$scope.loading = false;
 				}
 		});
 	}

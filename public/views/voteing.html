@@ -9,12 +9,9 @@ tänk på indentering i alla divs
 <div ng-include="'views/voteHeader.html'"></div>
 
 <!--Loading page-->
-<div ng-show="loading">
-	<img id="loader" src="/resources/rolling.gif" ></img>
-</div>
 
 <!--Voting page-->
-<div ng-init="getPlaylistData()" ng-hide ="loading || badLink" class="container-fluid">
+<div ng-init="getPlaylistData()"  class="container-fluid">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1">
@@ -57,7 +54,12 @@ tänk på indentering i alla divs
 							</ul>
 						</div>	
 
-						<div class="pl-songs">			
+						<div class="pl-songs">	
+
+						<div ng-show="loading">
+                			<img id="loader" src="/resources/rolling.gif" ></img>
+                		</div>	
+
 						<table class="col-xs-12">
 							<!-- ng-repeat låtar-->
 								<tr class="track-bar" ng-repeat="track in playlistSongs">
@@ -73,6 +75,7 @@ tänk på indentering i alla divs
 									</td>
 								</tr>						
 						</table>
+
 						</div>
 					</div>
 			</div>
