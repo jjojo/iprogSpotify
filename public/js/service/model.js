@@ -1,5 +1,10 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 
+	// a object containing settings for our app
+	this.settings = {
+		'access_token' : "",
+	}
+
 	var self = this;
 	var user = "";
 

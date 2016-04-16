@@ -11,6 +11,7 @@
           <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}"></span>
           <th>
         </tr>
+
         <tr class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:reverse">
           <td class="col-xs-3">
             <img class="ratedPic" ng-src="{{list.image}}">
@@ -31,6 +32,10 @@
           </td>
         </tr>
     </table>
+    
+    <div ng-show="loading">
+  
+    </div>
   </div>
 
 </main>
