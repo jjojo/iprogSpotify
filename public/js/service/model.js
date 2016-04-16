@@ -1,9 +1,4 @@
-spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval) {
-	console.log("MODEL LOADED MUAHAHAHHAHAAHHAHAHAHHAHAHAHH")
-	// a object containing settings for our app
-	this.settings = {
-		'access_token' : "",
-	}
+spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 
 	var self = this;
 	var user = "";
@@ -35,17 +30,14 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval)
 		//console.log($cookies.get("refresh_token"))
 		if (typeof($cookies.get("refresh_token")) !== 'undefined'
 			|| typeof($cookies.get("access_token")) !== 'undefined') {
-				console.log("har redan Tokens");
 				return
 		}else{
-			console.log("har inte Tokens");
 			$cookies.put("access_token", tokens.access_token);
 			$cookies.put("refresh_token", tokens.refresh_token);
 			$interval(function () {
 				refreshToken();
 			},(1000*60*59));
 		}
-		//console.log($cookies.get("refresh_token"))
 
 		// this.settings.access_token = token;
 	}
@@ -53,6 +45,11 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval)
 	this.getToken = function () {
 		// returns acess_token
 		return $cookies.get("access_token");
+	}
+
+	this.signOut = function (argument) {
+		$cookies.remove("access_token")
+		$cookies.remove("refresh_token")
 	}
 
 	var refreshToken = function () {
