@@ -52,8 +52,7 @@ app.get('/login', function(req, res) {
       client_id: client_id,
       scope: scope,
       redirect_uri: redirect_uri,
-      state: state,
-      show_dialog: true
+      state: state
     }));
 });
 
