@@ -480,6 +480,14 @@ margin-bottom:1%;
 #sorry img {
   display: none;
 }
+
+#loader{
+  width:128px;
+  height:128px;
+  margin-left:45%;
+  margin-top:15%;
+
+}
 /*
 	Put all specific design above this comment
 */
