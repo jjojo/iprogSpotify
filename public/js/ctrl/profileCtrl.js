@@ -1,38 +1,13 @@
-spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route, $routeParams, $timeout, fbService, $http) {
+spotifyApp.controller('ProfileCtrl', function ($scope, playlists, topArtists, userData, topTracks, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
 
-	var getUserData = function () {
-		// retrievs user data from Model.
-		Model.getUser().then(function (response) {
-			Model.user = response.data.id
-			$scope.userData = response.data;
-			//console.log($scope.userData)
-		});
-	}
-	
-	var getTopPlaylists = function (argument) {
-		// retrievs user data from Model.
-		Model.getPlaylists().then(function (response) {
-			$scope.playlists = response.data.items;
-			$scope.loading = false;
-		});
-	}
+	//These values are fetched and resolved by the router to be rady on load.
+	$scope.userData = userData.data;
+	$scope.playlists = playlists.data.items;
+	$scope.topArtists = topArtists.data.items;
+	$scope.topTracks = topTracks.data.items;
 
-	var getTopArtists = function (argument) {
-
-		Model.getTopArtists().then(function (response) {
-			//console.log(response.data.items)
-			$scope.topartists = response.data.items; 
-		});
-	}
-
-	var getTopTracks = function (argument) {
-		Model.getTopTracks().then(function (response) {
-			//console.log(response.data.items)
-			$scope.toptracks = response.data.items; 
-		});
-	}
 
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
@@ -79,7 +54,5 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, $location, $route,
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
-
-	window.onload = Model.setTokens($location.search()),getUserData(), getTopPlaylists(), getTopArtists(), getTopTracks();
 
 });

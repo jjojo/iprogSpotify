@@ -1,6 +1,23 @@
 var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies']);
 
 spotifyApp.config(['$routeProvider', function ($routeProvider) {
+
+	//Use functions from model to initiate data before loading routs
+	// resolves data from model API calls.
+	var getPlaylists = function(Model) {
+        return Model.getPlaylists();
+    };
+    var getUserData = function(Model) {
+        return Model.getUserData();
+    };
+    var getTopArtists = function(Model) {
+        return Model.getTopArtists();
+    };
+    var getTopTracks = function(Model) {
+        return Model.getTopTracks();
+    };
+
+
 	$routeProvider.
 		when('/', {
 			templateUrl: 	"views/home.html",
@@ -9,6 +26,12 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 		when('/profile/:tokens', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
+			resolve: {
+           			topArtists: getTopArtists,
+           			userData: getUserData,
+           			topTracks: getTopTracks,
+           			playlists: getPlaylists
+       				},
 		}).
 		when('/profile', {
 			templateUrl: 	"views/profile.html",

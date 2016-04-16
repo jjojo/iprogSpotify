@@ -6,15 +6,16 @@
 
 	<div class="container-fluid">
     <div class="row">
-		<div class="col-md-3 col-xs-12">
+		<div class="col-md-3 col-xs-12">        
       	<h1 class="profile-title">{{userData.display_name}}</h1>
         <img class="media-object" ng-src="{{userData.images[0].url}}">
         <div class="info-block">
-            <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
+            <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topArtists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
         </div>
+
         <div class="info-block">
             <dt class="info-title">Top tracks</dt>
-            <dd ng-repeat="track in toptracks">
+            <dd ng-repeat="track in topTracks">
               <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a>
             </dd>
         </div>

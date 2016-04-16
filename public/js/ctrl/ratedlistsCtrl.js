@@ -1,13 +1,4 @@
 spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
-	
-	//console.log("RatedlistsCtrl loaded")
-	var getUserData = function () {
-		// retrievs user data from Model.
-		Model.getUser().then(function (response) {
-			Model.user = response.data.id
-			//console.log($scope.userData)
-		});
-	}
 
 	$scope.tableHeads = [
 	"Name",
@@ -33,7 +24,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 			var keys = Object.keys(response);
 			for(i=0; i<keys.length-1; i++){
 				//console.log(response[keys[i]]);
-				if(response[keys[i]].sharedBy === Model.user){
+				if(response[keys[i]].sharedBy === Model.getUser()){
 					user_lists.push(response[keys[i]]);
 					$scope.loading = false;
 				}
@@ -60,5 +51,5 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
         return new Array(num);
     };
 
-    window.onload = getUserData(), getRatingList();
+    window.onload = getRatingList();
 });
