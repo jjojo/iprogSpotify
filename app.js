@@ -9,6 +9,8 @@
 
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
+var http = require("http");
+var https = require("https");
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
@@ -58,13 +60,14 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/callback', function(req, res) {
-	//console.log(req)
   // your application requests refresh and access tokens
   // after checking the state parameter
 
 
   var code = req.query.code || null;
   var state = req.query.state || null;
+  //console.log(req.cookies)
+  //console.log()
   var storedState = req.cookies ? req.cookies[stateKey] : null;
 
   if (state === null || state !== storedState) {
@@ -142,7 +145,7 @@ app.get('/refresh_token', function(req, res) {
   };
 
   request.post(authOptions, function(error, response, body) {
-    console.log(body)
+    //console.log(body)
     if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
       res.send({
@@ -150,6 +153,10 @@ app.get('/refresh_token', function(req, res) {
       });
     }
   });
+});
+
+app.get('/logout', function(req, res) {
+  res.redirect('https://accounts.spotify.com/sv/logout');
 });
 
 console.log('Listening on 8888');
