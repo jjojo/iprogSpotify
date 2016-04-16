@@ -59,7 +59,7 @@ tänk på indentering i alla divs
 							<div><!-- ng-repeat låtar-->
 								<ul class="track-bar" ng-repeat="track in playlistSongs">
 									<li>
-										<a class="info-text" href="{{track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
+										<a class="info-text" ng-href="{{track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
 									</li>	
 									<li>
 										<audio src="{{trustSrc(track.track.preview_url)}}" controls="1">Your browser does not support the audio element.</audio>

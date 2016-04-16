@@ -13,7 +13,7 @@
         </tr>
         <tr class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:reverse">
           <td class="col-xs-3">
-            <img class="ratedPic" src="{{list.image}}">
+            <img class="ratedPic" ng-src="{{list.image}}">
           </td>
           <td class="col-xs-3">
             {{list.name}}
