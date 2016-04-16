@@ -20,6 +20,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 		// This solution is not valid for refresh requests! When refreching this function trys to fetch 
 		// Model.user even thoug Model.user is not set after refresh. A better way might be setting a user-cookie 
 		// on login. This way we can retrive it even on refresh.
+		$scope.loading = true;
 		fbService.getUsersPlaylists(Model.user).then(function(response){
 			//console.log("körs onload");
 			var user_lists = [];
@@ -28,6 +29,10 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 				//console.log(response[keys[i]]);
 				if(response[keys[i]].sharedBy === Model.user){
 					user_lists.push(response[keys[i]]);
+					$scope.loading = false;
+				}
+				else{
+					$scope.loading = false;
 				}
 				
 			}

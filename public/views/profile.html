@@ -2,6 +2,8 @@
 
 <main>
 	<!-- This is where all Html for the view goes. -->
+  
+
 	<div class="container-fluid">
     <div class="row">
 		<div class="col-md-3 col-xs-12">
@@ -39,6 +41,9 @@
                 {{playlist.name}}
               </p>
               <div ng-init="checkLink(playlist)" ng-hide="playlist.shared">
+                 <div ng-show="loading">
+                <img id="loader-small" src="/resources/rolling.gif" ></img>
+                </div>
                 <p class="info-text">
                   <a class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
                 </p>

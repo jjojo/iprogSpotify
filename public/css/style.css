@@ -486,7 +486,10 @@ margin-bottom:1%;
   height:128px;
   margin-left:45%;
   margin-top:15%;
-
+}
+#loader-small{
+  width:30px;
+  height:30px;
 }
 /*
 	Put all specific design above this comment
