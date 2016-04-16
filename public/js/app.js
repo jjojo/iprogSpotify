@@ -27,8 +27,8 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 			resolve: {
-           			topArtists: getTopArtists,
            			userData: getUserData,
+           			topArtists: getTopArtists,
            			topTracks: getTopTracks,
            			playlists: getPlaylists
        				},
@@ -36,6 +36,12 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 		when('/profile', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
+			resolve: {
+           			userData: getUserData,
+           			topArtists: getTopArtists,
+           			topTracks: getTopTracks,
+           			playlists: getPlaylists
+       				},
 		}).
 		when('/login', {
 			templateUrl: 	"views/loginTest.html",
