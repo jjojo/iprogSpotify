@@ -38,7 +38,8 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 				$scope.owner = response.owner
 				$scope.title = response.name
 				$scope.spotLink = response.spotifyUrl
-				$scope.playlistSongs = response.playlistSongs.items		
+				console.log(response.playlistSongs.items)
+				$scope.playlistSongs = response.playlistSongs.items	
 				$scope.loading = false;
 			} else {
 				$scope.loading = false;
@@ -49,7 +50,13 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	}
 
 	$scope.trustSrc = function (src) {
-		return $sce.trustAsResourceUrl(src);
+		if(src){
+			$scope.preview = false;
+			return $sce.trustAsResourceUrl(src);
+		}
+		else{
+			$scope.preview = true;
+		}
 	}
 
 	$scope.setLock = function () {

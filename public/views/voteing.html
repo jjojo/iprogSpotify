@@ -1,4 +1,5 @@
 
+
 <!-- alla views ska vara wrappade i en <main> tag!
 tänk på indentering i alla divs
 			<div>
@@ -36,7 +37,7 @@ tänk på indentering i alla divs
 						<div  class="vote-top col-xs-12" ng-mouseleave="hollowStars()">
 							<ul class="track-bar">
 							<li>
-								<p><a class="rate_title" href="{{spotLink}}">{{title}}</a> </p>
+								<p class="rate_title">{{title}}</p>
 							</li>
 							<li>
 								<div class="stars" ng-repeat="star in stars">
@@ -54,18 +55,24 @@ tänk på indentering i alla divs
 								<p class="rate_title">Votes: {{playlist.votes}} Rating: {{playlist.rating}}</p>
 							</li>
 							</ul>
-						</div>			
-						<div class="col-xs-12">
-							<div><!-- ng-repeat låtar-->
-								<ul class="track-bar" ng-repeat="track in playlistSongs">
-									<li>
-										<a class="info-text" ng-href="{{track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
-									</li>	
-									<li>
-										<audio src="{{trustSrc(track.track.preview_url)}}" controls="1">Your browser does not support the audio element.</audio>
-									</li>
-								</ul>
-							</div>
+						</div>	
+
+						<div class="pl-songs">			
+						<table class="col-xs-12">
+							<!-- ng-repeat låtar-->
+								<tr class="track-bar" ng-repeat="track in playlistSongs">
+									<td class="track-position">
+										<a class="info-text" ng-href="{{track.track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
+									</td>
+
+									<td class="track-position">
+										<audio ng-src="{{trustSrc(track.track.preview_url)}}" ng-hide="preview" controls="1">Your browser does not support the audio element.</audio>
+									</td>
+									<td class="track-position not-preview" ng-show="preview">
+										Preview not avalible - listen on spotify <a href="{{track.track.external_urls.spotify}}">here</a>
+									</td>
+								</tr>						
+						</table>
 						</div>
 					</div>
 			</div>

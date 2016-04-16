@@ -294,6 +294,16 @@ margin-right: auto;
 /*---------*/
 /* Ratedlists (RL) */
 
+audio{
+  margin-left: 20%;
+}
+
+.rated-list{
+  height: 60vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+
 .rl-h2{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -315,7 +325,7 @@ margin-right: auto;
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   color: #169145;
   text-align: center;
   margin-top: 4%
@@ -323,7 +333,7 @@ margin-right: auto;
 
 .rl-table a{
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
   width: 100%;
   text-decoration: none;
@@ -347,7 +357,7 @@ margin-right: auto;
 
 .rl-table td p{
   margin: -50px 0px -7px 0px;
-  font-size: 40px;
+  font-size: 30px;
   color: #777;
 }
 
@@ -374,14 +384,19 @@ padding: 0;
 margin: 0;
 display: flex;
 justify-content: space-between;
-font-family: 'Palatino Linotype';
-font-size: 85%;
+font-family: 'Montserrat';
+overflow: auto;
 color: green;
 }
 
-audio {
-background-color: green;
-border-radius: 8%;
+.track-position{
+  width: 50%;
+  padding:2%;
+}
+
+.not-preview{
+  margin-left: -20%;
+  font-size: 90%;
 }
 
 .line{
@@ -419,7 +434,7 @@ font-size:22px;
 margin-top:2%;
 font-size:16px;
 margin-bottom:1%;
-
+}
 
 .rl-table-line{
   border-top: solid 2px #1ED760;
@@ -429,8 +444,6 @@ margin-bottom:1%;
 .rl-table-line:hover{
   background-color: black;
   color: green;
-}
-
 }
 
 .suggest_title{
@@ -457,6 +470,13 @@ stroke-width:"6";
 .vote-top{
 border-bottom:2px ridge #1ED760;
 }
+
+.pl-songs{
+  width: 100%;
+  height: 45vh;
+  overflow-y: scroll; 
+}
+
 .playlist-Search{
 margin-top:3%;
 margin-bottom:1%;
@@ -467,8 +487,8 @@ margin-bottom:1%;
 .ratedPic {
   margin-top: 15%;
   margin-bottom: 15%;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
 }
 
 .sorry-img {
