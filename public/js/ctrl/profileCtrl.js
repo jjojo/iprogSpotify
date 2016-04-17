@@ -1,14 +1,27 @@
-spotifyApp.controller('ProfileCtrl', function ($scope, playlists, topArtists, userData, topTracks, Model, fbService) {
+spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
 
 	//These values are fetched and resolved by the router to be rady on load.
-	$scope.userData = userData.data;
-	$scope.playlists = playlists.data.items;
-	$scope.topArtists = topArtists.data.items;
-	$scope.topTracks = topTracks.data.items;
+	// $scope.userData = Model.profileData.userData.data;
+	// console.log(Model.profileData.playlists)
 
+	var mpd = Model.profileData;
+	mpd.userData.then(function(res){
+		$scope.userData = res.data;
+	})
+	mpd.playlists.then(function(res){
+		$scope.playlists = res.data.items;
+	});
+	mpd.topArtists.then(function(res){
+		$scope.topArtists = res.data.items;
+	});
+	mpd.topArtists.then(function(res){
+		$scope.topTracks = res.data.items;
+	});
 
+	
+	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
 		$scope.loading = true;
