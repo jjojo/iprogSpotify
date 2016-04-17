@@ -1,8 +1,15 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
+	console.log("model loaded")
 	
 	var self = this;
-	
-	
+
+	this.profileData = {
+		topTracks: null,
+		topArtists: null,
+		userData: null,
+		playlists: null
+	}
+
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
 		var access_token = $cookies.get("access_token");
@@ -26,18 +33,24 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 
-	this.setUserData = function () {
+	this.setUserCred = function () {
 		// stores username, access_token and refresh_token to session cookies.
 		if (typeof($cookies.get("voteifyUser")) === 'undefined'){
 			var tokens = $location.search();
 			
-			self.getUserData()
 			$cookies.put("access_token", tokens.access_token);
 			$cookies.put("refresh_token", tokens.refresh_token);
+			
+			self.getUserData().then(function (res) {
+				$cookies.put("voteifyUser",res.data.id)
+                self.profileData.userData = res;
+			});
 			
 			$interval(function () {
 				refreshToken();
 			},(1000*60*59)); //timeout set to refresh access_token each 59 minutes.
+		}else{
+			return
 		}
 	}
 
@@ -58,7 +71,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                $cookies.put("voteifyUser",response.data.id)
                 //console.log("SUCCESS")
                 //console.log(response);
             }
@@ -100,7 +112,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 
-	this.getPlaylists= function () {
+	this.getPlaylists = function () {
 		// Returns a promise containing users playlists
 		var deferred = $q.defer();
 		req('/me/playlists').then(function(response) {
@@ -130,6 +142,15 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         return deferred.promise;
 	}
 
+	this.init = function () {
+		// initilize app with data made from API calls
+		self.setUserCred();
+		self.profileData.userData = self.getUserData();
+		self.profileData.topTracks = self.getTopTracks();
+		self.profileData.topArtists = self.getTopArtists();
+		self.profileData.playlists = self.getPlaylists();
+	}
+
 
 	this.signOut = function (argument) {
 		//removes all cookies
@@ -139,7 +160,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 
-	this.setUserData();
+	this.init();
 	
 	return this;
 });

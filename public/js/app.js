@@ -4,19 +4,9 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 
 	//Use functions from model to initiate data before loading routs
 	// resolves data from model API calls.
-	var getPlaylists = function(Model) {
-        return Model.getPlaylists();
+    var initData = function(Model) {
+        return Model.init();
     };
-    var getUserData = function(Model) {
-        return Model.getUserData();
-    };
-    var getTopArtists = function(Model) {
-        return Model.getTopArtists();
-    };
-    var getTopTracks = function(Model) {
-        return Model.getTopTracks();
-    };
-
 
 	$routeProvider.
 		when('/', {
@@ -27,21 +17,12 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 			resolve: {
-           			userData: getUserData,
-           			topArtists: getTopArtists,
-           			topTracks: getTopTracks,
-           			playlists: getPlaylists
+           			init: initData
        				},
 		}).
 		when('/profile', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
-			resolve: {
-           			userData: getUserData,
-           			topArtists: getTopArtists,
-           			topTracks: getTopTracks,
-           			playlists: getPlaylists
-       				},
 		}).
 		when('/login', {
 			templateUrl: 	"views/loginTest.html",
