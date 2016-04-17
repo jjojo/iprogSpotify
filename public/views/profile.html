@@ -5,35 +5,39 @@
   
 
 	<div class="container-fluid">
-    <div class="row">
-		<div class="col-md-3 col-xs-12">        
-      	<h1 class="profile-title">{{userData.display_name}}</h1>
-        <img class="media-object" ng-src="{{userData.images[0].url}}">
-        <div class="info-block">
-            <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topArtists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
-        </div>
+    <div class="row profile-content">
+  		<div class="col-md-3 col-md-offset-1 col-xs-12">        
+        	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
+          <h1 ng-show="!userData.display_name">{{userData.id}}</h1>
+          <img class="media-object" ng-show="userData.images[0].url" ng-src="{{userData.images[0].url}}" alt="No image">
+          <img class="media-object" ng-show="!userData.images[0].url" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
+          
+          <div class="info-block">
+              <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topArtists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
+          </div>
 
-        <div class="info-block">
-            <dt class="info-title">Top tracks</dt>
-            <dd ng-repeat="track in topTracks">
-              <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a>
-            </dd>
-        </div>
-        <div class="info-block">
-            <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
-        </div>
+          <div class="info-block">
+              <dt class="info-title">Top tracks</dt>
+              <dd ng-repeat="track in topTracks">
+                <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} - {{track.artists[0].name}}</a>
+              </dd>
+          </div>
+          
+          <div class="info-block">
+              <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
+          </div>
+
       </div>
       
-      <div class="col-md-9">
-      	<h1 class="profile-title col-md-3">Your playlists</h1>
-	<div class="col-md-offset-4 playlist-Search">
-		<label>Search for playlist: <input ng-model="search" placeholder="My playlist"></label>
-	</div>
+      <div class="col-md-8">
+      	<h1 class="profile-title col-md-6">Your Playlists</h1>
+      	<input class="playlist-search col-md-3" ng-model="search" placeholder="Search..." autofocus>
+
 
 
       	<div class="grid col-md-12 col-xs-12">
-      		<ul>
-      		<li class="inner-grid col-md-4 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
+      		<ul class="col-xs-12 profile-playlists">
+      		<li class="inner-grid col-md-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
 
 	      		<a href="{{playlist.external_urls.spotify}}">
               <img class="top-images" ng-src="{{playlist.images[0].url}}"/>

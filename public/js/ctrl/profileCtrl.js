@@ -5,21 +5,22 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
-
 	var mpd = Model.profileData;
-	mpd.userData.then(function(res){
-		$scope.userData = res.data;
-	})
-	mpd.playlists.then(function(res){
-		$scope.playlists = res.data.items;
-	});
-	mpd.topArtists.then(function(res){
-		$scope.topArtists = res.data.items;
-	});
-	mpd.topArtists.then(function(res){
-		$scope.topTracks = res.data.items;
-	});
-
+	if (mpd.userData !== null) {
+		
+		mpd.userData.then(function(res){
+			$scope.userData = res.data;
+		})
+		mpd.playlists.then(function(res){
+			$scope.playlists = res.data.items;
+		});
+		mpd.topArtists.then(function(res){
+			$scope.topArtists = res.data.items;
+		});
+		mpd.topTracks.then(function(res){
+			$scope.topTracks = res.data.items;
+		});
+	};
 	
 	
 	$scope.checkLink = function (playlist) {

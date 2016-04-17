@@ -1,5 +1,4 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
-	console.log("model loaded")
 	
 	var self = this;
 
@@ -82,9 +81,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
-		console.log("top artist call!")
 		var deferred = $q.defer();
-		req('/me/top/artists?limit=3').then(function(response) {
+		req('/me/top/artists?limit=1').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");
