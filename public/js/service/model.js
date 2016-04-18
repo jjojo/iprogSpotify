@@ -33,10 +33,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.authenticatetion = function(){
-		if($cookies.get("voteifyUser")){
+		if($cookies.get("refresh_token")){
 			return 
 		}else{
-			$location.url("#/error");
+			$location.path("/error");
 		}
 	} 
 
@@ -58,7 +58,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 				refreshToken();
 			},(1000*60*59)); //timeout set to refresh access_token each 59 minutes.
 		}else{
-			return
+			return 
 		}
 	}
 
@@ -157,6 +157,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		self.profileData.topTracks = self.getTopTracks();
 		self.profileData.topArtists = self.getTopArtists();
 		self.profileData.playlists = self.getPlaylists();
+
 	}
 
 
