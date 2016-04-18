@@ -6,7 +6,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
 	var mpd = Model.profileData;
-	if (mpd.userData !== null) {
+	if (mpd.userData !== $scope.userData) {
 		
 		mpd.userData.then(function(res){
 			$scope.userData = res.data;
