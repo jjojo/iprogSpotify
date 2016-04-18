@@ -22,6 +22,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 			$scope.topTracks = res.data.items;
 		});
 	};
+
+	$scope.getUser = function() {
+		return Model.getUser();
+	}
 	
 	
 	$scope.checkLink = function (playlist) {
@@ -45,6 +49,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.genLink = function (playlist) {
 		// Generate link and adds data to database.
 		playlist.generating = true;
+
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
 			playlist.status = " ";
 			var data = {
@@ -57,7 +62,8 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				'playlist': response.data,
 				'shared': true,
 				'sharedBy': $scope.userData.id,
-				'image': playlist.images[0].url
+				'image': playlist.images[0].url,
+				'totalTracks': playlist.tracks.total
 			}
 		//console.log($scope.userData)
 			fbService.addPlayVoteUrl(data)

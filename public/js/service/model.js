@@ -9,6 +9,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		playlists: null
 	}
 
+
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
 		var access_token = $cookies.get("access_token");
@@ -30,6 +31,14 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 				$cookies.put("access_token", res.data.access_token);
 			});
 	}
+
+	this.authenticatetion = function(){
+		if($cookies.get("voteifyUser")){
+			return 
+		}else{
+			$location.url("#/error");
+		}
+	} 
 
 
 	this.setUserCred = function () {
