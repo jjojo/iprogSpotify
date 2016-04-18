@@ -48,11 +48,12 @@ tänk på indentering i alla divs
 								</a>
 							</li>
 							<li>
-								<p class="rate-title">Votes: {{playlist.votes}}</p>
+								
 							</li>
 						</ul>
 						<ul class="center-bar">
 							<li>
+								<p class="rate-title">Place your vote here!</p>
 								<div class="stars" ng-repeat="star in stars">
 									<img ng-show="star.hide" 
 									ng-mouseover="fillStar(star)" 
@@ -64,6 +65,7 @@ tänk på indentering i alla divs
 								</div>
 							</li>
 							<li>
+								<p class="rate-title">Votes: {{playlist.votes}}</p>
 								<p class="rate-title">Rating: {{playlist.rating}}</p>
 							</li>
 						</ul>
