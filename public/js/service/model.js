@@ -33,10 +33,12 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.authenticatetion = function(){
-		if($cookies.get("refresh_token")){
-			return 
+		var user = $cookies.get("voteifyUser");
+
+		if(!user){
+			$location.path("/error"); 
 		}else{
-			$location.path("/error");
+			return
 		}
 	} 
 
@@ -48,11 +50,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			
 			$cookies.put("access_token", tokens.access_token);
 			$cookies.put("refresh_token", tokens.refresh_token);
-			
-			self.getUserData().then(function (res) {
-				$cookies.put("voteifyUser",res.data.id)
-                self.profileData.userData = res;
-			});
+			$cookies.put("voteifyUser", tokens.user);
 			
 			$interval(function () {
 				refreshToken();
