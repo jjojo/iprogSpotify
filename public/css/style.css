@@ -115,6 +115,18 @@ BUTTONS
   width: 10vw;
   height: 3vh;
 }
+
+.btn p{
+  margin:0;
+}
+
+.btn{
+  width: 160px;
+  padding: 3px 30px;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
 /*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER
@@ -279,16 +291,38 @@ margin-right: auto;
 }
 
 .playlist-title {
-  font-family: 'Helvetica';
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
+  font-size: 1.6em;
+  line-height: 1;
+  text-align: center;
+  color: #888;
+  padding: 5px
+}
+
+.share-btn{
+  font-size: 0.9em;
+}
+
+
+.share-btn p{
+  margin: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05em;
+}
+
+.link-space{
+  height: 30px;
+  text-align: center;
+
 }
 
 
 .link-text {
-  font-family: 'Palatino Linotype';
-  font-size: 85%;
-  color: green;
-  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: #169145;
 }
 
 .grid {
@@ -591,6 +625,11 @@ border-bottom:2px ridge #1ED760;
 #loader-small{
   width:30px;
   height:30px;
+}
+
+.loading-bar{
+  margin: 0 auto;
+  display: block;
 }
 /*
 	Put all specific design above this comment
