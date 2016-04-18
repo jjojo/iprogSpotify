@@ -1,13 +1,7 @@
 <ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
 <main>
-
-  <div class="container">
-
-  <div ng-show="loading">
-    <img id="loader" src="/resources/rolling.gif" ></img>
-  </div>
   <!--he-->
-  <div ng-hide ="loading || badLink" class="container rated-list">
+  <div class="container">
 
     <h2 class="rl-h2">Your Rated Playlists</h2>  
 
@@ -21,7 +15,12 @@
         </tr>
     </table>
 
-    <div class="rated-list">
+    <div ng-show="loading">
+          <img id="loader" src="/resources/rolling.gif" ></img>
+    </div>
+
+    <div class="rated-list scrollbar" ng-hide ="loading || badLink" >
+
       <table class="rl-table col-xs-12">
  
         <tr class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:reverse">
