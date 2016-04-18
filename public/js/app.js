@@ -28,18 +28,24 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 		when('/profile', {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
+			resolve: {
+					auth: authenticatetion
+       				},
+
 		}).
 		when('/login', {
 			templateUrl: 	"views/loginTest.html",
 			controller: 	"HomeCtrl",
 		}).
-		when('/sorry', {
-			templateUrl: 	"views/sorry.html",
-			controller: 	"HeaderCtrl",
+		when('/error', {
+			templateUrl: 	"views/error.html",
 		}).
 		when('/about', {
 			templateUrl: 	"views/about.html",
 			controller: 	"HeaderCtrl",
+			resolve: {
+					auth: authenticatetion
+       				},
 		}).	
 		when('/ratedlists', {
 			templateUrl: 	"views/ratedlists.html",

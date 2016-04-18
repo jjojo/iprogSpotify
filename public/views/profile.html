@@ -1,10 +1,9 @@
-<ng-include  ng-hide="!getUser()" src="'views/header.html'" class="header-wrapper"></ng-include>
+<ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
 
 <main>
 	<!-- This is where all Html for the view goes. -->
-  <ng-include ng-show="!getUser()" src="'views/error.html'"></ng-include>
 	
-  <div ng-hide="!getUser()" class="container-fluid">
+  <div class="container-fluid">
     <div class="row profile-content">
   		<div class="col-sm-3 col-sm-offset-1 col-xs-12">        
         	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
