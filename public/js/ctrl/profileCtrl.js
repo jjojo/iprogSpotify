@@ -6,6 +6,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
 	var mpd = Model.profileData;
+	//console.log(typeof(mpd.userData))
 	if (mpd.userData !== $scope.userData) {
 		
 		mpd.userData.then(function(res){
@@ -25,22 +26,25 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
+		console.log(playlist)
 		$scope.loading = true;
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
-					playlist.shared = true
-					playlist.link = response.voteUrl
-					$scope.loading = false;
-			} catch (err) {
-					playlist.shared = false
-					$scope.loading = false;
-				}
+				playlist.shared = true
+				playlist.link = response.voteUrl
+				$scope.loading = false;
+			} catch (error) {
+				/*this would catch respones = null
+				could be solved with anif-else statement as well */
+				playlist.shared = false
+				$scope.loading = false;
+			}
 		});
 	}
 
 	$scope.genLink = function (playlist) {
 		// Generate link and adds data to database.
-		playlist.status = "Generating link...";
+		playlist.generating = true;
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
 			playlist.status = " ";
 			var data = {
@@ -56,9 +60,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				'image': playlist.images[0].url
 			}
 		//console.log($scope.userData)
-		fbService.addPlayVoteUrl(data)
-		playlist.shared = true
-		playlist.link = data.voteUrl
+			fbService.addPlayVoteUrl(data)
+			playlist.shared = true
+			playlist.link = data.voteUrl
+			playlist.generating = false;
 		});
 	}
 
