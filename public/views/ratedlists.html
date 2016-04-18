@@ -35,7 +35,7 @@
             <div>
               <p class="rating">{{list.rating}}</p>
                 <img ng-repeat="i in range(list.rating) track by $index" src="resources/spoti_star_filled.png">
-                <img class="hollow-star" ng-repeat="i in range(10-list.rating) track by $index" src="resources/spoti_star_hollow.png">
+                <img class="hollow-star" ng-repeat="i in range(5-list.rating) track by $index" src="resources/spoti_star_hollow.png">
               </div>
           </td>
           <td class="col-xs-3">

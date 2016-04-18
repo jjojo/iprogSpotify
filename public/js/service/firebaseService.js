@@ -27,7 +27,8 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	    	'playlistSongs' : data.playlist,
 	    	'shared' : data.shared,
 	    	'sharedBy' : data.sharedBy,
-	    	'image' : data.image
+	    	'image' : data.image,
+	    	'totalTracks' : data.totalTracks
 	    	});
 	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
 	}
