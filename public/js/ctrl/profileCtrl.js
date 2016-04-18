@@ -30,7 +30,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
-		console.log(playlist)
 		$scope.loading = true;
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
