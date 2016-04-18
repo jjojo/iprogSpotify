@@ -8,6 +8,10 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
         return Model.init();
     };
 
+    var authenticatetion = function (Model) {
+    	return Model.authenticatetion();
+    }
+
 	$routeProvider.
 		when('/', {
 			templateUrl: 	"views/home.html",
@@ -17,7 +21,8 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 			resolve: {
-           			init: initData
+           			init: initData, 
+           			auth: authenticatetion
        				},
 		}).
 		when('/profile', {
@@ -39,6 +44,9 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 		when('/ratedlists', {
 			templateUrl: 	"views/ratedlists.html",
 			controller: 	"RatedlistsCtrl",
+			resolve: {
+					auth: authenticatetion
+       				},
 		}).
 		when('/vote/:playlistId', {
 			templateUrl: 	"views/voteing.html",

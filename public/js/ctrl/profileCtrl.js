@@ -21,6 +21,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 			$scope.topTracks = res.data.items;
 		});
 	};
+
+	$scope.getUser = function() {
+		return Model.getUser();
+	}
 	
 	
 	$scope.checkLink = function (playlist) {
