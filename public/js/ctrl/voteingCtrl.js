@@ -16,16 +16,16 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		hide : true},
 		{value: 5,
 		hide : true},
-		{value: 6,
-		hide : true},
-		{value: 7,
-		hide : true},
-		{value: 8,
-		hide : true},
-		{value: 9,
-		hide : true},
-		{value: 10,
-		hide : true}	
+		// {value: 6,
+		// hide : true},
+		// {value: 7,
+		// hide : true},
+		// {value: 8,
+		// hide : true},
+		// {value: 9,
+		// hide : true},
+		// {value: 10,
+		// hide : true}	
 	]
 
 	$scope.getPlaylistData = function () {
@@ -35,10 +35,11 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 			//sets all scope variables from response
 			if (response) {
 				$scope.playlist = response
+				$scope.image = response.image
+				$scope.totalTracks = response.totalTracks
 				$scope.owner = response.owner
 				$scope.title = response.name
 				$scope.spotLink = response.spotifyUrl
-				console.log(response.playlistSongs.items)
 				$scope.playlistSongs = response.playlistSongs.items	
 				$scope.loading = false;
 			} else {

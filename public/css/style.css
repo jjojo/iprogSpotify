@@ -35,7 +35,6 @@ COLORS
 header {
   float: left;
   width: 100%;
-  min-width: 550px;
   margin-top: 1%;
 }
 
@@ -315,10 +314,6 @@ margin-right: auto;
 /*---------*/
 /* Ratedlists (RL) */
 
-audio{
-  margin-left: 20%;
-}
-
 .rated-list{
   height: 60vh;
   width: 100%;
@@ -405,21 +400,36 @@ align-items: center;
 list-style: none;
 padding: 0;
 margin: 0;
+font-family: 'Montserrat';
+color: green;
+}
+
+.center-bar {
+list-style: none;
+padding: 0;
+margin: 0;
 display: flex;
 justify-content: space-between;
 font-family: 'Montserrat';
-overflow: hidden;
 color: green;
 }
 
 .track-position{
-  width: 50%;
   padding:2%;
 }
 
 .not-preview{
-  margin-left: -20%;
+  color: #434343;  
   font-size: 90%;
+}
+
+.playlist-info {
+  float: right;
+}
+
+.playlist-image {
+  width: 60%;
+  border-radius: 3%;
 }
 
 .line{
@@ -496,14 +506,13 @@ border-bottom:2px ridge #1ED760;
 
 .pl-songs{
   width: 100%;
-  height: 50vh;
+  height: 55vh;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
 
 .scrollbar::-webkit-scrollbar-track
 {
-
   border-radius: 10px;
   border: none;
   background-color: #D2D1D6;
@@ -520,6 +529,10 @@ border-bottom:2px ridge #1ED760;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #169145;
+}
+
+.bad-link {
+  text-align: center;
 }
 
 .playlist-search{
