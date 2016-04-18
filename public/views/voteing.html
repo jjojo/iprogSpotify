@@ -8,8 +8,6 @@ tänk på indentering i alla divs
  -->
 <div ng-include="'views/voteHeader.html'"></div>
 
-<!--Loading page-->
-
 <!--Voting page-->
 <div ng-init="getPlaylistData()"  class="container-fluid">
 	<div class="container">
@@ -32,14 +30,18 @@ tänk på indentering i alla divs
 		<div class="row">
 			<div class="playlist-info col-md-3 col-xs-12" ng-hide="loading || badLink">
 				<h3>Playlist info</h1>
-				<img class="playlist-image" src="{{image}}">
+				<a href="{{spotLink}}"><img class="playlist-image" src="{{image}}"></a>
 				<p><a class="rate_title" href="{{spotLink}}">{{title}}</a></p>
 				<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
 				<h4>Playlist owner:</h4> <p>{{owner}}</p>
 			</div>
 			<div class="col-md-9 col-xs-12">
 				<div class="playlist">
-					<h2 class="rate_title" ng-show="loading">The playlist is now loading...</h2>
+					<!--Loading page-->
+					<div class="loader">
+						<h2 class="rate_title" ng-show="loading">The playlist is now loading</h2>
+						<img ng-show="loading" src="/resources/loading-bar.gif">
+					</div>
 					<div class="vote-top col-xs-12" ng-hide="loading || badLink" ng-mouseleave="hollowStars()">
 						<ul class="center-bar">
 							<li>
@@ -71,9 +73,6 @@ tänk på indentering i alla divs
 						</ul>
 					</div>	
 					<div class="pl-songs scrollbar" ng-hide="badLink">
-						<div ng-show="loading">
-                			<img id="loader" src="/resources/rolling.gif">
-                		</div>	
 						<div>
 							<!-- ng-repeat låtar-->
 							<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
@@ -86,7 +85,7 @@ tänk på indentering i alla divs
 									<audio ng-src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
 								</div>
 								<div class="track-position not-preview col-xs-12 col-md-6" ng-show="preview">
-									Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here</a>
+									Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here!</a>
 								</div>
 							</div>						
 						</div>

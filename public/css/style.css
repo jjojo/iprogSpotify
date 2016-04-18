@@ -622,6 +622,11 @@ border-bottom:2px ridge #1ED760;
   margin-left:45%;
   margin-top:15%;
 }
+
+.loader{
+  display: inline;
+}
+
 #loader-small{
   width:30px;
   height:30px;
