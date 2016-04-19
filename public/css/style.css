@@ -110,6 +110,36 @@ footer p {
 /*
 BUTTONS
 */
+.sign-in-btn{
+  margin: 5%;
+  color: #fff;
+  background: none;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.sign-in-btn:hover{
+
+  background-color: rgba(255,255,255,0.3);
+
+}
+/*-------------------------------------------------startpage start------------------------------------*/
+
+startpage{
+  min-height: 100vh;
+  position: absolute;
+  background-image: url('../resources/croud_dark.jpg');
+}
+
+.logo{
+  width: 20%;
+  min-width: 200px;
+  display: block;
+  margin: 1% auto 3% auto;
+}
+
+
 /*-------------------------------------------------profileView button start------------------------------------*/
 #put-up-vote {
   width: 10vw;
@@ -155,10 +185,10 @@ LOADER
 }
 .bread {
   text-align: justify;
-  color: #000;
+  color: #fff;
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
-  width: 70%;
+  width: 50%;
   padding: 1.8%;
   font-size:17px;
   margin-left: auto;
@@ -170,7 +200,7 @@ LOADER
   color: #000;
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
-  width: 70%;
+  width: 50%;
   padding: 1.8%;
   font-size:17px;
   margin-left: auto;
@@ -182,19 +212,12 @@ LOADER
 }
 
 .date { 
-background: #1ED760; 
-color: black;
-display: inline-block; 
-font-family: 'Lato', sans-serif; 
-font-size: 16px; 
-font-weight: bold; 
-line-height: 14px; 
-letter-spacing: 1px; 
-margin-top:3%; 
-padding: 10px 15px 8px; 
-text-transform: uppercase;
-display:block-inline;
-position:fixed;
+    margin: 20px;
+    margin-bottom: 0px;
+    color: white;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
 
 }
 
@@ -202,25 +225,31 @@ position:fixed;
 margin-top:3%;
 font-size:40px; 
 color:#000000;
-font-family:Racing Sans One;
+font-family: 'Montserrat', sans-serif;
 letter-spacing: 2px;
 text-align: center;
 }
 
 .login-info{
-font-size:30px;
-width: 45vw;
-color:#000000;
-font-family:Racing Sans One;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+  font-size: 30px;
+  width: 50%;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  height: 100%;
+  display: block;
+  margin: 20px 26%;
 }
 
+.login-info h1{
+  font-size: 2em;
+}
 u{
 text-decoration:none;
 box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
 }
+
+
 
 .center {
 float: none;
@@ -228,12 +257,6 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.center-image {
-width:350px;
-display: block;
-margin-left: auto;
-margin-right: auto;
-}
 
 .login-button {
 display: block;
@@ -242,13 +265,10 @@ margin-right: auto;
 }
 
 .line-separator{
-height:1px;
-width:65%;
-margin-top:1%;
-background: #717171;
-border-bottom:2px ridge #1ED760;
-margin-left: auto;
-margin-right: auto;
+  height: 1px;
+  width: 50%;
+  border-bottom: 2px solid #fff;
+  margin: 0% auto 3% auto;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
