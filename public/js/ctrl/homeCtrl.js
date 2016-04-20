@@ -23,17 +23,6 @@ $scope.getDate = function(){
 $scope.login = function (argument) {
 	// body...
 
-	$resource('/user/:userId', {userId:'@id'}, {
-    'customActionName':    {
-        url:'/user/someURI'
-        method:'GET',
-        params: {
-            param1: '....',
-            param2: '....',
-        }
-    },
-     ....
-});
 }
 
 $scope.clearCookies = function () {
