@@ -146,8 +146,8 @@ BUTTONS
     display: block;
     left: 50%;
     z-index: 2;
-    transform: translateX(-50%);
-    margin-top: 2%;
+    transform: translate(-50%,-50%);
+    top: 50%;
     position: absolute;
 }
 
