@@ -1,7 +1,6 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
-
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
@@ -27,6 +26,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		return Model.getUser();
 	}
 	
+
 	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
