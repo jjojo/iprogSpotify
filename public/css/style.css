@@ -375,7 +375,7 @@ margin-right: auto;
 /* Ratedlists (RL) */
 
 .rated-list{
-  height: 55vh;
+  height: 60vh;
   width: 100%;
   overflow-y: auto;
 }

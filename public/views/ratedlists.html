@@ -19,8 +19,18 @@
           <img id="loader" src="/resources/loading-bar.gif" ></img>
     </div>
 
-    <div class="rated-list scrollbar" ng-hide ="loading || badLink" >
-      <table ng-hide="userRatingList" class="rl-table col-xs-12">
+    <div class="rated-list scrollbar" ng-show="!loading">
+         <div class="bread" ng-show="empty">
+          <h1 class="login-title">
+            Oooops, you don't have any music up for vote! <br>
+            Go ahead and publish some playlists from your 
+            <a href="#/profile/{{access_token}}" ng-style="active('profile')">
+              profile!
+            </a>
+          </h1>
+        </div>
+
+      <table ng-hide="empty" class="rl-table col-xs-12">
         <tr class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:reverse">
           <td class="col-xs-3">
             <img class="ratedPic" ng-src="{{list.image}}">
@@ -40,22 +50,8 @@
             <p>{{list.votes}}</p>
           </td>
         </tr>
-        
       </table>
-
-       <div class="bread" ng-show="userRatingList">
-        <h1 class="login-title">
-          Oooops, you don't have any music up for vote! <br>
-          Go ahead and publish some playlists from your 
-            <a href="#/profile/{{access_token}}" ng-style="active('profile')">
-              profile!
-            </a>
-          </h1>
-      </div>
-
     </div>
   </div>
-
 </main>
-
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
