@@ -4,18 +4,18 @@
     </a>
 
     <a href="#/profile" ng-style="active('/profile')">
-      Profile
+      Profile <span class="glyphicon glyphicon-user"></span>
     </a>
 
     <a href="#/ratedlists" ng-style="active('/ratedlists')">
-      My Rated Lists
+      My Rated Lists <span class="glyphicon glyphicon-tasks"></span>
     </a>
 
     <a href="#/about" ng-style="active('/about')">
-      About
+      About <span class="glyphicon glyphicon-info-sign"></span>
     </a>
 
-    <a href="/logout" ng-click="signOut()">
-     Sign out
+    <a href="/logout" ng-style="active('')" ng-click="signOut()">
+     Sign out <span class="glyphicon glyphicon-log-out"></span>
     </a>
 </header>
