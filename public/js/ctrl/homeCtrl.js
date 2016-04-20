@@ -1,4 +1,4 @@
-spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies) {
+spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies, $resource) {
 	
 console.log("HomeCtrl loaded")
 
@@ -20,6 +20,21 @@ $scope.getDate = function(){
 	return datestring;
 }
 
+$scope.login = function (argument) {
+	// body...
+
+	$resource('/user/:userId', {userId:'@id'}, {
+    'customActionName':    {
+        url:'/user/someURI'
+        method:'GET',
+        params: {
+            param1: '....',
+            param2: '....',
+        }
+    },
+     ....
+});
+}
 
 $scope.clearCookies = function () {
 	// clears cookies if any from previous sessions

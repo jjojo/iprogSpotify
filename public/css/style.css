@@ -62,7 +62,7 @@ header a {
 header a:hover{
 
   text-decoration: none;
-  color: green;
+  color: #169145;
 
 }
 
@@ -112,39 +112,42 @@ BUTTONS
 */
 .sign-in-btn{
   margin: 5%;
-  color: #000;
+  color: #169145;
   background: none;
-  border: 2px solid #000;
+  border: 2px solid #169145;
   border-radius: 30px;
   padding: 5px 20px;
 }
 
 .sign-in-btn:hover{
-
   color: #169145;
-
-
+  background-color: rgba(170, 170, 170, 0.2);
 }
 /*-------------------------------------------------startpage start------------------------------------*/
 
-startpage{
-
-
-}
-
-.mic{
-  margin: 0px -15px;
+.startpage{
   padding: 0;
 }
-.mic img{
-  width: 100%;
+
+.hero-img{
+  padding: 0;
+  margin:0;
+}
+
+.hero-img-header{
+    width: 100%;
+    max-height: 50vh;
 }
 
 .logo{
-  width: 25%;
-  min-width: 200px;
-  display: block;
-  margin: 1% 50% 3% auto;
+    width: 25%;
+    min-width: 200px;
+    display: block;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    margin-top: 2%;
+    position: absolute;
 }
 
 
@@ -193,12 +196,8 @@ LOADER
 }
 .bread {
   text-align: justify;
-  color: #aaa;
-  width: 42%;
-  padding: 1.8%;
-  font-size: 17px;
-  margin-left: 17%;
-  margin-right: auto;
+    color: #aaa;
+    font-size: 17px;
 }
 
 .bread-center {
@@ -227,6 +226,10 @@ LOADER
 
 }
 
+.login{
+  margin: 0;
+}
+
 .login-title{
 margin-top:3%;
 font-size:40px; 
@@ -237,14 +240,9 @@ text-align: center;
 }
 
 .login-info{
-  font-size: 30px;
-  width: 50%;
-  color: #000;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  height: 100%;
-  display: block;
-  margin: 20px 14%;
+      font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .login-info h1{
@@ -272,9 +270,9 @@ margin-right: auto;
 
 .line-separator{
   height: 1px;
-  width: 40%;
-  border-bottom: 2px solid green;
-  margin: 0% 42% 0% auto;
+  width: 110%;
+  border-bottom: 2px solid #169145;
+  margin-left: -15px;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -424,7 +422,7 @@ margin-right: auto;
 
 .rl-table a:hover{
   text-decoration: none;
-  color: green;
+  color: #169145;
   cursor: pointer;
 }
 
@@ -467,7 +465,7 @@ list-style: none;
 padding: 0;
 margin: 0;
 font-family: 'Montserrat';
-color: green;
+color: #169145;
 }
 
 .center-bar {
@@ -477,7 +475,7 @@ margin: 0;
 display: flex;
 justify-content: space-between;
 font-family: 'Montserrat';
-color: green;
+color: #169145;
 }
 
 .track-position{
@@ -505,7 +503,7 @@ border-bottom:1px solid #000;
 }
 .rate_title{
 font-size:22px;
-color: green;
+color: #169145;
 }
 .rate_star{
 font-size:22px;
@@ -542,7 +540,7 @@ margin-bottom:1%;
 
 .rl-table-line:hover{
   background-color: black;
-  color: green;
+  color: #169145;
 }
 
 .suggest_title{

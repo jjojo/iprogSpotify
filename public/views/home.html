@@ -1,21 +1,23 @@
 <main>
 
 	<!-- This is where all Html for the view goes. -->
-	<startpage class="col-xs-12">
-		<p class="date">{{getDate()}}</p>
+	<div class="startpage col-xs-12">
+		<hero class="hero-img col-xs-12">
+			<img class=" logo center-block" src="../resources/voteify_white.png">
+			<img class=" hero-img-header" src="../resources/header.png">
+
+		</hero>
+		
 		<!--<form class="loginbt" action="/auth/openid" method="post">
 			<input class="steamimg" name="submit" type="image" src="http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_border.png">
 		</form>-->
-		<div class="col-xs-4 mic">
-		<img src="../resources/vote-mic.png">
-		</div>
-
-		<div class="col-xs-8">
-	 		<img class="logo" src="../resources/voteify.png">
+		<!-- <p class="date">{{getDate()}}</p> -->
+		<div class="col-xs-12 login">
+	 		
 			
 			<div class="line-separator"></div>
 
-			<div class="login-info">
+			<div class=" col-xs-12 login-info">
 				<h1>Welcome!</h1>
 				<h2>Sign in to put up your playlists for voteing</h2>
 				<a href="/login" ng-click="clearCookies()">
@@ -27,10 +29,10 @@
 			
 			<div class="line-separator"></div>
 			
-			<div class="bread">
+			<div class="col-xs-6 col-xs-offset-3 bread">
 				<span>Hey there, we are glad you found us! Go ahead and start sharing your playlists with family and friends, so they can express their appreciation of your taste in music. You could also get your customers or guests to express their feelings about your playlist, just by sharing your link!<br><br>We do not work for Spotify, this site is brought thanks to the Spotify web API.
 				</span>
 			</div>
 		</div>
-	</startpage>
+	</div>
 </main>
