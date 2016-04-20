@@ -30,11 +30,14 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 				}
 				else{
 					$scope.loading = false;
-				}
-				
+				}	
 			}
-			//console.log(user_lists);
 			$scope.loading = false;
+			if (user_lists.length === 0) {
+				$scope.empty = true;
+			} else {
+				$scope.empty = false;
+			}
 			$scope.userRatingList = user_lists;
 		})
 	}

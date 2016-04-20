@@ -662,6 +662,12 @@ border-bottom:2px ridge #1ED760;
   margin: 0 auto;
   display: block;
 }
+/*Top artsist, top tracks*/
+.ta-btn{
+  background: #169145;
+  color: white;
+  display: inline;
+}
 /*
 	Put all specific design above this comment
 */

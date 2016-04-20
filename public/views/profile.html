@@ -9,10 +9,15 @@
         	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
           <h1 ng-show="!userData.display_name">{{userData.id}}</h1>
           <img class="media-object" ng-show="userData.images[0].url" ng-src="{{userData.images[0].url}}" alt="No image">
-          <img class="media-object" ng-show="!userData.images[0].url" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
+          <img class="media-object" ng-show="!userData.images[0].url && !loading" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
           
           <div class="info-block">
-              <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topArtists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
+              <dt class="info-title">Top artists<button class="btn ta-btn" type="button">See more</button></dt>
+
+
+              <dd  ng-repeat="artist in topArtists">
+              <a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
+              </dd>
           </div>
 
           <div class="info-block">
@@ -30,7 +35,7 @@
       
       <div class="col-sm-8">
       	<h1 class="profile-title col-sm-6">Your Playlists</h1>
-      	<input class="playlist-search col-sm-3" ng-model="search" placeholder="Search..." autofocus>
+      	<input class="playlist-search col-sm-3" ng-model="search.name" placeholder="Search..." autofocus>
 
 
 
