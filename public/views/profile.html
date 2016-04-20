@@ -9,7 +9,7 @@
         	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
           <h1 ng-show="!userData.display_name">{{userData.id}}</h1>
           <img class="media-object" ng-show="userData.images[0].url" ng-src="{{userData.images[0].url}}" alt="No image">
-          <img class="media-object" ng-show="!userData.images[0].url" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
+          <img class="media-object" ng-show="!userData.images[0].url && !loading" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
           
           <div class="info-block">
               <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topArtists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
