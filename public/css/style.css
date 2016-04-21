@@ -30,6 +30,16 @@ COLORS
   }
 }
 
+@media (max-width: 650px){
+  .rating-stars {
+    display: none;
+  }
+
+  .cover-img {
+    display: none;
+  }
+}
+
 /*
 	Put all general design below this comment
 */
