@@ -21,6 +21,16 @@ COLORS
   .header-text{
     display: none;
   }
+  .playlist-image {
+    max-width:30%;
+  }
+  .checkoutButton{
+    max-width: 28%;
+    margin-bottom: 1%;
+
+
+  }
+
 }
 /*
 	Put all general design below this comment
@@ -667,6 +677,22 @@ border-bottom:2px ridge #1ED760;
 .loading-bar{
   margin: 0 auto;
   display: block;
+}
+.welcome-tag{
+  margin-bottom:1%;
+}
+.checkoutButton{
+  width:80%;
+  height:70%;
+  font-size:20px;
+
+}
+.checkoutButton a{
+  color:black;
+}
+.checkoutButton a:hover{
+  color:black;
+  text-decoration: none;
 }
 
 /*
