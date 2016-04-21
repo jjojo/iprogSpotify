@@ -12,8 +12,7 @@
           <img class="media-object" ng-show="!userData.images[0].url && !loading" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
           
           <div class="info-block">
-              <dt class="info-title">Top artists<button class="btn ta-btn" type="button">See more</button></dt>
-
+              <dt class="info-title">Top artists</dt>
 
               <dd  ng-repeat="artist in topArtists">
               <a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
