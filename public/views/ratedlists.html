@@ -5,20 +5,23 @@
 
     <h2 class="rl-h2">Your Rated Playlists</h2>  
 
-    <table ng-hide="userRatingList || loading" class="rl-table col-xs-12">
+    <table ng-show="userRatingList || loading" class="rl-table col-xs-12">
         <tr>
           <th>Playlist avatar</th>
         	<th class="col-xs-3" ng-repeat="head in tableHeads">
-          <a ng-click="order(head.toLowerCase())">{{head}}</a>
-          <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}"></span>
+            <a ng-click="order(head.toLowerCase())">{{head}}</a>
+            <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}">
+            </span>
           </th>
         </tr>
     </table>
 
-    <div ng-show="loading">
-          <img id="loader" src="/resources/loading-bar.gif" ></img>
-    </div>
 
+    <img class="center-block"
+    ng-show="loading" 
+    src="/resources/loading-bar.gif">
+    </img>
+    
     <div class="rated-list scrollbar" ng-show="!loading">
          <div class="bread" ng-show="empty">
           <h1 class="login-title">
