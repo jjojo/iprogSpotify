@@ -16,6 +16,12 @@ src: url('Proffesional Edition.TTF') format('embedded-opentype');
 COLORS
 */
 
+/*SMALL SCREENS*/
+@media (max-width: 880px){
+  .header-text{
+    display: none;
+  }
+}
 /*
 	Put all general design below this comment
 */
@@ -35,13 +41,18 @@ COLORS
 header {
   float: left;
   width: 100%;
-  min-width: 550px;
   margin-top: 1%;
 }
 
 header img {
   width: 100px;
   margin-left: 1%;
+}
+
+header p{
+  font-size: 25px;
+  display: inline-block;
+  margin-left: 2%;
 }
 
 header a {
@@ -57,11 +68,20 @@ header a {
 header a:hover{
 
   text-decoration: none;
-  color: green;
+  color: #169145;
 
 }
 
-main {
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+a{
+  color: #169145;
+}
+
+main{
 /*
 		This is where all the content shoud go
 	*/
@@ -96,11 +116,65 @@ footer p {
 /*
 BUTTONS
 */
+.sign-in-btn{
+  margin: 4%;
+  color: #169145;
+  background: none;
+  border: 2px solid #169145;
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.sign-in-btn:hover{
+  color: #169145;
+  background-color: rgba(170, 170, 170, 0.2);
+}
+/*-------------------------------------------------startpage start------------------------------------*/
+
+.startpage{
+  padding: 0;
+}
+
+.hero-img{
+  padding: 0;
+  margin:0;
+}
+
+.hero-img-header{
+    width: 100%;
+    min-height: 350px;
+    max-height: 50vh;
+}
+
+.logo{
+    width: 25%;
+    min-width: 200px;
+    display: block;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    position: absolute;
+}
+
+
 /*-------------------------------------------------profileView button start------------------------------------*/
 #put-up-vote {
   width: 10vw;
   height: 3vh;
 }
+
+.btn p{
+  margin:0;
+}
+
+.btn{
+  width: 160px;
+  padding: 3px 30px;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
 /*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER
@@ -112,12 +186,6 @@ LOADER
 	Put all specific design below this comment
 */
 
-
-.profile-title {
-  color: rgba(0,0,0,0.7);
-  font-family: fnt-theme;
-  letter-spacing: 2px;
-}
 
 .search-window {
   padding-left: 5vw;
@@ -135,14 +203,8 @@ LOADER
 }
 .bread {
   text-align: justify;
-  color: #000;
-  font-family:Armata;
-  border-radius: 15px 50px 30px 5px;
-  width: 70%;
-  padding: 1.8%;
-  font-size:17px;
-  margin-left: auto;
-  margin-right: auto;
+    color: #aaa;
+    font-size: 17px;
 }
 
 .bread-center {
@@ -150,7 +212,7 @@ LOADER
   color: #000;
   font-family:Armata;
   border-radius: 15px 50px 30px 5px;
-  width: 70%;
+  width: 50%;
   padding: 1.8%;
   font-size:17px;
   margin-left: auto;
@@ -162,45 +224,44 @@ LOADER
 }
 
 .date { 
-background: #1ED760; 
-color: black;
-display: inline-block; 
-font-family: 'Lato', sans-serif; 
-font-size: 16px; 
-font-weight: bold; 
-line-height: 14px; 
-letter-spacing: 1px; 
-margin-top:3%; 
-padding: 10px 15px 8px; 
-text-transform: uppercase;
-display:block-inline;
-position:fixed;
+    margin: 20px;
+    margin-bottom: 0px;
+    color: white;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
 
+}
+
+.login{
+  margin: 0;
 }
 
 .login-title{
 margin-top:3%;
 font-size:40px; 
 color:#000000;
-font-family:Racing Sans One;
+font-family: 'Montserrat', sans-serif;
 letter-spacing: 2px;
 text-align: center;
 }
 
 .login-info{
-font-size:30px;
-width: 45vw;
-color:#000000;
-font-family:Racing Sans One;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+  margin-top: 2%;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
+.login-info h1{
+  font-size: 2em;
+}
 u{
 text-decoration:none;
 box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
 }
+
+
 
 .center {
 float: none;
@@ -208,12 +269,6 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.center-image {
-width:350px;
-display: block;
-margin-left: auto;
-margin-right: auto;
-}
 
 .login-button {
 display: block;
@@ -222,13 +277,10 @@ margin-right: auto;
 }
 
 .line-separator{
-height:1px;
-width:65%;
-margin-top:1%;
-background: #717171;
-border-bottom:2px ridge #1ED760;
-margin-left: auto;
-margin-right: auto;
+  height: 1px;
+  width: 110%;
+  border-bottom: 2px solid #169145;
+  margin-left: -15px;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -236,54 +288,94 @@ margin-right: auto;
   display: flex;
   align-items: center;
 }
+.profile-playlists{
+  margin-top: 3%;
+}
+.profile-title{
+  font-size: 3.5em;
+}
+
+.profile-content{
+  margin: 50px -15px 0px -15px;
+}
 
 .info-block {
-  margin-bottom: 2vh;
+  margin:0;
+}
+.info-block dd{
+  margin: 5px 0px;
 }
 
 .info-title {
-  font-family: 'Helvetica';
-  padding-bottom: 0.5vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  color: #666;
+  margin: 30px 0px 5px 0px;
+}
+
+.info-block a{
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  letter-spacing: 0.2px;
+  color: #169145;
 }
 
 .playlist-title {
-  font-family: 'Helvetica';
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
+  font-size: 1.6em;
+  line-height: 1;
+  text-align: center;
+  color: #888;
+  padding: 5px
 }
 
-.info-text {
-  font-family: 'Palatino Linotype';
-  color: green;
-  margin: 0;
+.share-btn{
+  font-size: 0.9em;
 }
+
+
+.share-btn p{
+  margin: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05em;
+}
+
+.link-space{
+  height: 30px;
+  text-align: center;
+
+}
+
 
 .link-text {
-  font-family: 'Palatino Linotype';
-  font-size: 85%;
-  color: green;
-  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: #169145;
 }
 
 .grid {
-  margin-left: -4vw;
+  margin-left: -1%;
 }
 
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  padding: 0 2vw 2vh 0;
-  height: 65vh;
-  overflow-wrap: break-word;
+  margin-right: 4%;
+  height: 380px;
+  overflow: hidden;
 }
 
+
 .media-object {
-  width: 74%;
-  border-radius: 3px;
+  width: 60%;
 }
 
 .top-images {
-  width: 80%;
-  border-radius: 3px;
+  width: 100%;
 }
 
 /*-------------------------------------------------profileView slut------------------------------------*/
@@ -293,6 +385,12 @@ margin-right: auto;
 
 /*---------*/
 /* Ratedlists (RL) */
+
+.rated-list{
+  height: 60vh;
+  width: 100%;
+  overflow-y: auto;
+}
 
 .rl-h2{
   text-align: center;
@@ -315,10 +413,25 @@ margin-right: auto;
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   color: #169145;
   text-align: center;
   margin-top: 4%
+}
+
+.rl-table a{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  width: 100%;
+  text-decoration: none;
+  color: #169145;
+}
+
+.rl-table a:hover{
+  text-decoration: none;
+  color: #169145;
+  cursor: pointer;
 }
 
 .rl-table th{
@@ -332,19 +445,21 @@ margin-right: auto;
 
 .rl-table td p{
   margin: -50px 0px -7px 0px;
-  font-size: 40px;
+  font-size: 30px;
   color: #777;
 }
 
 .rl-row{
   width: 100%;
+  overflow-x:hidden; 
 }
 
 .welcome-vote{
 margin-top:2%;
 font-size:40px; 
 color:#000000;
-font-family:Racing Sans One;
+font-family:'Montserrat', sans-serif;
+font-weight: 700;
 letter-spacing: 2px;
 }
 
@@ -357,16 +472,36 @@ align-items: center;
 list-style: none;
 padding: 0;
 margin: 0;
-display: flex;
-justify-content: space-between;
-font-family: 'Palatino Linotype';
-font-size: 85%;
-color: green;
+font-family: 'Montserrat';
+color: #169145;
 }
 
-audio {
-background-color: green;
-border-radius: 8%;
+.center-bar {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+justify-content: space-between;
+font-family: 'Montserrat';
+color: #169145;
+}
+
+.track-position{
+  padding:2%;
+}
+
+.not-preview{
+  color: #434343;  
+  font-size: 90%;
+}
+
+.playlist-info {
+  float: right;
+}
+
+.playlist-image {
+  width: 60%;
+  border-radius: 3%;
 }
 
 .line{
@@ -376,7 +511,7 @@ border-bottom:1px solid #000;
 }
 .rate_title{
 font-size:22px;
-color: green;
+color: #169145;
 }
 .rate_star{
 font-size:22px;
@@ -404,7 +539,7 @@ font-size:22px;
 margin-top:2%;
 font-size:16px;
 margin-bottom:1%;
-
+}
 
 .rl-table-line{
   border-top: solid 2px #1ED760;
@@ -413,9 +548,7 @@ margin-bottom:1%;
 
 .rl-table-line:hover{
   background-color: black;
-  color: green;
-}
-
+  color: #169145;
 }
 
 .suggest_title{
@@ -442,18 +575,67 @@ stroke-width:"6";
 .vote-top{
 border-bottom:2px ridge #1ED760;
 }
-.playlist-Search{
-margin-top:3%;
-margin-bottom:1%;
 
+.pl-songs{
+  width: 100%;
+  height: 55vh;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+}
+
+.scrollbar::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  border: none;
+  background-color: #D2D1D6;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #169145;
+}
+
+.bad-link {
+  text-align: center;
+}
+
+.playlist-search{
+  margin-top: 30px;
+  border-radius: 20px;
+  height: 40px;
+  border: none;
+  color: #169145;
+  background-color: #f9f9f9;
+
+}
+
+.playlist-search[placeholder]{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    opacity: 0.8;
+    float: left;
+    margin-left: 8%;
+    width: 21%;
+}
+
+.playlist-search:focus{
+  outline: none;
 }
 /*
 /*ratedlist*/
 .ratedPic {
   margin-top: 15%;
   margin-bottom: 15%;
-  height: 200px;
-  width: 200px;
+  height: 120px;
+  width: 120px;
 }
 
 .sorry-img {
@@ -465,6 +647,28 @@ margin-bottom:1%;
 #sorry img {
   display: none;
 }
+
+#loader{
+  width:128px;
+  height:128px;
+  margin-left:45%;
+  margin-top:15%;
+}
+
+.loader{
+  display: inline;
+}
+
+#loader-small{
+  width:30px;
+  height:30px;
+}
+
+.loading-bar{
+  margin: 0 auto;
+  display: block;
+}
+
 /*
 	Put all specific design above this comment
 */

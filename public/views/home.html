@@ -1,31 +1,36 @@
 <main>
+
 	<!-- This is where all Html for the view goes. -->
-	<div>
-		<div> 
-		<p class="date">{{getDate()}}</p>
+	<div class="startpage col-xs-12">
+		<hero class="hero-img col-xs-12">
+			<img class=" logo center-block" src="../resources/voteify_white.png">
+			<img class=" hero-img-header" src="../resources/header.png">
+
+		</hero>
 		
 		<!--<form class="loginbt" action="/auth/openid" method="post">
 			<input class="steamimg" name="submit" type="image" src="http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_border.png">
 		</form>-->
-			<div class="center">
-				<div>
-						<p class="login-title"></p>
-		 				<img class="center-image" src="../resources/logo.png">
-		 		</div>
-				<div class="line-separator"></div>
-				<div class="center">
-					<div class="center">
-						<h1 class="login-info">Sign in with your Spotify account to put your playlists up for vote!</h1>
-						<a href="/login">
-							<img class="login-button" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBBHMjnHIT9LY_K7VNJ39ZnvRoLkzALgTLW4GO5246KrT1aY8e">
-						</a>
-					</div>
-				</div>
-				<div class="line-separator"></div>
-				<div class="bread">
-					<span>Hey there, we are glad you found us! Go ahead and start sharing your playlists with family and friends, so they can express their appreciation of your taste in music. You could also get your customers or guests to express their feelings about your playlist, just by sharing your link!<br><br>We do not work for Spotify, this site is brought thanks to the Spotify web API.
-					</span>
-				</div>
+		<!-- <p class="date">{{getDate()}}</p> -->
+		<div class="col-xs-12 login">
+	 		
+			<div class="line-separator"></div>
+
+			<div class=" col-xs-12 login-info">
+				<h1>Welcome!</h1>
+				<h2>Sign in to put up your playlists for voteing</h2>
+				<a href="/login" ng-click="clearCookies()">
+					<button class="sign-in-btn">
+						Sign in with Spotify
+					</button>
+				</a>
+			</div>
+			
+			<div class="line-separator"></div>
+			
+			<div class="col-xs-6 col-xs-offset-3 bread">
+				<span>Hey there, we are glad you found us! Go ahead and start sharing your playlists with family and friends, so they can express their appreciation of your taste in music. You could also get your customers or guests to express their feelings about your playlist, just by sharing your link!<br><br>We do not work for Spotify, this site is brought thanks to the Spotify web API.
+				</span>
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,5 @@
 
+
 <!-- alla views ska vara wrappade i en <main> tag!
 tänk på indentering i alla divs
 			<div>
@@ -7,13 +8,8 @@ tänk på indentering i alla divs
  -->
 <div ng-include="'views/voteHeader.html'"></div>
 
-<!--Loading page-->
-<div ng-show="loading">
-	<img src="https://animationfascination.files.wordpress.com/2014/05/spotify-logo-1024x640.png"></img>
-</div>
-
 <!--Voting page-->
-<div ng-init="getPlaylistData()" ng-hide ="loading || badLink" class="container-fluid">
+<div ng-init="getPlaylistData()"  class="container-fluid">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1">
@@ -22,28 +18,48 @@ tänk på indentering i alla divs
 				</p>
 			</div>
 			<div class="col-xs-10 col-xs-offset-1">
-				<span>Go ahead and check out the playlist below. You can even get a free taste of the tracks. Do you like them? Hate them? Make sure to let everyone know how you feel by rating the playlist. 
+				<p>Go ahead and check out the playlist below. You can even get a free taste of the tracks. Do you like them? Hate them? Make sure to let everyone know how you feel by rating the playlist. 
 				<br>
 				And no need to worry, we won't store any information about your evil opinions and sell them later on. We simply believe in every beings freedom of expression. Want to know more? <a class="info-text" href="#/" ng-style="active('home')">Check us out!</a>
 				<br><br>
-				</span>
+				</p>
 			</div>
 		</div>
+	</div>
 	<div class="center container">
 		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1">
-					<div class="playlist col-xs-12">
-						<div  class="vote-top col-xs-12" ng-mouseleave="hollowStars()">
-							<ul class="track-bar">
+			<div class="playlist-info col-md-3 col-xs-12" ng-hide="loading || badLink">
+				<h3>Playlist info</h1>
+				<a href="{{spotLink}}"><img class="playlist-image" src="{{image}}"></a>
+				<p><a class="rate_title" href="{{spotLink}}">{{title}}</a></p>
+				<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
+				<h4>Playlist owner:</h4> <p>{{owner}}</p>
+			</div>
+			<div class="col-md-9 col-xs-12">
+				<div class="playlist">
+					<!--Loading page-->
+					<div class="loader">
+						<h2 class="rate_title" ng-show="loading">The playlist is now loading</h2>
+						<img ng-show="loading" src="/resources/loading-bar.gif">
+					</div>
+					<div class="vote-top col-xs-12" ng-hide="loading || badLink" ng-mouseleave="hollowStars()">
+						<ul class="center-bar">
 							<li>
-								<p><a class="rate_title" href="{{spotLink}}">{{title}}</a> </p>
+								<a class="rate_title" href="{{spotLink}}">
+									{{title}}
+								</a>
 							</li>
 							<li>
+								
+							</li>
+						</ul>
+						<ul class="center-bar">
+							<li>
+								<p class="rate-title">Place your vote here!</p>
 								<div class="stars" ng-repeat="star in stars">
 									<img ng-show="star.hide" 
 									ng-mouseover="fillStar(star)" 
 									src="resources/spoti_star_hollow.png"/>
-
 									<img ng-show="!star.hide" 
 									ng-mouseover="hollowStar(star)" 
 									ng-click="setLock(); setVote(star)" 
@@ -51,31 +67,41 @@ tänk på indentering i alla divs
 								</div>
 							</li>
 							<li>
-								<p class="rate_title">Votes: {{playlist.votes}} Rating: {{playlist.rating}}</p>
+								<p class="rate-title">Votes: {{playlist.votes}}</p>
+								<p class="rate-title">Rating: {{playlist.rating}}</p>
 							</li>
-							</ul>
-						</div>			
-						<div class="col-xs-12">
-							<div><!-- ng-repeat låtar-->
-								<ul class="track-bar" ng-repeat="track in playlistSongs">
-									<li>
-										<a class="info-text" href="{{track.external_urls.spotify}}">{{track.track.artists[0].name}} - {{track.track.name}}</a>
-									</li>	
-									<li>
-										<audio src="{{trustSrc(track.track.preview_url)}}" controls="1">Your browser does not support the audio element.</audio>
-									</li>
-								</ul>
-							</div>
+						</ul>
+					</div>	
+					<div class="pl-songs scrollbar" ng-hide="badLink">
+						<div>
+							<!-- ng-repeat låtar-->
+							<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
+								<div class="track-position col-xs-12 col-md-6">
+									<p class="info-text">
+										{{track.track.artists[0].name}} - {{track.track.name}}
+									</p>
+								</div>
+								<div class="track-position col-xs-12 col-md-6" ng-hide="preview">
+									<audio ng-src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
+								</div>
+								<div class="track-position not-preview col-xs-12 col-md-6" ng-show="preview">
+									Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here!</a>
+								</div>
+							</div>						
 						</div>
 					</div>
+				</div>
 			</div>
+
+
+		
 		</div>
 	</div>
 </div>
 
 <!--Bad link page-->
 <div ng-show="badLink">
-	<img src="http://www.articlesdiscussion.com/wp-content/uploads/2014/07/links.jpg"></img>
+	<h1 class="bad-link col-xs-8 col-xs-offset-2">The link you followed did not result in any playlist, look again or head home to <a class="info-text" href="#/" ng-style="active('home')">Voteify</a>!</h1>
 </div>
 
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>

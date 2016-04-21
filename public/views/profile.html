@@ -2,60 +2,69 @@
 
 <main>
 	<!-- This is where all Html for the view goes. -->
-	<div class="container-fluid">
-    <div class="row">
-		<div class="col-md-3 col-xs-12">
-      	<h1 class="profile-title">{{userData.display_name}}</h1>
-        <button ng-click="getAccessToken()">Get acess token</button>
-        <img class="media-object" src="{{userData.images[0].url}}">
-        <div class="info-block">
-            <dt class="info-title">Top artists</dt><dd  ng-repeat="artist in topartists"><a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a></dd>
-        </div>
-        <div class="info-block">
-            <dt class="info-title">Top tracks</dt>
-            <dd ng-repeat="track in toptracks">
-              <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} by {{track.artists[0].name}}</a>
-            </dd>
-        </div>
-        <div class="info-block">
-            <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
-        </div>
+	
+  <div class="container-fluid">
+    <div class="row profile-content">
+  		<div class="col-sm-3 col-sm-offset-1 col-xs-12">        
+        	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
+          <h1 ng-show="!userData.display_name">{{userData.id}}</h1>
+          <img class="media-object" ng-show="userData.images[0].url" ng-src="{{userData.images[0].url}}" alt="No image">
+          <img class="media-object" ng-show="!userData.images[0].url && !loading" ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" alt="No image">
+          
+          <div class="info-block">
+              <dt class="info-title">Top artists</dt>
+
+              <dd  ng-repeat="artist in topArtists">
+              <a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
+              </dd>
+          </div>
+
+          <div class="info-block">
+              <dt class="info-title">Top tracks</dt>
+              <dd ng-repeat="track in topTracks">
+                <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} - {{track.artists[0].name}}</a>
+              </dd>
+          </div>
+          
+          <div class="info-block">
+              <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
+          </div>
+
       </div>
       
-      <div class="col-md-9">
-      	<h1 class="profile-title col-md-3">Your playlists</h1>
-	<div class="col-md-offset-4 playlist-Search">
-		<label>Search for playlist: <input ng-model="search" placeholder="My playlist"></label>
-	</div>
+      <div class="col-sm-8">
+      	<h1 class="profile-title col-sm-6">Your Playlists</h1>
+      	<input class="playlist-search col-sm-3" ng-model="search.name" placeholder="Search..." autofocus>
 
 
-      	<div class="grid col-md-12 col-xs-12">
-      		<ul>
-      		<li class="inner-grid col-md-4 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
+
+      	<div class="grid col-sm-12 col-xs-12">
+      		<ul class="col-xs-12 profile-playlists">
+      		<li class="inner-grid col-sm-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
 
 	      		<a href="{{playlist.external_urls.spotify}}">
-              <img class="top-images" src="{{playlist.images[0].url}}"/>
+              <img class="top-images" ng-src="{{playlist.images[0].url}}"/>
             </a>
               <p class="playlist-title">
-                {{playlist.name}}
+                {{playlist.name | limitTo:25}}{{playlist.name.length > 25 ? '...' : ''}}
               </p>
-              <div ng-init="checkLink(playlist)" ng-hide="playlist.shared">
-                <p class="info-text">
-                  <a class="info-text" href="{{playlist.external_urls.spotify}}">Listen on Spotify</a>
-                </p>
-                <p class="info-text">
-                  <button type="button" class="btn btn-success" ng-click="genLink(playlist)">Put up to vote</button>
-                  {{playlist.status}}
-                </p>
-              </div>
-              <div ng-show="playlist.shared">
-                <p class="info-text">Share this link: </p>
-                <a href="{{playlist.link}}" class="link-text">{{playlist.link}}</a>
-                <p>
-                  <button type="button" class="btn btn-warning" ng-click="stopSharing(playlist)">Close vote</button>
-                </p>
-              </div>
+              <div class="share-btn" ng-init="checkLink(playlist)">
+                <div class="link-space">
+                  <a ng-show="playlist.shared" href="{{playlist.link}}" target="_blank" class="link-text">{{playlist.link}}</a>
+                  <p ng-show="!playlist.shared && !loading">Not shared</p>
+                  <img class="loading-bar" ng-show="loading" src="/resources/loading-bar.gif" ></img>
+                </div>
 
+                <button type="button" ng-show="!playlist.shared" class="btn btn-success" ng-click="genLink(playlist)">
+                  <p ng-show="!playlist.generating">Put up to vote</p>
+                  <p ng-show="playlist.generating">Creating link...</p>
+                </button>
+
+                <button type="button" ng-show="playlist.shared" class="btn btn-danger" ng-click="stopSharing(playlist);playlist.status = false">
+                  <p>Close vote</p>
+                </button>
+
+              </div>
             </li>   
         </div>
       </div>

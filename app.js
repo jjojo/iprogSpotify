@@ -9,6 +9,8 @@
 
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
+var http = require("http");
+var https = require("https");
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
@@ -53,16 +55,19 @@ app.get('/login', function(req, res) {
       scope: scope,
       redirect_uri: redirect_uri,
       state: state
+
     }));
 });
 
 app.get('/callback', function(req, res) {
-	//console.log(req)
   // your application requests refresh and access tokens
   // after checking the state parameter
 
+
   var code = req.query.code || null;
   var state = req.query.state || null;
+  //console.log(req.cookies)
+  //console.log()
   var storedState = req.cookies ? req.cookies[stateKey] : null;
 
   if (state === null || state !== storedState) {
@@ -87,7 +92,7 @@ app.get('/callback', function(req, res) {
 
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
-
+        //console.log(body)
         var access_token = body.access_token,
             refresh_token = body.refresh_token;
         
@@ -100,17 +105,19 @@ app.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           //console.log(body);
+          res.redirect('/#/profile/tokens?' + 
+          querystring.stringify({
+            access_token: access_token,
+            refresh_token: refresh_token,
+            user: body.id
+          }));
         });
 
         // we can also pass the token to the browser to make requests from there
 
         //res.redirect('/#/profile');
 
-        res.redirect('/#/profile/tokens?' + 
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
-          }));
+        
       } else {
         res.redirect('/#' +
           querystring.stringify({
@@ -126,7 +133,7 @@ app.get('/callback', function(req, res) {
 });
 
 app.get('/refresh_token', function(req, res) {
-
+  console.log(req.query)
   // requesting access token from refresh token
   var refresh_token = req.query.refresh_token;
   var authOptions = {
@@ -140,7 +147,7 @@ app.get('/refresh_token', function(req, res) {
   };
 
   request.post(authOptions, function(error, response, body) {
-    console.log(body)
+    //console.log(body)
     if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
       res.send({
@@ -148,6 +155,10 @@ app.get('/refresh_token', function(req, res) {
       });
     }
   });
+});
+
+app.get('/logout', function(req, res) {
+  res.redirect('https://accounts.spotify.com/sv/logout');
 });
 
 console.log('Listening on 8888');
