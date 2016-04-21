@@ -5,7 +5,7 @@
 
     <h2 class="rl-h2">Your Rated Playlists</h2>  
 
-    <table ng-show="userRatingList || loading" class="rl-table col-xs-12">
+    <table ng-show="userRatingList || !loading" class="rl-table col-xs-12">
         <tr>
           <th>Playlist avatar</th>
         	<th class="col-xs-3" ng-repeat="head in tableHeads">
@@ -16,11 +16,10 @@
         </tr>
     </table>
 
-
-    <img class="center-block"
-    ng-show="loading" 
-    src="/resources/loading-bar.gif">
-    </img>
+    <div ng-show="loading">
+      <h1 class="header-text">Checking shared playlists...</h1>
+      <img src="/resources/loading-bar.gif">
+    </div>
     
     <div class="rated-list scrollbar" ng-show="!loading">
          <div class="bread" ng-show="empty">

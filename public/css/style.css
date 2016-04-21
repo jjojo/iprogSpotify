@@ -12,6 +12,12 @@ FONT
 COLORS
 */
 
+/*SMALL SCREENS*/
+@media (max-width: 880px){
+  .header-text{
+    display: none;
+  }
+}
 /*
 	Put all general design below this comment
 */
@@ -41,8 +47,8 @@ header img {
 
 header p{
   font-size: 25px;
-  display: inline;
-  margin-left: -2%;
+  display: inline-block;
+  margin-left: 2%;
 }
 
 header a {
@@ -662,12 +668,7 @@ border-bottom:2px ridge #1ED760;
   margin: 0 auto;
   display: block;
 }
-/*Top artsist, top tracks*/
-.ta-btn{
-  background: #169145;
-  color: white;
-  display: inline;
-}
+
 /*
 	Put all specific design above this comment
 */
