@@ -10,7 +10,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		
 		mpd.userData.then(function(res){
 			$scope.userData = res.data;
-		})
+		});
 		mpd.playlists.then(function(res){
 			$scope.playlists = res.data.items;
 		});
