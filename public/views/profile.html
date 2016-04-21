@@ -45,8 +45,9 @@
       	
       	<div class="grid col-sm-12 col-xs-12">
       		<ul class="col-xs-12 profile-playlists">
-      		<li class="inner-grid col-sm-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
-	      		<a target ="_blank" href="{{playlist.external_urls.spotify}}">
+      		<li class="inner-grid col-sm-3 col-xs-12" ng-repeat="playlist in playlists | filter: search:strictfunction">
+
+	      		<a href="{{playlist.external_urls.spotify}}">
               <img class="top-images" ng-src="{{playlist.images[0].url}}"/>
             </a>
               <p class="playlist-title">
