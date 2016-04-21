@@ -1,8 +1,8 @@
 /*
 Comments:
-  • Try to organize the attributes in alphabetical order to keep the structure neat.
-  • Try to organize the classes in a logical chronoligical order.
-  • Try to be as general as possible and explain where and what the class is used for.
+	• Try to organize the attributes in alphabetical order to keep the structure neat.
+	• Try to organize the classes in a logical chronoligical order.
+	• Try to be as general as possible and explain where and what the class is used for.
 */
 /*
 FONT
@@ -17,17 +17,6 @@ COLORS
   .header-text{
     display: none;
   }
-}
-
-@media (max-width: 650px){
-  .rating-stars {
-    display: none;
-  }
-
-  .ratedPic {
-    max-width: 80px;
-    max-height: 80px;
-  }
 
   .playlist-image {
     max-width:30%;
@@ -41,8 +30,18 @@ COLORS
   }
 }
 
+@media (max-width: 650px){
+  .rating-stars {
+    display: none;
+  }
+
+  .cover-img {
+    display: none;
+  }
+}
+
 /*
-  Put all general design below this comment
+	Put all general design below this comment
 */
 .wrapper {
   float: left;
@@ -52,9 +51,9 @@ COLORS
 }
 .header-wrapper {
 /*
-    Put this on all the header include tags
-    to keep header at top
-  */
+		Put this on all the header include tags
+		to keep header at top
+	*/
   width: 100%;
 }
 header {
@@ -105,16 +104,16 @@ a{
 
 main{
 /*
-    This is where all the content shoud go
-  */
+		This is where all the content shoud go
+	*/
   float: left;
   width: 100%;
 }
 .footer-wrapper {
 /*
-    Put this on all the header include tags
-    to keep footer at bottom
-  */
+		Put this on all the header include tags
+		to keep footer at bottom
+	*/
   float: left;
   width: 100%;
 }
@@ -203,10 +202,10 @@ BUTTONS
 LOADER
 */
 /*
-  Put all general design above this comment
+	Put all general design above this comment
 */
 /*
-  Put all specific design below this comment
+	Put all specific design below this comment
 */
 
 
@@ -717,6 +716,6 @@ border-bottom:2px ridge #1ED760;
 
 
 /*
-  Put all specific design above this comment
+	Put all specific design above this comment
 
 */
