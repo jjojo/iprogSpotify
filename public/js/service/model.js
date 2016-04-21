@@ -28,7 +28,13 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$http.get('/refresh_token/?refresh_token=' + refresh_token)
 			.then(function (res) {
 				// sets new access_token in acess-cookie
+<<<<<<< HEAD
 				$cookies.put("access_token", res.data.access_token);
+=======
+
+				$cookies.put("access_token", res.data.access_token);
+
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 			});
 	}
 
@@ -38,6 +44,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		if(!user){
 			$location.path("/error"); 
 		}else{
+<<<<<<< HEAD
+=======
+			refreshToken();
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 			return
 		}
 	} 
@@ -89,7 +99,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		var deferred = $q.defer();
-		req('/me/top/artists?limit=3').then(function(response) {
+		req('/me/top/artists?limit=1').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");

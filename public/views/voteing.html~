@@ -1,52 +1,140 @@
-<div class="container-fluid">
-	<div class="welcome_vote">
-		Welcome to SpotifyParty Rate
+
+
+<!-- alla views ska vara wrappade i en <main> tag!
+tänk på indentering i alla divs
+			<div>
+				<p></p>
+			</div>
+ -->
+<div ng-include="'views/voteHeader.html'"></div>
+
+<!--Voting page-->
+<div ng-init="getPlaylistData()"  class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="welcome-tag col-xs-10">
+				<p class="welcome-vote"> 
+					Welcome to Voteify 
+				</p>
+<<<<<<< HEAD
+			</div>
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>Go ahead and check out the playlist below. You can even get a free taste of the tracks. Do you like them? Hate them? Make sure to let everyone know how you feel by rating the playlist. 
+				<br>
+				And no need to worry, we won't store any information about your evil opinions and sell them later on. We simply believe in every beings freedom of expression. Want to know more? <a class="info-text" href="#/" ng-style="active('home')">Check us out!</a>
+				<br><br>
+				</p>
+=======
+				<p class="bread">
+				Hey you, looks like you've been asked to vote for someones playlist on spotify, how nice of you! Let me guide you through it! Below is the different songs that are on the playlist, you can most often listen to a 30 seconds preview of each song to remind you of that amazing Ed Sheeran voice for example. Fill the stars from 0-5 to place your vote on this specific playlist and let your friend know what you thought of it! If you want to put your own playlist up for vote because you have a much better taste in music(probably) then either click on "Checkout Votefiy" above or under the user information. Thanks for using our service and i hope you enjoy your stay </p>
+
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
+			</div>
+		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-6 col-lg-offset-2">
-				<div class="playlist col-lg-12">
-					<div  class="col-lg-4">
-					<p class="rate_title">Rate this Playlist</p>
+	<div class="center container">
+		<div class="row">
+			<div class="playlist-info col-md-3 col-xs-12" ng-hide="loading || badLink">
+				<h3>Playlist info</h1>
+				<a href="{{spotLink}}"><img class="playlist-image" src="{{image}}"></a>
+				<p><a class="rate_title" href="{{spotLink}}">{{title}}</a></p>
+				<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
+				<h4>Playlist owner:</h4> <p>{{owner}}</p>
+<<<<<<< HEAD
+			</div>
+=======
+				<button class="checkoutButton btn-success"><a href="#/">Checkout Voteify for yourself</a></button>
+			</div>
+			
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
+			<div class="col-md-9 col-xs-12">
+				<div class="playlist">
+					<!--Loading page-->
+					<div class="loader">
+						<h2 class="rate_title" ng-show="loading">The playlist is now loading</h2>
+						<img ng-show="loading" src="/resources/loading-bar.gif">
 					</div>
-
-					<div class="col-lg-4">
-						<div class="stars col-lg-2" ng-repeat="star in [0,1,2,3,4]" ng-include="'resources/spoti_star.svg'" ng-click="fillstars($index)" ng-style="styleStar()"></div>
-					</div>
-
-					<div class="col-lg-4">
-					<p class="rate_current">Current rating (4.5)</p>
-					</div>
-					<div class="line col-lg-12"></div>
-
-					<div><!-- ng-repeat låtar-->
-						<div class=" track col-lg-8">
-							Love |  Madonna
-						</div>
-						<div class="track glyphicon glyphicon-play col-lg-1"></div>
-						<div class="track col-lg-3">
-							<a>spotify link</a>
-						</div>
-						<div class="track col-lg-8">
-							Mega best hit | Philip Gullberg
-						</div>
-						<div class="track glyphicon glyphicon-play col-lg-1"></div>
-						<div class="track col-lg-3">
-							<a>spotify link</a>
+<<<<<<< HEAD
+					<div class="vote-top col-xs-12" ng-hide="loading || badLink" ng-mouseleave="hollowStars()">
+						<ul class="center-bar">
+							<li>
+								<a class="rate_title" href="{{spotLink}}">
+									{{title}}
+								</a>
+=======
+					<div class="vote-top col-xs-12" ng-hide="loading || badLink">
+						<ul class="center-bar">
+							<li>
+								<a class="rate_title" href="{{spotLink}}">
+									{{title}}
+								</a>
+							</li>
+							<li>
+								
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
+							</li>
+						</ul>
+						<ul class="center-bar">
+							<li>
+<<<<<<< HEAD
+								
+							</li>
+						</ul>
+						<ul class="center-bar">
+							<li>
+								<p class="rate-title">Place your vote here!</p>
+=======
+								<p class="rate-title">Place your vote here!</p>
+							<div ng-mouseleave="hollowStars()">
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
+								<div class="stars" ng-repeat="star in stars">
+									<img ng-show="star.hide" 
+									ng-mouseover="fillStar(star)" 
+									src="resources/spoti_star_hollow.png"/>
+									<img ng-show="!star.hide" 
+									ng-mouseover="hollowStar(star)" 
+									ng-click="setLock(); setVote(star)" 
+									src="resources/spoti_star_filled.png"/>
+								</div>
+							</div>
+							</li>
+							<li>
+								<p class="rate-title">Votes: {{playlist.votes}}</p>
+								<p class="rate-title">Rating: {{playlist.rating}}</p>
+							</li>
+						</ul>
+					</div>	
+					<div class="pl-songs scrollbar" ng-hide="badLink">
+						<div>
+							<!-- ng-repeat låtar-->
+							<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
+								<div class="track-position col-xs-12 col-md-6">
+									<p class="info-text">
+										{{track.track.artists[0].name}} - {{track.track.name}}
+									</p>
+								</div>
+								<div class="track-position col-xs-12 col-md-6" ng-hide="preview">
+									<audio ng-src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
+								</div>
+								<div class="track-position not-preview col-xs-12 col-md-6" ng-show="preview">
+									Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here!</a>
+								</div>
+							</div>						
 						</div>
 					</div>
 				</div>
-		</div>
-
-
-		<div class="suggest col-md-4" >
-			<div class="col-lg-6">
-				<p class="suggest_title">Suggest song</p>
 			</div>
+
+
 		
 		</div>
 	</div>
 </div>
 
+<!--Bad link page-->
+<div ng-show="badLink">
+	<h1 class="bad-link col-xs-8 col-xs-offset-2">The link you followed did not result in any playlist, look again or head home to <a class="info-text" href="#/" ng-style="active('home')">Voteify</a>!</h1>
+</div>
 
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
 

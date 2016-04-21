@@ -10,6 +10,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		
 		mpd.userData.then(function(res){
 			$scope.userData = res.data;
+<<<<<<< HEAD
 		})
 		mpd.playlists.then(function(res){
 			$scope.playlists = res.data.items;
@@ -20,6 +21,18 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		mpd.topTracks.then(function(res){
 			$scope.topTracks = res.data.items;
 		});
+=======
+		});
+		mpd.playlists.then(function(res){
+			$scope.playlists = res.data.items;
+		});
+		mpd.topArtists.then(function(res){
+			$scope.topArtists = res.data.items;
+		});
+		mpd.topTracks.then(function(res){
+			$scope.topTracks = res.data.items;
+		});
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 	};
 
 	$scope.getUser = function() {

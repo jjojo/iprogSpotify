@@ -5,6 +5,7 @@
 	
   <div class="container-fluid">
     <div class="row profile-content">
+<<<<<<< HEAD
   		<div class="col-sm-3 col-sm-offset-1 col-xs-12">        
         	<h1 ng-show="userData.display_name">{{userData.display_name}}</h1>
           <h1 ng-show="!userData.display_name">{{userData.id}}</h1>
@@ -15,29 +16,67 @@
               <dt class="info-title">Top artists</dt>
 
               <dd  ng-repeat="artist in topArtists">
+=======
+  		<div class="col-lg-offset-1 col-md-offset-0 col-md-3 col-sm-offset-1 col-sm-11 col-xs-12">        
+        	<h1 class="col-xs-12" ng-show="userData.display_name">{{userData.display_name}}</h1>
+          <h1 class="col-xs-12" ng-show="!userData.display_name">{{userData.id}}</h1>
+          
+          <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" 
+          ng-show="userData.images[0].url" 
+          ng-src="{{userData.images[0].url}}" 
+          alt="No image">
+
+          <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" 
+          ng-show="!userData.images[0].url && !loading" 
+          ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" 
+          alt="No image">
+          
+          <div class="col-xs-12 col-sm-5 col-md-12 info-block">
+              <dt class="info-title">Top artist</dt>
+              <dd ng-repeat="artist in topArtists">
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
               <a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
               </dd>
           </div>
 
+<<<<<<< HEAD
           <div class="info-block">
+=======
+          <div class="col-xs-12 col-sm-5 col-md-12 info-block">
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
               <dt class="info-title">Top tracks</dt>
               <dd ng-repeat="track in topTracks">
                 <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} - {{track.artists[0].name}}</a>
               </dd>
           </div>
           
+<<<<<<< HEAD
           <div class="info-block">
+=======
+          <div class="col-xs-12 col-sm-12 info-block">
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
               <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
           </div>
 
       </div>
       
+<<<<<<< HEAD
       <div class="col-sm-8">
       	<h1 class="profile-title col-sm-6">Your Playlists</h1>
       	<input class="playlist-search col-sm-3" ng-model="search.name" placeholder="Search..." autofocus>
 
 
 
+=======
+      <div class="col-xs-12 col-md-9 col-lg-8">
+        <div class="col-sm-12">
+          <h1 class="profile-title col-sm-8">Your Playlists</h1>
+          <input class="playlist-search col-sm-4" ng-model="search.name" placeholder="Search..." autofocus>
+        </div>
+      	
+
+
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
       	<div class="grid col-sm-12 col-xs-12">
       		<ul class="col-xs-12 profile-playlists">
       		<li class="inner-grid col-sm-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
@@ -46,7 +85,11 @@
               <img class="top-images" ng-src="{{playlist.images[0].url}}"/>
             </a>
               <p class="playlist-title">
+<<<<<<< HEAD
                 {{playlist.name | limitTo:25}}{{playlist.name.length > 25 ? '...' : ''}}
+=======
+                {{playlist.name | limitTo:15}}{{playlist.name.length > 15 ? '...' : ''}}
+>>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
               </p>
               <div class="share-btn" ng-init="checkLink(playlist)">
                 <div class="link-space">
