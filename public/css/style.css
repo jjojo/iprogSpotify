@@ -187,6 +187,11 @@ BUTTONS
     margin-right: auto;
 }
 
+.btn[disabled], .btn[disabled]:hover {
+  background-color: grey;
+  cursor: auto;
+}
+
 /*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER

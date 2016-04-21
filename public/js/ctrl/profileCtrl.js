@@ -1,6 +1,7 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
+	$scope.disabled = true;
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
@@ -36,11 +37,13 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				playlist.shared = true
 				playlist.link = response.voteUrl
 				$scope.loading = false;
+				$scope.disabled = false;
 			} catch (error) {
 				/*this would catch respones = null
 				could be solved with anif-else statement as well */
 				playlist.shared = false
 				$scope.loading = false;
+				$scope.disabled = false;
 			}
 		});
 	}
@@ -69,6 +72,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 			playlist.shared = true
 			playlist.link = data.voteUrl
 			playlist.generating = false;
+
 		});
 	}
 

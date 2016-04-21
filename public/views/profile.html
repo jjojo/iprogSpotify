@@ -60,7 +60,7 @@
                   <img class="loading-bar" ng-show="loading" src="/resources/loading-bar.gif" ></img>
                 </div>
 
-                <button type="button" ng-show="!playlist.shared" class="btn btn-success" ng-click="genLink(playlist)">
+                <button type="button" ng-show="!playlist.shared" class="btn btn-success" ng-disabled="disabled" ng-click="genLink(playlist)">
                   <p ng-show="!playlist.generating">Put up to vote</p>
                   <p ng-show="playlist.generating">Creating link...</p>
                 </button>
