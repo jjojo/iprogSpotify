@@ -12,34 +12,6 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 	$scope.clearCookie = function() {
 		Model.clearCookie();
 	}
-<<<<<<< HEAD
-=======
-	$scope.getPlaylistId = function(){
-	playlist.generating = true;
-
-		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
-			playlist.status = " ";
-			var data = {
-				'playlistApiUrl': playlist.href,
-				'spotifyUrl': playlist.external_urls.spotify,
-				'voteUrl':'#/vote/' + playlist.id,
-				'id': playlist.id,
-				'owner': playlist.owner.id,
-				'name': playlist.name,
-				'playlist': response.data,
-				'shared': true,
-				'sharedBy': $scope.userData.id,
-				'image': playlist.images[0].url,
-				'totalTracks': playlist.tracks.total
-			}
-		//console.log($scope.userData)
-			fbService.addPlayVoteUrl(data)
-			playlist.shared = true
-			playlist.link = data.voteUrl
-			playlist.generating = false;
-		});
-	}
->>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 
 	$scope.signOut = function () {
 		// signing out

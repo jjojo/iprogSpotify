@@ -28,13 +28,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$http.get('/refresh_token/?refresh_token=' + refresh_token)
 			.then(function (res) {
 				// sets new access_token in acess-cookie
-<<<<<<< HEAD
 				$cookies.put("access_token", res.data.access_token);
-=======
-
-				$cookies.put("access_token", res.data.access_token);
-
->>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 			});
 	}
 
@@ -44,10 +38,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		if(!user){
 			$location.path("/error"); 
 		}else{
-<<<<<<< HEAD
-=======
 			refreshToken();
->>>>>>> 1fbf7bc06323380125ec6a6833fd0de342ccb88d
 			return
 		}
 	} 
