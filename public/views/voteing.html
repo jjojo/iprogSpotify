@@ -12,17 +12,11 @@ tänk på indentering i alla divs
 <div ng-init="getPlaylistData()"  class="container-fluid">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1">
+			<div class="welcome-tag col-xs-10">
 				<p class="welcome-vote"> 
 					Welcome to Voteify 
 				</p>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1">
-				<p>Go ahead and check out the playlist below. You can even get a free taste of the tracks. Do you like them? Hate them? Make sure to let everyone know how you feel by rating the playlist. 
-				<br>
-				And no need to worry, we won't store any information about your evil opinions and sell them later on. We simply believe in every beings freedom of expression. Want to know more? <a class="info-text" href="#/" ng-style="active('home')">Check us out!</a>
-				<br><br>
-				</p>
+
 			</div>
 		</div>
 	</div>
@@ -34,7 +28,9 @@ tänk på indentering i alla divs
 				<p><a class="rate_title" href="{{spotLink}}">{{title}}</a></p>
 				<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
 				<h4>Playlist owner:</h4> <p>{{owner}}</p>
+				<button class="checkoutButton btn-success"><a href="#/">Checkout Voteify for yourself</a></button>
 			</div>
+			
 			<div class="col-md-9 col-xs-12">
 				<div class="playlist">
 					<!--Loading page-->
