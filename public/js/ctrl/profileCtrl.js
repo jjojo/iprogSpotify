@@ -72,6 +72,10 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		});
 	}
 
+	$scope.dontShowAgain = function (bool) {
+		// checks if this browser as signed in before
+		Model.showModal(bool);
+	}
 
 	$scope.stopSharing = function (playlist) {
 		// body...

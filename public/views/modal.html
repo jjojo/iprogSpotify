@@ -1,0 +1,39 @@
+<div class="col-xs-12 modal-popup" role="dialog">
+      <!-- Open Modal content-->
+      <div class="modal-content modal-lg center-block">
+        <div class="modal-header">
+          <i ng-click="close(); onlyTerms=false" class="fa fa-times fa-lg modal-close"></i>
+          <img class=" col-xs-12 modal-img" src="/resources/voteify.png">
+          <h1 class="modal-heading">Welcome first-time-user!</h1>
+          
+        </div>
+        <div class="modal-body">
+          <p class="modal-body-text">Welcome to Voteify. This web app fetches your playlists from spotify and lets you put them up for voting. Say you have a great playlist with nostalgic music from the 90's and wonder what peaople think of your collection. You can shade this list by clicking on the button. <br>
+          <br>
+          <button type="button" class="btn modal-btn btn-success"><p>Put up to vote</p></button>
+          <br>
+          <br>
+
+          This gives you a unique link to your playlist. You can share this with anyone in the world and they will be able to rate your playlist. Pretty cool right!?<br>
+          On the tab "My rated playlists" you can get a nice overview of your shared playlists to see which one has the most votes or highest rate.<br>
+          <br>
+          Say you are happy with your votes and want to close your playlist just hit the <br>
+          <br>
+          <button type="button" class="btn modal-btn btn-danger"><p>Close vote</p></button>
+          <br>
+          <br>
+           and it will be taken down. Maybe you want to improve it and put it up again sometime later, thats fine, we'll have cleared out the old votes for you!
+          <br>
+      </p>
+
+        </div>
+        <div class="modal-footer">
+          <form class="col-xs-12 modal-form" name="cookieForm" ng-submit="close()" role="form">
+              <button type="submit" class="modal-btn btn btn-default" target="_blank">OK</button>
+              <input type="checkbox" class="" target="_blank">
+                <lable class="bread">Thanks but I get it, don't show this again</lable>
+              </input>
+          </form>
+        </div>
+      </div>
+  </div><!-- end of modal -->
