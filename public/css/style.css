@@ -7,10 +7,6 @@ Comments:
 /*
 FONT
 */
-@font-face { font-family: AdamCG; src: url('Adam-CG.otf'); } 
-@font-face { font-family: Proffs; src: url('Proffesional Edition.TTF');
-src: url('Proffesional Edition.TTF') format('embedded-opentype');
-}
 
 /*
 COLORS
@@ -169,10 +165,11 @@ BUTTONS
 }
 
 .btn{
-  width: 160px;
-  padding: 3px 30px;
-  margin-left: 17%;
-  margin-right: 17%;
+    min-width: 130px;
+    width: 100%;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*-------------------------------------------------profileView button slut------------------------------------*/
@@ -289,7 +286,8 @@ margin-right: auto;
   align-items: center;
 }
 .profile-playlists{
-  margin-top: 3%;
+  margin-top: 40px;
+
 }
 .profile-title{
   font-size: 3.5em;
@@ -300,7 +298,7 @@ margin-right: auto;
 }
 
 .info-block {
-  margin:0;
+  margin-bottom: 20px
 }
 .info-block dd{
   margin: 5px 0px;
@@ -310,7 +308,7 @@ margin-right: auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 2em;
   color: #666;
-  margin: 30px 0px 5px 0px;
+  margin: 0px
 }
 
 .info-block a{
@@ -323,13 +321,14 @@ margin-right: auto;
 }
 
 .playlist-title {
+
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   font-size: 1.6em;
   line-height: 1;
   text-align: center;
   color: #888;
-  padding: 5px
+  padding: 5px 0px;
 }
 
 .share-btn{
@@ -364,7 +363,7 @@ margin-right: auto;
 .inner-grid {
   list-style-type: none;
   display: inline-block;
-  margin-right: 4%;
+  margin: 0px 4%;
   height: 380px;
   overflow: hidden;
 }
@@ -621,9 +620,10 @@ border-bottom:2px ridge #1ED760;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     opacity: 0.8;
+    margin-left: 3%;
     float: left;
-    margin-left: 8%;
     width: 21%;
+    min-width: 160px;
 }
 
 .playlist-search:focus{
