@@ -10,7 +10,12 @@
         <tr>
           <th>Playlist avatar</th>
         	<th class="col-xs-3" ng-repeat="head in tableHeads">
-            <a ng-click="order(head.toLowerCase())">{{head}}</a>
+            {{head}}
+
+            <a><div ng-click="order(head.toLowerCase())" class="glyphicon glyphicon-sort"></div></a>
+           
+            
+
             <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}">
             </span>
           </th>

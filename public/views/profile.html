@@ -9,36 +9,32 @@
         	<h1 class="col-xs-12" ng-show="userData.display_name">{{userData.display_name}}</h1>
           <h1 class="col-xs-12" ng-show="!userData.display_name">{{userData.id}}</h1>
           
+          <a target="_blank" href="{{userData.external_urls.spotify}}">
           <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" 
           ng-show="userData.images[0].url" 
-          ng-src="{{userData.images[0].url}}" 
-          alt="No image">
+          ng-src="{{userData.images[0].url}}"
+          alt="No image" ></a>
 
+          <a target="_blank" href="{{userData.external_urls.spotify}}">
           <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" 
           ng-show="!userData.images[0].url && !loading" 
           ng-src="http://orig13.deviantart.net/c751/f/2010/017/b/3/avatar_self_portrait_by_nuria.jpg" 
-          alt="No image">
-          
+          alt="No image"></a>
+
+
           <div class="col-xs-12 col-sm-5 col-md-12 info-block">
               <dt class="info-title">Top artist</dt>
               <dd ng-repeat="artist in topArtists">
-              <a class="info-text" href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
+              <a class="info-text" >{{artist.name}}</a>
               </dd>
           </div>
-
 
           <div class="col-xs-12 col-sm-5 col-md-12 info-block">
               <dt class="info-title">Top tracks</dt>
               <dd ng-repeat="track in topTracks">
-                <a class="info-text" href="{{track.external_urls.spotify}}">{{track.name}} - {{track.artists[0].name}}</a>
+                <a target ="_blank" class="info-text">{{track.name}} - {{track.artists[0].name}}</a>
               </dd>
           </div>
-          
-
-          <div class="col-xs-12 col-sm-12 info-block">
-              <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
-          </div>
-
       </div>
       
       <div class="col-xs-12 col-md-9 col-lg-8">
@@ -50,8 +46,7 @@
       	<div class="grid col-sm-12 col-xs-12">
       		<ul class="col-xs-12 profile-playlists">
       		<li class="inner-grid col-sm-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
-
-	      		<a href="{{playlist.external_urls.spotify}}">
+	      		<a target ="_blank" href="{{playlist.external_urls.spotify}}">
               <img class="top-images" ng-src="{{playlist.images[0].url}}"/>
             </a>
               <p class="playlist-title">
@@ -59,7 +54,7 @@
               </p>
               <div class="share-btn" ng-init="checkLink(playlist)">
                 <div class="link-space">
-                  <a ng-show="playlist.shared" href="{{playlist.link}}" target="_blank" class="link-text">{{playlist.link}}</a>
+                  <a target ="_blank" ng-show="playlist.shared" href="{{playlist.link}}" target="_blank" class="link-text">{{playlist.link}}</a>
                   <p ng-show="!playlist.shared && !loading">Not shared</p>
                   <img class="loading-bar" ng-show="loading" src="/resources/loading-bar.gif" ></img>
                 </div>
