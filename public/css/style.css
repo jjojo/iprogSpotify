@@ -21,6 +21,18 @@ COLORS
   .header-text{
     display: none;
   }
+
+}
+
+@media (max-width: 650px){
+  .rating-stars {
+    display: none;
+  }
+
+  .ratedPic {
+    max-width: 80px;
+    max-height: 80px;
+  }
 }
 /*
 	Put all general design below this comment
@@ -416,7 +428,7 @@ margin-right: auto;
   font-size: 20px;
   color: #169145;
   text-align: center;
-  margin-top: 4%
+  margin-top: 4%;
 }
 
 .rl-table a{
