@@ -25,6 +25,9 @@ COLORS
     max-width: 28%;
     margin-bottom: 1%;
   }
+  .pl-songs, .rated-list{
+    height: 100% !important; 
+  }
 }
 
 /*
@@ -75,10 +78,9 @@ header a:hover{
   color: #169145;
 }
 
-header a:visited{
+header a:visited, a:focus{
   text-decoration: none;
   color: #169145;
-
 }
 
 h1{
