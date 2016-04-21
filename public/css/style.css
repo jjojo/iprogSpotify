@@ -24,7 +24,6 @@ COLORS
   .checkoutButton{
     max-width: 28%;
     margin-bottom: 1%;
-
   }
 }
 
@@ -74,6 +73,12 @@ header a {
 header a:hover{
   text-decoration: none;
   color: #169145;
+}
+
+header a:visited{
+  text-decoration: none;
+  color: #169145;
+
 }
 
 h1{
