@@ -1,21 +1,21 @@
 <header ng-controller="HeaderCtrl">
     <a>
-    <img src="resources/Voteify-logo.png">
+    <img src="resources/voteify.png">
     </a>
 
     <a href="#/profile" ng-style="active('/profile')">
-      <span class="glyphicon glyphicon-user"></span>Profile
+      <span class="glyphicon glyphicon-user"></span><p class="header-text">Profile</p>
     </a>
 
     <a href="#/ratedlists" ng-style="active('/ratedlists')">
-      <span class="glyphicon glyphicon-tasks"></span>My Rated Lists
+      <span class="glyphicon glyphicon-tasks"></span><p class="header-text">My Rated Lists</p>
     </a>
 
     <a href="#/about" ng-style="active('/about')">
-      <span class="glyphicon glyphicon-info-sign"></span>About 
+      <span class="glyphicon glyphicon-info-sign"></span><p class="header-text">About</p> 
     </a>
 
     <a href="/logout" ng-style="active('')" ng-click="signOut()">
-     Sign out <span class="glyphicon glyphicon-log-out"></span>
+     <span class="glyphicon glyphicon-log-out"></span><p class="header-text">Sign out</p> 
     </a>
 </header>
