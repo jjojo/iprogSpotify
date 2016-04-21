@@ -28,9 +28,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$http.get('/refresh_token/?refresh_token=' + refresh_token)
 			.then(function (res) {
 				// sets new access_token in acess-cookie
-
 				$cookies.put("access_token", res.data.access_token);
-
 			});
 	}
 

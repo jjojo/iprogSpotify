@@ -17,6 +17,7 @@ COLORS
   .header-text{
     display: none;
   }
+
   .playlist-image {
     max-width:30%;
   }
@@ -24,8 +25,8 @@ COLORS
     max-width: 28%;
     margin-bottom: 1%;
   }
-
 }
+
 /*
 	Put all general design below this comment
 */
@@ -70,10 +71,8 @@ header a {
 }
 
 header a:hover{
-
   text-decoration: none;
   color: #169145;
-
 }
 
 header a:visited{
@@ -241,7 +240,6 @@ LOADER
     display: inline-block;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
-
 }
 
 .login{
@@ -267,19 +265,12 @@ text-align: center;
 .login-info h1{
   font-size: 2em;
 }
-u{
-text-decoration:none;
-box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
-}
-
-
 
 .center {
 float: none;
 margin-left: auto;
 margin-right: auto;
 }
-
 
 .login-button {
 display: block;
@@ -301,8 +292,8 @@ margin-right: auto;
 }
 .profile-playlists{
   margin-top: 40px;
-
 }
+
 .profile-title{
   font-size: 3.5em;
 }
@@ -312,7 +303,7 @@ margin-right: auto;
 }
 
 .info-block {
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 .info-block dd{
   margin: 5px 0px;
@@ -335,7 +326,6 @@ margin-right: auto;
 }
 
 .playlist-title {
-
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   font-size: 1.6em;
@@ -349,7 +339,6 @@ margin-right: auto;
   font-size: 0.9em;
 }
 
-
 .share-btn p{
   margin: 0;
   text-align: center;
@@ -360,9 +349,7 @@ margin-right: auto;
 .link-space{
   height: 30px;
   text-align: center;
-
 }
-
 
 .link-text {
   font-family: 'Montserrat', sans-serif;
@@ -378,10 +365,9 @@ margin-right: auto;
   list-style-type: none;
   display: inline-block;
   margin: 0px 4%;
-  height: 380px;
+  min-height: 380px;
   overflow: hidden;
 }
-
 
 .media-object {
   width: 60%;
@@ -682,6 +668,7 @@ border-bottom:2px ridge #1ED760;
   margin: 0 auto;
   display: block;
 }
+
 .welcome-tag{
   margin-bottom:1%;
 }
@@ -689,15 +676,17 @@ border-bottom:2px ridge #1ED760;
   width:80%;
   height:70%;
   font-size:18px;
-
 }
+
 .checkoutButton a{
   color:black;
 }
+
 .checkoutButton a:hover{
   color:black;
   text-decoration: none;
 }
+
 
 /*
 	Put all specific design above this comment

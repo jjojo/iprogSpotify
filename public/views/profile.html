@@ -26,6 +26,7 @@
               </dd>
           </div>
 
+
           <div class="col-xs-12 col-sm-5 col-md-12 info-block">
               <dt class="info-title">Top tracks</dt>
               <dd ng-repeat="track in topTracks">
@@ -33,6 +34,7 @@
               </dd>
           </div>
           
+
           <div class="col-xs-12 col-sm-12 info-block">
               <dt class="info-title">Spotify link</dt><dd><a class="info-text" href="{{userData.external_urls.spotify}}">Your profile</a></dd>   
           </div>
@@ -45,8 +47,6 @@
           <input class="playlist-search col-sm-4" ng-model="search.name" placeholder="Search..." autofocus>
         </div>
       	
-
-
       	<div class="grid col-sm-12 col-xs-12">
       		<ul class="col-xs-12 profile-playlists">
       		<li class="inner-grid col-sm-3 col-xs-6" ng-repeat="playlist in playlists | filter: search:strictfunction">
