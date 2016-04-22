@@ -1,6 +1,7 @@
-<div class="col-xs-12 modal-popup" role="dialog" ng-controller="ProfileCtrl">
+<div role="dialog" ng-controller="ProfileCtrl">
       <!-- Open Modal content-->
-      <div class="modal-content modal-lg center-block">
+  <div class="col-xs-12 modal-popup" ng-if="showModal">
+      <div  class="modal-content modal-lg center-block">
         <div class="modal-header">
           <i ng-click="close()" class="fa fa-times fa-lg modal-close"></i>
           <img class=" col-xs-12 modal-img" src="/resources/voteify.png">
@@ -29,11 +30,12 @@
         </div>
         <div class="modal-footer">
           <form class="col-xs-12 modal-form" ng-submit="submitModal(dontShowAgain)" role="form">
-              <button type="submit" class="modal-btn btn btn-default" ng-click="submit">OK</button>
+              <button type="submit" class="modal-btn btn btn-default">OK</button>
               <input type="checkbox" class="" ng-model="dontShowAgain">
                 <lable class="bread">Thanks but I get it, don't show this again</lable>
               </input>
           </form>
         </div>
       </div>
-  </div><!-- end of modal -->
+  </div>
+</div><!-- end of modal -->

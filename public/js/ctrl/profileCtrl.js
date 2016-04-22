@@ -2,6 +2,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
 	$scope.dontShowAgain = false;
+
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
@@ -75,9 +76,9 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		// body...
 		console.log("close modal")
 		console.log(dontShowAgain)
-		// if(dontShowAgain){
-		// 	Model.setModalShow(false);
-		// }
+		if(dontShowAgain){
+			Model.setModalShow(false);
+		}
 		$scope.showModal = false;
 		console.log($scope.showModal)
 	}
