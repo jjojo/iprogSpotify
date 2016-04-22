@@ -15,4 +15,13 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 		// signing out
 		Model.signOut();
 	}
+	$scope.getConsent = function () {
+		// gets cookie consent
+		return Model.getCookieConsent();
+	}
+	$scope.setConsent = function () {
+		// sets cookie consent to true
+		Model.setCookieConsent();
+		$scope.consent = true;
+	}
 });

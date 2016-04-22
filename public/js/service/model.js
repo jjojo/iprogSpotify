@@ -69,6 +69,17 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		return $cookies.get("voteifyUser")	
 	}
 
+	this.setCookieConsent = function () {
+		// stores cookieConsent to true			
+		$cookies.put("cookie_consent", true);
+	}
+
+
+	this.getCookieConsent = function () {
+		//returns cookie consent
+		return $cookies.get("cookie_consent")	
+	}
+
 
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
@@ -80,11 +91,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
-                //console.log(response);
             }
         });
-        //console.log(deferred.promise);
         return deferred.promise;
 	}
 
@@ -167,6 +175,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
+		$cookies.remove("cookie_consent")
 	}
 
 

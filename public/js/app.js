@@ -34,10 +34,6 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
        				},
 
 		}).
-		when('/login', {
-			templateUrl: 	"views/loginTest.html",
-			controller: 	"HomeCtrl",
-		}).
 		when('/error', {
 			templateUrl: 	"views/error.html",
 		}).
