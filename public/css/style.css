@@ -202,6 +202,8 @@ BUTTONS
   cursor: auto;
 }
 
+
+
 /*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER
@@ -509,6 +511,20 @@ letter-spacing: 2px;
 .vote-bar {
 display: flex;
 align-items: center;
+}
+
+.vote-btn{
+  min-width:80px;
+  width: 30%;
+  display: inline;
+  margin-top: -29%;
+  font-size: 100%;
+  margin-left: 90%;
+}
+
+.vote-btn[disabled], .vote-btn[disabled]:hover{
+  background-color: #169145;
+  opacity: 0.5; 
 }
 
 .track-bar {
