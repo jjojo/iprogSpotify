@@ -8,6 +8,7 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
         return Model.init();
     };
 
+    //Calls function from model to check authenication
     var authenticatetion = function (Model) {
     	return Model.authenticatetion();
     }
