@@ -302,6 +302,7 @@ margin-right: auto;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
 }
+
 .line-separator-rated{
   height: 1px;
   width: 90%;
@@ -309,6 +310,19 @@ margin-right: auto;
   margin-top:1%;
   margin-left:4%;
   object-position: relative;
+}
+/* ----------------------------------------ABOUT view*---------------------------------------*/
+
+.line-about{
+  height: 1px;
+  width: 100%;
+  border-bottom: 2px solid #169145;
+}
+
+.pic-about{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/

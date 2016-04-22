@@ -47,8 +47,10 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 
 	this.getPlaylist = function(playlistId) {
     	//takes a playlisdId as input and returns specific playlist data.
+    	console.log("hämtar playlist")
     	return playVoteRef.$loaded().then(function (response){
     		return playVoteRef.$getRecord(playlistId)
+
     	})
 	}
 	
