@@ -93,6 +93,28 @@ header a:visited, a:focus{
   color: #169145;
 }
 
+.cookie-consent {
+  border-style: solid;
+  border-color: #8bc8a2;
+  border-radius: 3em;
+}
+
+.consent {
+  margin-left: 5vw !important;
+  margin-right: 5vw !important;
+}
+
+.consent-btn {
+  margin-bottom: 1vh !important;
+  max-width: 10em;
+}
+
+.consent-text {
+  color: #000;
+  font-family:Armata;
+  font-size:12px;
+}
+
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -197,6 +219,27 @@ BUTTONS
     margin-right: auto;
 }
 
+.btn[disabled], .btn[disabled]:hover {
+  background-color: grey;
+  cursor: auto;
+}
+
+.top-art-btn{
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.top-art-btn:visited, .top-art-btn:focus{
+  text-decoration: none;
+  outline:none;
+  border:none;
+}
+
+
 /*-------------------------------------------------profileView button slut------------------------------------*/
 /*
 LOADER
@@ -297,6 +340,7 @@ margin-right: auto;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
 }
+
 .line-separator-rated{
   height: 1px;
   width: 90%;
@@ -304,6 +348,19 @@ margin-right: auto;
   margin-top:1%;
   margin-left:4%;
   object-position: relative;
+}
+/* ----------------------------------------ABOUT view*---------------------------------------*/
+
+.line-about{
+  height: 1px;
+  width: 100%;
+  border-bottom: 2px solid #169145;
+}
+
+.pic-about{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 /*-------------------------------------------------profileView start------------------------------------*/
@@ -344,6 +401,7 @@ margin-right: auto;
   font-size: 1.6em;
   letter-spacing: 0.2px;
   color: #169145;
+  margin-bottom: 2px;
 }
 
 .playlist-title {
@@ -490,6 +548,20 @@ letter-spacing: 2px;
 .vote-bar {
 display: flex;
 align-items: center;
+}
+
+.vote-btn{
+  min-width:80px;
+  width: 30%;
+  display: inline;
+  margin-top: -29%;
+  font-size: 100%;
+  margin-left: 90%;
+}
+
+.vote-btn[disabled], .vote-btn[disabled]:hover{
+  background-color: #169145;
+  opacity: 0.5; 
 }
 
 .track-bar {

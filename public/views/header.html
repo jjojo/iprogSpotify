@@ -18,4 +18,15 @@
     <a href="/logout" ng-style="active('')" ng-click="signOut()">
      <span class="glyphicon glyphicon-log-out"></span><p class="header-text">Sign out</p> 
     </a>
+    <div class="cookie-consent" ng-hide="getConsent() || consent">
+    <div class="consent">
+      <span class="consent-text">
+        We use cookies to enhance your experience. By using our site you agree to sending information about your Spotify account.
+      </span>
+      <br>
+      <button class="btn btn-success consent-btn" type="button" ng-click="setConsent()">Hide this message</button>
+      <span class="consent-text"> or </span>
+      <a class="link-text" href="https://kb.iu.edu/d/agwm">read more!</a>
+    </div>
+    </div>
 </header>

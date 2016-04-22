@@ -1,4 +1,4 @@
-var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies']);
+var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies', 'ui.bootstrap']);
 
 spotifyApp.config(['$routeProvider', function ($routeProvider) {
 
@@ -8,6 +8,7 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
         return Model.init();
     };
 
+    //Calls function from model to check authenication
     var authenticatetion = function (Model) {
     	return Model.authenticatetion();
     }
@@ -32,10 +33,6 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 					auth: authenticatetion
        				},
 
-		}).
-		when('/login', {
-			templateUrl: 	"views/loginTest.html",
-			controller: 	"HomeCtrl",
 		}).
 		when('/error', {
 			templateUrl: 	"views/error.html",

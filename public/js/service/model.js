@@ -32,7 +32,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
+
 	this.authenticatetion = function(){
+		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
 		var user = $cookies.get("voteifyUser");
 
 		if(!user){
@@ -67,6 +69,17 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		return $cookies.get("voteifyUser")	
 	}
 
+	this.setCookieConsent = function () {
+		// stores cookieConsent to true			
+		$cookies.put("cookie_consent", true);
+	}
+
+
+	this.getCookieConsent = function () {
+		//returns cookie consent
+		return $cookies.get("cookie_consent")	
+	}
+
 
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
@@ -78,11 +91,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
-                //console.log(response);
             }
         });
-        //console.log(deferred.promise);
         return deferred.promise;
 	}
 
@@ -90,7 +100,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		var deferred = $q.defer();
-		req('/me/top/artists?limit=1').then(function(response) {
+		req('/me/top/artists?limit=5').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");
@@ -106,7 +116,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getTopTracks = function () {
 		// Returns promise with users top 3 tracks
 		var deferred = $q.defer();
-		req('/me/top/tracks?limit=3').then(function(response) {
+		req('/me/top/tracks?limit=5').then(function(response) {
             if (!response || response.error) {
                 deferred.reject('Error occured');
                 console.log(response, "ERROR");
@@ -181,6 +191,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
+		$cookies.remove("cookie_consent")
 	}
 
 

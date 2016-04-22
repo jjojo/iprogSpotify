@@ -1,14 +1,18 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
-	//console.log("profile controller loaded")
+
+	//Booleans for loading and disable info/buttons
 	$scope.loading = true;
 	$scope.dontShowAgain = false;
 	$scope.showModal = Model.showModal();
+	$scope.disabled = true;
+	$scope.isCollapsed = true;
+	$scope.isCollapsed2 = true;
 
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
 	var mpd = Model.profileData;
-	//console.log(typeof(mpd.userData))
+
 	if (mpd.userData !== $scope.userData) {
 		
 		mpd.userData.then(function(res){
@@ -26,6 +30,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	};
 
 	$scope.getUser = function() {
+		//Returns info about user
 		return Model.getUser();
 	}
 	
@@ -34,14 +39,16 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		$scope.loading = true;
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
-				playlist.shared = true
-				playlist.link = response.voteUrl
+				playlist.shared = true;
+				playlist.link = response.voteUrl;
 				$scope.loading = false;
+				$scope.disabled = false;
 			} catch (error) {
 				/*this would catch respones = null
 				could be solved with anif-else statement as well */
-				playlist.shared = false
+				playlist.shared = false;
 				$scope.loading = false;
+				$scope.disabled = false;
 			}
 		});
 	}
@@ -49,7 +56,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.genLink = function (playlist) {
 		// Generate link and adds data to database.
 		playlist.generating = true;
-
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
 			playlist.status = " ";
 			var data = {
@@ -65,11 +71,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				'image': playlist.images[0].url,
 				'totalTracks': playlist.tracks.total
 			}
-		//console.log($scope.userData)
 			fbService.addPlayVoteUrl(data)
 			playlist.shared = true
 			playlist.link = data.voteUrl
 			playlist.generating = false;
+
 		});
 	}
 
