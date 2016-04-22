@@ -34,14 +34,14 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		$scope.loading = true;
 		fbService.getPlaylist(playlist.id).then(function (response) {
 			try {
-				playlist.shared = true
-				playlist.link = response.voteUrl
+				playlist.shared = true;
+				playlist.link = response.voteUrl;
 				$scope.loading = false;
 				$scope.disabled = false;
 			} catch (error) {
 				/*this would catch respones = null
 				could be solved with anif-else statement as well */
-				playlist.shared = false
+				playlist.shared = false;
 				$scope.loading = false;
 				$scope.disabled = false;
 			}
@@ -51,7 +51,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.genLink = function (playlist) {
 		// Generate link and adds data to database.
 		playlist.generating = true;
-
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
 			playlist.status = " ";
 			var data = {
