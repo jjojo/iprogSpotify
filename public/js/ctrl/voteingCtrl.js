@@ -1,8 +1,9 @@
 spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce) {
 	
 	var locked = false;
-	var voted = false;
+	$scope.voted = false;
 
+	$scope.disabled = true;
 	$scope.hide = true;
 
 	$scope.stars = [{
@@ -60,22 +61,39 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		}
 	}
 
-	$scope.setLock = function () {
+	$scope.setLock = function (star) {
 		// sets lock
+		$scope.starValue = star.value;
+		$scope.disabled = false;
 		locked = true;
 	}
 
-	$scope.setVote = function (star) {
+	$scope.setVote = function () {
 		// sets vote
-		if (!voted) {
-			$scope.playlist.totalRating += star.value
+		if (!$scope.voted) {
+			$scope.playlist.totalRating += $scope.starValue;
 			$scope.playlist.votes += 1
 			$scope.playlist.rating = Math.round(($scope.playlist.totalRating/($scope.playlist.votes)) * 100) / 100 
-			fbService.addVoteRating($scope.playlist, star.value)
-			voted = true;
+			fbService.addVoteRating($scope.playlist);
+			$scope.voted = true;
 		} else {
 			return
 		}
+	}
+
+	$scope.changeVote = function (){
+		$scope.playlist.totalRating -= $scope.starValue;
+		$scope.playlist.votes -= 1;
+		if($scope.playlist.votes != 0){
+			$scope.playlist.rating = Math.round(($scope.playlist.totalRating/($scope.playlist.votes)) * 100) / 100; 
+		}else{
+			$scope.playlist.rating =0;
+		}
+		fbService.addVoteRating($scope.playlist);
+		$scope.voted = false;
+		$scope.disabled = true;
+		locked = false;
+
 	}
 
 	$scope.hollowStars = function (star) {
