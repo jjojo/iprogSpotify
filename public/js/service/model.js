@@ -1,6 +1,7 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 	
 	var self = this;
+	self.consent = false;
 
 	this.profileData = {
 		topTracks: null,
@@ -40,6 +41,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		if(!user){
 			$location.path("/error"); 
 		}else{
+			if (typeof($cookies.get("voteifyUser")) !== 'undefined'){
+				self.consent = true;
+			}
 			refreshToken();
 			return
 		}
@@ -58,7 +62,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			$interval(function () {
 				refreshToken();
 			},(1000*60*59)); //timeout set to refresh access_token each 59 minutes.
-		}else{
+		} else {
 			return 
 		}
 	}
@@ -70,14 +74,15 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.setCookieConsent = function () {
-		// stores cookieConsent to true			
+		// stores cookieConsent to true	
+		self.consent = true;		
 		$cookies.put("cookie_consent", true);
 	}
 
 
 	this.getCookieConsent = function () {
 		//returns cookie consent
-		return $cookies.get("cookie_consent")	
+		return $cookies.get("cookie_consent");
 	}
 
 
@@ -166,7 +171,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		self.profileData.topTracks = self.getTopTracks();
 		self.profileData.topArtists = self.getTopArtists();
 		self.profileData.playlists = self.getPlaylists();
-
 	}
 
 
