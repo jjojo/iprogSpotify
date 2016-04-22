@@ -46,11 +46,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.setUserCred = function () {
 		// stores username, access_token and refresh_token to session cookies.
-		if (typeof(localStorage.firsttimer) === 'undefined') {
-			self.setFirstVisit(true);
-		}else{
-			self.setFirstVisit(false);
-		}
 		if (typeof($cookies.get("voteifyUser")) === 'undefined'){
 			var tokens = $location.search();
 			
@@ -164,19 +159,15 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	}
 
-	this.setVisited = function (bool) {
+	this.setModalShow = function (bool) {
 		// sets firsttimer to false
-		localStorage.firsttimer = bool;
-	}
-
-	this.showModal = function (bool) {
-		// body...
 		localStorage.showModal = bool;
 	}
 
-	this.getVisited = function () {
-		// returns if user is visiting for first time
-		return localStorage.firsttimer
+	this.showModal = function () {
+		// body...
+		console.log(localStorage.showModal)
+		return localStorage.showModal;
 	}
 
 

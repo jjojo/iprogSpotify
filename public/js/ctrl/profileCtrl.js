@@ -1,6 +1,7 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	//console.log("profile controller loaded")
 	$scope.loading = true;
+	$scope.dontShowAgain = false;
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
@@ -25,8 +26,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.getUser = function() {
 		return Model.getUser();
 	}
-	
-
 	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
@@ -72,9 +71,29 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		});
 	}
 
-	$scope.dontShowAgain = function (bool) {
-		// checks if this browser as signed in before
-		Model.showModal(bool);
+	$scope.submitModal = function (dontShowAgain) {
+		// body...
+		console.log("close modal")
+		console.log(dontShowAgain)
+		// if(dontShowAgain){
+		// 	Model.setModalShow(false);
+		// }
+		$scope.showModal = false;
+		console.log($scope.showModal)
+	}
+
+
+	var showModal = function () {
+		// body...
+		console.log("showModel runnin")
+		if (Model.showModal() === false) {
+			console.log(Model.showModal())
+			console.log("show")
+			$scope.showModal = false;
+		}else{
+			console.log("dont show")
+			$scope.showModal = true;
+		}
 	}
 
 	$scope.stopSharing = function (playlist) {
@@ -82,5 +101,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
+
+	showModal();
 
 });
