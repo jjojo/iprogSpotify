@@ -5,6 +5,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	"Rating",
 	"Votes"]
 
+	//scopes for sorting rating, voting etc
 	$scope.predicate = 'rating';
   	$scope.reverse = false;
   	$scope.order = function(predicate) {
@@ -23,7 +24,6 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 			var user_lists = [];
 			var keys = Object.keys(response);
 			for(i=0; i<keys.length-1; i++){
-				//console.log(response[keys[i]]);
 				if(response[keys[i]].sharedBy === Model.getUser()){
 					user_lists.push(response[keys[i]]);
 					$scope.loading = false;
@@ -44,13 +44,10 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 
 
 	$scope.range = function(n) {
-		//console.log(n)
-				if(typeof(n) === 'undefined'){
+		if(typeof(n) === 'undefined'){
 			n = 0;
 		}
 		num = Math.round(n);
-
-		//console.log(num)
         return new Array(num);
     };
 

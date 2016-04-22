@@ -32,7 +32,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
+
 	this.authenticatetion = function(){
+		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
 		var user = $cookies.get("voteifyUser");
 
 		if(!user){

@@ -1,8 +1,5 @@
 spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies, $resource) {
 	
-console.log("HomeCtrl loaded")
-
-
 $scope.getDate = function(){
 	var monthNames = [
   "January", "February", "March",

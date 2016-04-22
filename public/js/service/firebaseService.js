@@ -34,6 +34,7 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	}
 
 	this.deletePlaylistUrl = function(data) {
+		//Removes playlist 
 		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + data.id);
 	    playVoteRef.remove();
 	}
@@ -46,7 +47,7 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 	}
 
 	this.getPlaylist = function(playlistId) {
-    	//takes a playlisdId as input and returns specific playlist data.
+    	//takes a playlistId as input and returns specific playlist data.
     	return playVoteRef.$loaded().then(function (response){
     		return playVoteRef.$getRecord(playlistId)
 
