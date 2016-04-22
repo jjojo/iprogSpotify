@@ -1,12 +1,16 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
-	//console.log("profile controller loaded")
+
+	//Booleans for loading and disable info/buttons
 	$scope.loading = true;
 	$scope.disabled = true;
+	$scope.isCollapsed = true;
+	$scope.isCollapsed2 = true;
+
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
 	var mpd = Model.profileData;
-	//console.log(typeof(mpd.userData))
+
 	if (mpd.userData !== $scope.userData) {
 		
 		mpd.userData.then(function(res){
@@ -24,6 +28,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	};
 
 	$scope.getUser = function() {
+		//Returns info about user
 		return Model.getUser();
 	}
 	
@@ -66,7 +71,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				'image': playlist.images[0].url,
 				'totalTracks': playlist.tracks.total
 			}
-		//console.log($scope.userData)
 			fbService.addPlayVoteUrl(data)
 			playlist.shared = true
 			playlist.link = data.voteUrl

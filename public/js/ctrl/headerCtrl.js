@@ -1,8 +1,6 @@
 spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 
 	$scope.active = function(linkname){
-		//console.log($location.path().match(/\/(.*)\//).pop())
-		
 		if (linkname === $location.path()) {
 			return {'opacity':1};
 		};

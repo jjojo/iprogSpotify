@@ -224,6 +224,20 @@ BUTTONS
   cursor: auto;
 }
 
+.top-art-btn{
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.top-art-btn:visited, .top-art-btn:focus{
+  text-decoration: none;
+  outline:none;
+  border:none;
+}
 
 
 /*-------------------------------------------------profileView button slut------------------------------------*/
@@ -387,6 +401,7 @@ margin-right: auto;
   font-size: 1.6em;
   letter-spacing: 0.2px;
   color: #169145;
+  margin-bottom: 2px;
 }
 
 .playlist-title {

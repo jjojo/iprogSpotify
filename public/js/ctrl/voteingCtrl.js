@@ -34,6 +34,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		$scope.loading = true;
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
+			console.log(response)
 			if (response) {
 				$scope.playlist = response
 				$scope.image = response.image
@@ -52,6 +53,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	}
 
 	$scope.trustSrc = function (src) {
+		//Makes the src secure. If no src, returns default setting.
 		if(src){
 			$scope.preview = false;
 			return $sce.trustAsResourceUrl(src);
@@ -82,6 +84,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	}
 
 	$scope.changeVote = function (){
+		//Removes vote from FB
 		$scope.playlist.totalRating -= $scope.starValue;
 		$scope.playlist.votes -= 1;
 		if($scope.playlist.votes != 0){
