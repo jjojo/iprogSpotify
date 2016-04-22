@@ -785,8 +785,55 @@ border-bottom:2px ridge #1ED760;
 }
 
 
+/*-----------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------Modal-----------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+.modal-popup{
+  padding-top: 90px;
+    margin-top: -90px;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+}
 
+.modal-content{
+  max-height: 80vh;
+  overflow: auto;
+}
 
+.modal-img{
+  width: 14%;
+  position: absolute;
+}
+
+.modal-btn{
+  width: 130px;
+  padding: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+}
+
+.modal-close{
+  float: right;
+}
+
+.modal-body{
+  padding: 15px 50px;
+}
+
+.modal-body-text{
+  letter-spacing: 0.3px;
+  text-align: justify;
+  color: #000;
+  font-size: 17px;
+  margin-bottom: 2%;
+}
+
+.modal-heading{
+  margin-top: 20px;
+  text-align: center;
+}
 /*
 	Put all specific design above this comment
 

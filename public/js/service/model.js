@@ -173,6 +173,23 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		self.profileData.playlists = self.getPlaylists();
 	}
 
+	this.setShowModal = function (bool) {
+		// sets if modal shows next time user visits
+		// and makes sure we only see the popup once in session.
+		localStorage.showModal = bool;
+		sessionStorage.showModal = false;
+	}
+
+	this.showModal = function () {
+		// Returns if modal should be showing or not.
+		if (localStorage.showModal === 'false' 
+		|| sessionStorage.showModal === 'false') {
+			return false;
+		}else{
+			return true;
+		}
+	}
+
 
 	this.signOut = function (argument) {
 		//removes all cookies
