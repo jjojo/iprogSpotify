@@ -34,6 +34,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		$scope.loading = true;
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
+			console.log(response)
 			if (response) {
 				$scope.playlist = response
 				$scope.image = response.image
