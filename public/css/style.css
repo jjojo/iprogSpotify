@@ -93,6 +93,28 @@ header a:visited, a:focus{
   color: #169145;
 }
 
+.cookie-consent {
+  border-style: solid;
+  border-color: #8bc8a2;
+  border-radius: 3em;
+}
+
+.consent {
+  margin-left: 5vw !important;
+  margin-right: 5vw !important;
+}
+
+.consent-btn {
+  margin-bottom: 1vh !important;
+  max-width: 10em;
+}
+
+.consent-text {
+  color: #000;
+  font-family:Armata;
+  font-size:12px;
+}
+
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
