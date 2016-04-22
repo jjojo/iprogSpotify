@@ -2,6 +2,8 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 
 	//Booleans for loading and disable info/buttons
 	$scope.loading = true;
+	$scope.dontShowAgain = false;
+	$scope.showModal = Model.showModal();
 	$scope.disabled = true;
 	$scope.isCollapsed = true;
 	$scope.isCollapsed2 = true;
@@ -31,8 +33,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		//Returns info about user
 		return Model.getUser();
 	}
-	
-
 	
 	$scope.checkLink = function (playlist) {
 		// assigns t/f for shared/not shared playlists
@@ -79,11 +79,15 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		});
 	}
 
+	$scope.submitModal = function (dontShowAgain) {
+		//sets if modal is to show again and closes popup
+		Model.setShowModal(!dontShowAgain);
+		$scope.showModal = false;
+	}
 
 	$scope.stopSharing = function (playlist) {
 		// body...
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
-
 });
