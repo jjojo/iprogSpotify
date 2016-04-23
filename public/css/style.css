@@ -23,7 +23,6 @@ Comments:
     font-size: 3vw;
   }
   .ratedPic-small{
-    height: 10vh !important;
     width: 10vw !important;
   }
 }
@@ -380,6 +379,9 @@ text-align: center;
 .rl-name{
   width: 80%;
 }
+.rl-border{
+  border-bottom: solid 2px green;
+}
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -390,8 +392,14 @@ text-align: center;
   margin-bottom: 2%;
 }
 
+.rl-pl-p{
+  color: #777;
+}
 .rl-pl-title{
   font-size: 80%;
+  color:grey;
+  margin-top: 3%;
+
 }
 
 .rl-playlists{
@@ -407,13 +415,11 @@ text-align: center;
 .ratedPic {
   margin-top: 15%;
   margin-bottom: 15%;
-  height: 120px;
   width: 120px;
 }
 .ratedPic {
   margin-top: 15%;
   margin-bottom: 15%;
-  height: 120px;
   width: 120px;
 }
 .sorry-img {
@@ -678,14 +684,6 @@ margin-right: auto;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
 }
-.line-separator-rated{
-  height: 1px;
-  width: 90%;
-  border-bottom: 2px solid #169145;
-  margin-top:1%;
-  margin-left:4%;
-  object-position: relative;
-} 
 /*
 	Put all specific design above this comment
 
