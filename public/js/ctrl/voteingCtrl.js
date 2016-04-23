@@ -1,8 +1,8 @@
 spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce) {
 	
+	//scope variables to initiate proper view
 	var locked = false;
 	$scope.voted = false;
-
 	$scope.disabled = true;
 	$scope.hide = true;
 
@@ -16,21 +16,11 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		{value: 4,
 		hide : true},
 		{value: 5,
-		hide : true},
-		// {value: 6,
-		// hide : true},
-		// {value: 7,
-		// hide : true},
-		// {value: 8,
-		// hide : true},
-		// {value: 9,
-		// hide : true},
-		// {value: 10,
-		// hide : true}	
+		hide : true},	
 	]
 
 	$scope.getPlaylistData = function () {
-		// fetches specific playlist data from firebase.
+		// fetches specific playlist data from firebase
 		$scope.loading = true;
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
@@ -64,14 +54,14 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	}
 
 	$scope.setLock = function (star) {
-		// sets lock
+		// locks stars so they won't change when mouse leaves
 		$scope.starValue = star.value;
 		$scope.disabled = false;
 		locked = true;
 	}
 
 	$scope.setVote = function () {
-		// sets vote
+		// sets vote value to the current star value
 		if (!$scope.voted) {
 			$scope.playlist.totalRating += $scope.starValue;
 			$scope.playlist.votes += 1

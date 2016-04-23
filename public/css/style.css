@@ -721,6 +721,12 @@ margin-right: auto;
   width: 120px;
 }
 
+.sorry-img {
+  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
+  width: 100vw;
+  height: 100vh;
+}
+
 #loader{
   width:128px;
   height:128px;
