@@ -185,13 +185,8 @@ main{
 .info-block dd{
   margin: 5px 0px;
 }
-.info-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-  color: #666;
-  margin: 0px
-}
-.info-block a{
+
+.info-text{
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -200,6 +195,15 @@ main{
   color: #169145;
   margin-bottom: 2px;
 }
+
+.info-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: #666;
+  margin: 0px
+}
+
 .playlist-title {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -209,9 +213,7 @@ main{
   color: #888;
   padding: 5px 0px;
 }
-.share-btn{
-  font-size: 0.9em;
-}
+
 .share-btn p{
   margin: 0;
   text-align: center;
@@ -221,6 +223,7 @@ main{
 .link-space{
   height: 30px;
   text-align: center;
+  font-size: 0.9em;
 }
 .grid {
   margin-left: -1%;
@@ -404,16 +407,6 @@ text-align: center;
   width: 120px;
 }
 
-/* end of RatedLists */
-.sorry-img {
-  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
-  width: 100vw;
-  height: 100vh;
-}
-#sorry img {
-  display: none;
-}
-
 /*--------------------VoteingView--------------------*/
 
 .welcome-vote{
@@ -530,57 +523,52 @@ border-bottom:2px ridge #1ED760;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
-.scrollbar::-webkit-scrollbar-track
-{
+.scrollbar::-webkit-scrollbar-track{
   border-radius: 10px;
   border: none;
   background-color: #D2D1D6;
 }
-.scrollbar::-webkit-scrollbar
-{
+
+.scrollbar::-webkit-scrollbar{
   width: 12px;
   background-color: #F5F5F5;
 }
-.scrollbar::-webkit-scrollbar-thumb
-{
+
+.scrollbar::-webkit-scrollbar-thumb{
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #169145;
 }
+
 .bad-link {
   text-align: center;
 }
 
 /* ----------Loader-------------------Loader----------------*/
 
-#loader{
-  width:128px;
-  height:128px;
-  margin-left:45%;
-  margin-top:15%;
-}
 .loader{
   display: inline;
 }
-#loader-small{
-  width:30px;
-  height:30px;
-}
+
 .loading-bar{
   margin: 0 auto;
   display: block;
 }
+
 .welcome-tag{
   margin-bottom:1%;
 }
+
 .checkoutButton{
   width:80%;
   height:70%;
   font-size:18px;
 }
+
 .checkoutButton a{
   color:black;
 }
+
 .checkoutButton a:hover{
   color:black;
   text-decoration: none;
@@ -595,14 +583,17 @@ border-bottom:2px ridge #1ED760;
     z-index: 1;
     height: 100vh;
 }
+
 .modal-content{
   max-height: 80vh;
   overflow: auto;
 }
+
 .modal-img{
   width: 14%;
   position: absolute;
 }
+
 .modal-btn{
   width: 130px;
   padding: 4px;
@@ -610,12 +601,15 @@ border-bottom:2px ridge #1ED760;
   margin-right: auto;
   float: left;
 }
+
 .modal-close{
   float: right;
 }
+
 .modal-body{
   padding: 15px 50px;
 }
+
 .modal-body-text{
   letter-spacing: 0.3px;
   text-align: justify;
@@ -623,6 +617,7 @@ border-bottom:2px ridge #1ED760;
   font-size: 17px;
   margin-bottom: 2%;
 }
+
 .modal-heading{
   margin-top: 20px;
   text-align: center;
@@ -634,26 +629,17 @@ border-bottom:2px ridge #1ED760;
   padding-left: 5vw;
   padding-right: 5vw;
 }
-.backgroundimg {
-  background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  margin-top: -20%;
-}
-.bild {
-  border-radius: 15px 50px 30px 5px;
-}
+
 .login{
   margin: 0;
 }
+
 .login-button {
 display: block;
 margin-left: auto;
 margin-right: auto;
 }
+
 .line-separator{
   height: 1px;
   width: 110%;
