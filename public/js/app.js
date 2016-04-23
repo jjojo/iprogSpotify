@@ -22,7 +22,6 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 	"views/profile.html",
 			controller: 	"ProfileCtrl",
 			resolve: {
-           			init: initData, 
            			auth: authenticatetion
        				},
 		}).

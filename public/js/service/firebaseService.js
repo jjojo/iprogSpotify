@@ -1,4 +1,4 @@
-spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
+spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 
 	var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls");
 	var playVoteRef = $firebaseArray(playVoteRef);
@@ -13,23 +13,28 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray) {
 		})
 	};
 	
-	this.addPlayVoteUrl = function(data) {
-		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + data.id);
-	    playVoteRef.set( {
-	    	'playlistApiUrl': data.playlistApiUrl,
-	    	'spotifyUrl': data.spotifyUrl,
-	    	'votes': 0, 
-	    	'totalRating': 0,
-	    	'rating' : 0,
-	    	'voteUrl': data.voteUrl,
-	    	'owner': data.owner,
-	    	'name' : data.name,
-	    	'playlistSongs' : data.playlist,
-	    	'shared' : data.shared,
-	    	'sharedBy' : data.sharedBy,
-	    	'image' : data.image,
-	    	'totalTracks' : data.totalTracks
-	    	});
+	this.addPlayVoteUrl = function(playlist, userId) {
+		
+		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + playlist.id);
+		
+		Model.getPlaylistSongs(playlist).then(function (res) {
+			var playlistSongs = res.data;
+		    playVoteRef.set( {
+		    	'playlistApiUrl': playlist.href,
+		    	'spotifyUrl': playlist.external_urls.spotify,
+		    	'votes': 0, 
+		    	'totalRating': 0,
+		    	'rating' : 0,
+		    	'voteUrl': '#/vote/' + playlist.id,
+		    	'owner': playlist.owner.id,
+		    	'name' : playlist.name,
+		    	'playlistSongs' : playlistSongs,
+		    	'shared' : true,
+		    	'sharedBy' : userId,
+		    	'image' :playlist.images[0].url,
+		    	'totalTracks' : playlist.tracks.total
+		    });
+		});
 	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
 	}
 

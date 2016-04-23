@@ -6,22 +6,21 @@
     <div class="container-fluid">
         <div class="row profile-content">
         		<div class="col-lg-offset-1 col-md-offset-0 col-md-3 col-sm-offset-1 col-sm-11 col-xs-12">
-                <h1 class="col-xs-12">{{dispName || userId}}</h1>
-              
-                <a href="{{userData.external_urls.spotify}}" target="_blank">
-                    <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" ng-src="{{userImg || voteifyAvatar}}" alt="No image found">
+                <h1 class="col-xs-12">{{profileData.userData.display_name || profileData.userData.id}}</h1>
+                <a href="{{profileData.userData.external_urls.spotify}}" target="_blank">
+                    <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" ng-src="{{profileData.userData.images[0] || voteifyAvatar}}" alt="No image found">
                 </a>
 
-                <div class="col-xs-12 col-sm-5 col-md-12 info-block" ng-repeat="top in topData">
+                <div class="col-xs-12 col-sm-5 col-md-12 info-block" ng-repeat="top in profileData.topData">
                     <div class="info-title">
                         <button type="button" class="btn-success top-art-btn" ng-click="isCollapsed = !isCollapsed">
-                            <p ng-show="isCollapsed">+</p>
-                            <p ng-show="!isCollapsed">-</p>
+                            <p ng-show="isCollapsed"> + </p>
+                            <p ng-show="!isCollapsed"> - </p>
                         </button>
                         {{top.title}}
                     </div>
 
-                    <div ng-repeat="titles in top" >
+                    <div ng-repeat="titles in top.items" >
                         <p ng-if="!isCollapsed || $index == 0" class="info-text" >
                             {{titles.name}} <span ng-if="titles.artists[0].name"> - </span> {{titles.artists[0].name}}
                         </p>
@@ -39,7 +38,7 @@
 
             	<div class="grid col-sm-12 col-xs-12">
             		<ul class="col-xs-12 profile-playlists">
-                  		<li class="inner-grid col-sm-3 col-xs-12" ng-repeat="pl in playlists | filter:search">
+                  		<li class="inner-grid col-sm-3 col-xs-12" ng-repeat="pl in profileData.playlists.items | filter:search">
                 	      	
                             <a href="{{pl.external_urls.spotify}}">
                               <img class="top-images" ng-src="{{pl.images[0].url}}"/>
@@ -49,7 +48,7 @@
                                 {{pl.name.substring(0,15)}}{{pl.name.length > 15 ? '...' : ''}}
                             </p>
 
-                            <div class="link-space" ng-init="checkLink(pl)">
+                            <div class="link-space" ng-init="isShared(pl)">
                                 <a href="{{pl.link}}" target="_blank" class="link-text" ng-show="pl.shared">
                                     {{pl.link}}
                                 </a>
@@ -59,10 +58,9 @@
                                 <img class="loading-bar" ng-show="loading" src="/resources/loading-bar.gif" ></img>
                             </div>
 
-                            <button type="button" ng-class="buttonType(pl.shared)" ng-click="shareToggle(pl)" ng-disabled="loading || pl.generating">
-                                <p ng-show="!pl.shared && !pl.generating">Put up for vote</p>
-                                <p ng-show="pl.generating">Generating...</p>
-                                <p ng-show="pl.shared && !pl.generating">Close vote</p>
+                            <button type="button" class="btn btn-success" ng-class="pl.btnStyle" ng-click="shareToggle(pl)" ng-disabled="loading">
+                                <p ng-show="!pl.shared">Put up for vote</p>
+                                <p ng-show="pl.shared">Close vote</p>
                             </button>
                         </li>
                     </ul>   
