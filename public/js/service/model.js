@@ -58,7 +58,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			$interval(function () {
 				refreshToken();
 			},(1000*60*59)); //timeout set to refresh access_token each 59 minutes.
-		}else{
+		} else {
 			return 
 		}
 	}
@@ -67,17 +67,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getUser = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
-	}
-
-	this.setCookieConsent = function () {
-		// stores cookieConsent to true			
-		$cookies.put("cookie_consent", true);
-	}
-
-
-	this.getCookieConsent = function () {
-		//returns cookie consent
-		return $cookies.get("cookie_consent")	
 	}
 
 
@@ -185,13 +174,25 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
+	this.setConsent = function () {
+		// sets cookie policy hide
+		sessionStorage.consent = true;
+	}
+
+	this.showConsent = function () {
+		// Returns if cookie policy should be showing or not.
+		if (sessionStorage.consent === 'true') {
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	this.signOut = function (argument) {
 		//removes all cookies
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
-		$cookies.remove("cookie_consent")
 	}
 
 

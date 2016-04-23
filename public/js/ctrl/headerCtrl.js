@@ -17,11 +17,14 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 	}
 	$scope.getConsent = function () {
 		// gets cookie consent
+		$scope.consent = Model.consent;
+		console.log(Model.consent);
 		return Model.getCookieConsent();
+
 	}
 	$scope.setConsent = function () {
 		// sets cookie consent to true
 		Model.setCookieConsent();
-		$scope.consent = true;
+		$scope.consent = Model.consent;
 	}
 });
