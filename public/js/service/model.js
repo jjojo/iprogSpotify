@@ -56,7 +56,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-
 	this.getUserId = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
