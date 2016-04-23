@@ -9,9 +9,6 @@ Comments:
   .header-text{
     display: none;
   }
-  .playlist-image {
-    max-width:30%;
-  }
   .checkoutButton{
     max-width: 28%;
     margin-bottom: 1%;
@@ -389,6 +386,7 @@ text-align: center;
 }
 
 .rl-playlists{
+  margin-top: 6%;
   height: 50vh;
   width: 100%;
   overflow-y: auto; 
@@ -403,6 +401,12 @@ text-align: center;
   margin-bottom: 15%;
   width: 120px;
 }
+.rl-line{
+  height: 1px;
+  width: 110%;
+  border-bottom: 2px solid #169145;
+  margin-left: -15px;
+}
 
 /* end of RatedLists */
 .sorry-img {
@@ -416,45 +420,48 @@ text-align: center;
 
 /*--------------------VoteingView--------------------*/
 
+.vote-pl-info{
+  float: right;
+}
+
 .welcome-vote{
-margin-top:2%;
-font-size:40px; 
-color:#000000;
-font-family:'Montserrat', sans-serif;
-font-weight: 700;
-letter-spacing: 2px;
+  margin-top:2%;
+  font-size:40px; 
+  color:#000000;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 .vote-bar {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 .vote-btn{
   min-width:80px;
   width: 30%;
+  margin-left: 4%;
+  margin-top: 5%;
   display: inline;
-  margin-top: -29%;
-  font-size: 100%;
-  margin-left: 90%;
 }
 .vote-btn[disabled], .vote-btn[disabled]:hover{
   background-color: #169145;
   opacity: 0.5; 
 }
 .track-bar {
-list-style: none;
-padding: 0;
-margin: 0;
-font-family: 'Montserrat';
-color: #169145;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat';
+  color: #169145;
 }
 .center-bar {
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-justify-content: space-between;
-font-family: 'Montserrat';
-color: #169145;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat';
+  color: #169145;
 }
 .track-position{
   padding:2%;
@@ -463,10 +470,8 @@ color: #169145;
   color: #434343;  
   font-size: 90%;
 }
-.playlist-info {
-  float: right;
-}
-.playlist-image {
+
+.vote-pl-image {
   width: 60%;
   border-radius: 3%;
 }
@@ -475,15 +480,14 @@ height:1px;
 margin-bottom:2%;
 border-bottom:1px solid #000;
 }
-.rate_title{
-font-size:22px;
-color: #169145;
+.rate_current,.rate_star{
+  font-size:22px;
 }
-.rate_star{
-font-size:22px;
-}
-.rate_current{
-font-size:22px;
+.vote-pl-title{
+  font-size:22px;
+  color:#169145;
+  font-weight: bold;
+
 }
 .rate_star > span:hover:before {
    content: "\2605"; 
@@ -500,31 +504,36 @@ font-size:22px;
    position: absolute;
 }
 .track{
-margin-top:2%;
-font-size:16px;
-margin-bottom:1%;
+  margin-top:2%;
+  font-size:16px;
+  margin-bottom:1%;
 }
 
 .suggest_title{
-font-size:18px;
+  font-size:18px;
 }
 .stars{
-display: inline;
-margin-top:2%;
-height:50px;
+  display: inline;
+  margin-top:2%;
+  height:50px;
+  min-width: 160px;
 }
 .stars svg{
-height:20px;
-width:20px;
+  height:20px;
+  width:20px;
 }
 .stars svg polygon{
-fill:transparent;
-stroke-width:"6";
+  fill:transparent;
+  stroke-width:"6";
+}
+.stars-width{
+  min-width: 150px;
 }
 .vote-top{
-border-bottom:2px ridge #1ED760;
+  border-bottom:2px ridge #1ED760;
 }
 .pl-songs{
+  margin-top: 15%;
   width: 100%;
   height: 55vh;
   overflow-y: auto; 
@@ -559,9 +568,7 @@ border-bottom:2px ridge #1ED760;
   margin-left:45%;
   margin-top:15%;
 }
-.loader{
-  display: inline;
-}
+
 #loader-small{
   width:30px;
   height:30px;
@@ -660,6 +667,7 @@ margin-right: auto;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
 }
+
 /*
 	Put all specific design above this comment
 
