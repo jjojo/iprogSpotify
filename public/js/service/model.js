@@ -1,7 +1,6 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 	
 	var self = this;
-	self.consent = false;
 
 	this.profileData = {
 		topTracks: null,
@@ -41,9 +40,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		if(!user){
 			$location.path("/error"); 
 		}else{
-			if (typeof($cookies.get("voteifyUser")) !== 'undefined'){
-				self.consent = true;
-			}
 			refreshToken();
 			return
 		}
@@ -71,18 +67,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getUser = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
-	}
-
-	this.setCookieConsent = function () {
-		// stores cookieConsent to true	
-		self.consent = true;		
-		$cookies.put("cookie_consent", true);
-	}
-
-
-	this.getCookieConsent = function () {
-		//returns cookie consent
-		return $cookies.get("cookie_consent");
 	}
 
 
@@ -190,13 +174,28 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
+	this.setConsent = function (bool) {
+		// sets if modal shows next time user visits
+		// and makes sure we only see the popup once in session.
+		localStorage.consent = bool;
+		sessionStorage.consent = false;
+	}
+
+	this.showConsent = function () {
+		// Returns if modal should be showing or not.
+		if (localStorage.consent === 'false' 
+		|| sessionStorage.consent === 'false') {
+			return false;
+		}else{
+			return true;
+		}
+	}
 
 	this.signOut = function (argument) {
 		//removes all cookies
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
-		$cookies.remove("cookie_consent")
 	}
 
 

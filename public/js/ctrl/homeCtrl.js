@@ -10,5 +10,13 @@ $scope.clearCookies = function () {
 	$cookies.remove("access_token");
 	$cookies.remove("refresh_token");
 }
+// $scope.getConsent = function () {
+// 	// gets cookie consent
+// 	$scope.cookieConsent = 
 
+// }
+$scope.setConsent = function () {
+	// sets cookie consent to true
+	$scope.cookieConsent = true;
+}
 });
