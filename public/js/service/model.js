@@ -3,11 +3,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	//initiates variables for error handling
 	var self = this;
 	this.profileData = {
-		topTracks: null,
-		topArtists: null,
-		userData: null,
-		playlists: null
-	}
+		topData:{}
+	};
 
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
@@ -59,7 +56,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.getUser = function () {
+	this.getUserId = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
 	}
@@ -67,82 +64,80 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
 		// and sets votefyUser-cookie
-		var deferred = $q.defer();
-		req('/me').then(function(response) {
-            if (!response || response.error) {
-                deferred.reject('Error occured');
-                console.log(response, "ERROR");
+		return req('/me').then(function(res) {
+            if (!res || res.error) {
+                return "ERROR";
             } else {
-                deferred.resolve(response);
+                return res.data;
             }
         });
-        return deferred.promise;
 	}
 
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
-		var deferred = $q.defer();
-		req('/me/top/artists?limit=5').then(function(response) {
-            if (!response || response.error) {
-                deferred.reject('Error occured');
-                console.log(response, "ERROR");
+		return req('/me/top/artists?limit=5').then(function(res) {
+            if (!res || res.error) {
+                return "ERROR";
             } else {
-                deferred.resolve(response);
+               return res.data;
             }
         });
-        return deferred.promise;
 	}
 
 	this.getTopTracks = function () {
 		// Returns promise with users top 3 tracks
-		var deferred = $q.defer();
-		req('/me/top/tracks?limit=5').then(function(response) {
-            if (!response || response.error) {
-                deferred.reject('Error occured');
-                console.log(response, "ERROR");
+		return req('/me/top/tracks?limit=5').then(function(res) {
+            if (!res || res.error) {
+                return "ERROR";
             } else {
-                deferred.resolve(response);
+                return res.data;
             }
         });
-        return deferred.promise;
 	}
 
 	this.getPlaylists = function () {
 		// Returns a promise containing users playlists
-		var deferred = $q.defer();
-		req('/me/playlists').then(function(response) {
-            if (!response || response.error) {
-                deferred.reject('Error occured');
-                console.log(response, "ERROR");
+		return req('/me/playlists').then(function(res) {
+            if (!res || res.error) {
+            	return "ERROR";
             } else {
-                deferred.resolve(response);
+                return res.data;
             }
         });
-        return deferred.promise;
 	}
 
-	this.getPlaylistSongs = function(userID,playlistID) {
+
+	this.getPlaylistSongs = function(playlist) {
 		//Returns a spesific playlist's tracks.
-		var userInfo = '/users/' + userID + '/playlists/' + playlistID + '/tracks'
-		var deferred = $q.defer();
-		req(userInfo).then(function(response) {
-            if (!response || response.error) {
-                deferred.reject('Error occured');
-                console.log(response, "ERROR");
+		var userInfo = '/users/' + playlist.owner.id + '/playlists/' + playlist.id + '/tracks'
+		return req(userInfo).then(function(res) {
+            if (!res || res.error) {
+            	console.log(res)
+                return "ERROR";
             } else {
-                deferred.resolve(response);
+                return res;
             }
         });
-        return deferred.promise;
 	}
 
 	this.init = function () {
 		// initilize app with data made from API calls
 		self.setUserCred();
-		self.profileData.userData = self.getUserData();
-		self.profileData.topTracks = self.getTopTracks();
-		self.profileData.topArtists = self.getTopArtists();
-		self.profileData.playlists = self.getPlaylists();
+
+		var userData = self.getUserData().then(function(res){
+			self.profileData.userData = res;
+		});
+		var topTracks = self.getTopTracks().then(function(res){
+			self.profileData.topData.topTracks = res;
+			self.profileData.topData.topTracks.title = 'Top Tracks';
+		});
+		var topArtists = self.getTopArtists().then(function(res){
+			self.profileData.topData.topArtists = res;
+			self.profileData.topData.topArtists.title = 'Top Artists';
+		});
+		var playlists = self.getPlaylists().then(function(res){
+			self.profileData.playlists = res;
+		});
 	}
 
 	this.setShowModal = function (bool) {

@@ -35,7 +35,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 			var user_lists = [];
 			var keys = Object.keys(response);
 			for(i=0; i<keys.length-1; i++){
-				if(response[keys[i]].sharedBy === Model.getUser()){
+				if(response[keys[i]].sharedBy === Model.getUserId()){
 					user_lists.push(response[keys[i]]);
 					$scope.loading = false;
 				}

@@ -182,13 +182,8 @@ main{
 .info-block dd{
   margin: 5px 0px;
 }
-.info-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-  color: #666;
-  margin: 0px
-}
-.info-block a{
+
+.info-text{
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -197,6 +192,15 @@ main{
   color: #169145;
   margin-bottom: 2px;
 }
+
+.info-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: #666;
+  margin: 0px
+}
+
 .playlist-title {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -206,9 +210,7 @@ main{
   color: #888;
   padding: 5px 0px;
 }
-.share-btn{
-  font-size: 0.9em;
-}
+
 .share-btn p{
   margin: 0;
   text-align: center;
@@ -218,6 +220,7 @@ main{
 .link-space{
   height: 30px;
   text-align: center;
+  font-size: 0.9em;
 }
 .grid {
   margin-left: -1%;
@@ -336,12 +339,14 @@ font-family: 'Montserrat', sans-serif;
 letter-spacing: 2px;
 text-align: center;
 }
+
 .bread {
   text-align: justify;
   color: #aaa;
   font-size: 17px;
   margin-bottom: 2%;
 }
+
 .bread-center {
   text-align: center;
   color: #000;
@@ -362,9 +367,11 @@ text-align: center;
   font-weight: 700;
   font-size: 50px;
 }
+
 .rl-border{
   border-bottom: solid 2px green;
 }
+
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -378,11 +385,11 @@ text-align: center;
 .rl-pl-p{
   color: #777;
 }
+
 .rl-pl-title{
   font-size: 80%;
   color:grey;
   margin-top: 3%;
-
 }
 
 .rl-playlists{
@@ -396,6 +403,7 @@ text-align: center;
   width: 100%;
   overflow-x:hidden;
 }
+
 .rl-pic {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -406,16 +414,6 @@ text-align: center;
   width: 110%;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
-}
-
-/* end of RatedLists */
-.sorry-img {
-  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
-  width: 100vw;
-  height: 100vh;
-}
-#sorry img {
-  display: none;
 }
 
 /*--------------------VoteingView--------------------*/
@@ -432,10 +430,12 @@ text-align: center;
   font-weight: 700;
   letter-spacing: 2px;
 }
+
 .vote-bar {
   display: flex;
   align-items: center;
 }
+
 .vote-btn{
   min-width:80px;
   width: 30%;
@@ -443,10 +443,12 @@ text-align: center;
   margin-top: 5%;
   display: inline;
 }
+
 .vote-btn[disabled], .vote-btn[disabled]:hover{
   background-color: #169145;
   opacity: 0.5; 
 }
+
 .track-bar {
   list-style: none;
   padding: 0;
@@ -454,6 +456,7 @@ text-align: center;
   font-family: 'Montserrat';
   color: #169145;
 }
+
 .center-bar {
   list-style: none;
   padding: 0;
@@ -463,23 +466,32 @@ text-align: center;
   font-family: 'Montserrat';
   color: #169145;
 }
+
 .track-position{
   padding:2%;
 }
+
 .not-preview{
   color: #434343;  
   font-size: 90%;
 }
 
+
 .vote-pl-image {
+  float: right;
+}
+
+.playlist-image {
   width: 60%;
   border-radius: 3%;
 }
+
 .line{
 height:1px;
 margin-bottom:2%;
 border-bottom:1px solid #000;
 }
+
 .rate_current,.rate_star{
   font-size:22px;
 }
@@ -487,8 +499,8 @@ border-bottom:1px solid #000;
   font-size:22px;
   color:#169145;
   font-weight: bold;
-
 }
+
 .rate_star > span:hover:before {
    content: "\2605"; 
    position: absolute;
@@ -498,11 +510,13 @@ border-bottom:1px solid #000;
   unicode-bidi: bidi-override;
   direction: rtl;
 }
+
 .rate_star > span:hover:before,
 .rate_star > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
 }
+
 .track{
   margin-top:2%;
   font-size:16px;
@@ -512,12 +526,14 @@ border-bottom:1px solid #000;
 .suggest_title{
   font-size:18px;
 }
+
 .stars{
   display: inline;
   margin-top:2%;
   height:50px;
   min-width: 160px;
 }
+
 .stars svg{
   height:20px;
   width:20px;
@@ -529,9 +545,11 @@ border-bottom:1px solid #000;
 .stars-width{
   min-width: 150px;
 }
+
 .vote-top{
   border-bottom:2px ridge #1ED760;
 }
+
 .pl-songs{
   margin-top: 15%;
   width: 100%;
@@ -539,23 +557,24 @@ border-bottom:1px solid #000;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
-.scrollbar::-webkit-scrollbar-track
-{
+
+.scrollbar::-webkit-scrollbar-track{
   border-radius: 10px;
   border: none;
   background-color: #D2D1D6;
 }
-.scrollbar::-webkit-scrollbar
-{
+
+.scrollbar::-webkit-scrollbar{
   width: 12px;
   background-color: #F5F5F5;
 }
-.scrollbar::-webkit-scrollbar-thumb
-{
+
+.scrollbar::-webkit-scrollbar-thumb{
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #169145;
 }
+
 .bad-link {
   text-align: center;
 }
@@ -573,21 +592,26 @@ border-bottom:1px solid #000;
   width:30px;
   height:30px;
 }
+
 .loading-bar{
   margin: 0 auto;
   display: block;
 }
+
 .welcome-tag{
   margin-bottom:1%;
 }
+
 .checkoutButton{
   width:80%;
   height:70%;
   font-size:18px;
 }
+
 .checkoutButton a{
   color:black;
 }
+
 .checkoutButton a:hover{
   color:black;
   text-decoration: none;
@@ -602,14 +626,17 @@ border-bottom:1px solid #000;
     z-index: 1;
     height: 100vh;
 }
+
 .modal-content{
   max-height: 80vh;
   overflow: auto;
 }
+
 .modal-img{
   width: 14%;
   position: absolute;
 }
+
 .modal-btn{
   width: 130px;
   padding: 4px;
@@ -617,12 +644,15 @@ border-bottom:1px solid #000;
   margin-right: auto;
   float: left;
 }
+
 .modal-close{
   float: right;
 }
+
 .modal-body{
   padding: 15px 50px;
 }
+
 .modal-body-text{
   letter-spacing: 0.3px;
   text-align: justify;
@@ -630,6 +660,7 @@ border-bottom:1px solid #000;
   font-size: 17px;
   margin-bottom: 2%;
 }
+
 .modal-heading{
   margin-top: 20px;
   text-align: center;
@@ -641,26 +672,17 @@ border-bottom:1px solid #000;
   padding-left: 5vw;
   padding-right: 5vw;
 }
-.backgroundimg {
-  background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  margin-top: -20%;
-}
-.bild {
-  border-radius: 15px 50px 30px 5px;
-}
+
 .login{
   margin: 0;
 }
+
 .login-button {
 display: block;
 margin-left: auto;
 margin-right: auto;
 }
+
 .line-separator{
   height: 1px;
   width: 110%;
