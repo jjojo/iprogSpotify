@@ -1,17 +1,8 @@
-
-
-<!-- alla views ska vara wrappade i en <main> tag!
-tänk på indentering i alla divs
-			<div>
-				<p></p>
-			</div>
- -->
 <div ng-include="'views/voteHeader.html'"></div>
 
 <!--Voting page-->
 <main>
 	<div ng-init="getPlaylistData()"  class="container-fluid">
-		
 		<div class="center container">
 			<div class="row">
 				<div class="playlist-info col-md-3 col-xs-12" ng-hide="loading || badLink">
@@ -43,20 +34,19 @@ tänk på indentering i alla divs
 							<ul class="center-bar">
 								<li>
 									<p class="rate-title">Place your vote here!</p>
-								<div ng-mouseleave="hollowStars()">
-									<div class="stars" ng-repeat="star in stars">
-										<img ng-show="star.hide" 
-										ng-mouseover="fillStar(star)" 
-										src="resources/spoti_star_hollow.png"/>
-										<img ng-show="!star.hide" 
-										ng-mouseover="hollowStar(star)" 
-										ng-click="setLock(star)" 
-										src="resources/spoti_star_filled.png"/>
+									<div ng-mouseleave="hollowStars()">
+										<div class="stars" ng-repeat="star in stars">
+											<img ng-show="star.hide" 
+											ng-mouseover="fillStar(star)" 
+											src="resources/spoti_star_hollow.png"/>
+											<img ng-show="!star.hide" 
+											ng-mouseover="hollowStar(star)" 
+											ng-click="setLock(star)" 
+											src="resources/spoti_star_filled.png"/>
+										</div>
 									</div>
-									
-								</div>
 
-								<button type="button" ng-show="!voted" class="btn btn-success vote-btn" ng-disabled="disabled" ng-click="setVote(star)">
+									<button type="button" ng-show="!voted" class="btn btn-success vote-btn" ng-disabled="disabled" ng-click="setVote(star)">
                   						Vote                 					 
                						</button>
                						<button type="button" ng-show="voted" class="btn btn-success vote-btn" ng-click="changeVote()">

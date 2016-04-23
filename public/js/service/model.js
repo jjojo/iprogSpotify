@@ -1,14 +1,13 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 	
+	//initiates variables for error handling
 	var self = this;
-
 	this.profileData = {
 		topTracks: null,
 		topArtists: null,
 		userData: null,
 		playlists: null
 	}
-
 
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
@@ -20,7 +19,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
-
 	var refreshToken = function () {
 		// refreshes acess_token
 		var refresh_token = $cookies.get("refresh_token");
@@ -31,7 +29,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 				$cookies.put("access_token", res.data.access_token);
 			});
 	}
-
 
 	this.authenticatetion = function(){
 		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
@@ -45,7 +42,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	} 
 
-
 	this.setUserCred = function () {
 		// stores username, access_token and refresh_token to session cookies.
 		if (typeof($cookies.get("voteifyUser")) === 'undefined'){
@@ -58,28 +54,15 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			$interval(function () {
 				refreshToken();
 			},(1000*60*59)); //timeout set to refresh access_token each 59 minutes.
-		}else{
+		} else {
 			return 
 		}
 	}
-
 
 	this.getUser = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
 	}
-
-	this.setCookieConsent = function () {
-		// stores cookieConsent to true			
-		$cookies.put("cookie_consent", true);
-	}
-
-
-	this.getCookieConsent = function () {
-		//returns cookie consent
-		return $cookies.get("cookie_consent")	
-	}
-
 
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
@@ -96,7 +79,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         return deferred.promise;
 	}
 
-
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		var deferred = $q.defer();
@@ -106,12 +88,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
             }
         });
         return deferred.promise;
 	}
-
 
 	this.getTopTracks = function () {
 		// Returns promise with users top 3 tracks
@@ -122,12 +102,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
             }
         });
         return deferred.promise;
 	}
-
 
 	this.getPlaylists = function () {
 		// Returns a promise containing users playlists
@@ -142,7 +120,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
         return deferred.promise;
 	}
-
 
 	this.getPlaylistSongs = function(userID,playlistID) {
 		//Returns a spesific playlist's tracks.
@@ -185,17 +162,28 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
+	this.setConsent = function () {
+		// sets cookie policy hide
+		sessionStorage.consent = true;
+	}
+
+	this.showConsent = function () {
+		// Returns if cookie policy should be showing or not.
+		if (sessionStorage.consent === 'true') {
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	this.signOut = function (argument) {
 		//removes all cookies
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
-		$cookies.remove("cookie_consent")
 	}
 
-
+	//runs initial functions
 	this.init();
-	
 	return this;
 });

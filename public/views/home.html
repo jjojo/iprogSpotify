@@ -5,13 +5,9 @@
 		<hero class="hero-img col-xs-12">
 			<img class=" logo center-block" src="../resources/voteify_white.png">
 			<img class=" hero-img-header" src="../resources/header.png">
-
 		</hero>
-		
-		<div class="col-xs-12 login">
-	 		
-			<div class="line-separator"></div>
 
+		<div class="col-xs-12 login">
 			<div class=" col-xs-12 login-info">
 				<h1>Welcome!</h1>
 				<h2>Sign in to put up your playlists for voteing</h2>
@@ -21,10 +17,22 @@
 					</button>
 				</a>
 			</div>
+			<div class="col-xs-8 col-xs-offset-2 cookie-consent" ng-hide="cookieConsent">
+			  <div class="consent">
+		      <span class="consent-text">
+		        We use cookies to enhance your experience. By using our site you agree to sending information about your Spotify account.
+		      </span>
+		      <br>
+			  <button class="btn btn-success consent-btn" type="button" ng-click="submitConsent()">
+			  	Hide this message
+			  </button>
+	          		      
+		      <span class="consent-text"> or </span>
+		      <a class="link-text" href="https://kb.iu.edu/d/agwm">read more!</a>
+		      </div>
+		    </div>
 			
-			<div class="line-separator"></div>
-			
-			<div class="col-xs-6 col-xs-offset-3 bread">
+			<div class="col-xs-8 col-xs-offset-2 home-bread">
 				<span>Hey there, we are glad you found us! Go ahead and start sharing your playlists with family and friends, so they can express their appreciation of your taste in music. You could also get your customers or guests to express their feelings about your playlist, just by sharing your link!<br><br>We do not work for Spotify, this site is brought thanks to the Spotify web API.
 				</span>
 			</div>

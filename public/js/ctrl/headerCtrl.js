@@ -1,6 +1,7 @@
 spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 
 	$scope.active = function(linkname){
+		//highlights current tab
 		if (linkname === $location.path()) {
 			return {'opacity':1};
 		};
@@ -8,6 +9,7 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 	}
 
 	$scope.clearCookie = function() {
+		//clears all cookies
 		Model.clearCookie();
 	}
 
@@ -17,11 +19,14 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 	}
 	$scope.getConsent = function () {
 		// gets cookie consent
+		$scope.consent = Model.consent;
+		console.log(Model.consent);
 		return Model.getCookieConsent();
+
 	}
 	$scope.setConsent = function () {
 		// sets cookie consent to true
 		Model.setCookieConsent();
-		$scope.consent = true;
+		$scope.consent = Model.consent;
 	}
 });
