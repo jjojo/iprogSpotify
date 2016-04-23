@@ -9,7 +9,6 @@ Comments:
   .header-text{
     display: none;
   }
-
   .playlist-image {
     max-width:30%;
   }
@@ -21,7 +20,6 @@ Comments:
     height: 100% !important; 
   }
 }
-
 @media (max-width: 650px){
   .rating-stars {
     display: none;
@@ -43,19 +41,16 @@ Comments:
 .startpage{
   padding: 0;
 }
-
 .hero-img{
   padding: 0;
   margin:0;
   border-bottom: 2px solid #169145;
 }
-
 .hero-img-header{
     width: 100%;
     min-height: 350px;
     max-height: 50vh;
 }
-
 .logo{
     width: 25%;
     min-width: 200px;
@@ -83,7 +78,6 @@ Comments:
   border-radius: 30px;
   padding: 5px 20px;
 }
-
 .sign-in-btn:hover{
   color: #169145;
   background-color: rgba(170, 170, 170, 0.2);
@@ -126,18 +120,15 @@ header {
   width: 100%;
   margin-top: 1%;
 }
-
 header img {
   width: 100px;
   margin-left: 1%;
 }
-
 header p{
   font-size: 25px;
   display: inline-block;
   margin-left: 2%;
 }
-
 header a {
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
@@ -147,27 +138,24 @@ header a {
   color: #169145;
   margin-right: 3%;
 }
-
 header a:hover{
   text-decoration: none;
   color: #169145;
 }
-
 header a:visited, a:focus{
   text-decoration: none;
   color: #169145;
 }
-
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
-
 a{
   color: #169145;
 }
 
 /* ------------ProfileView------------------------*/
+
 main{
   float: left;
   width: 100%;
@@ -179,29 +167,24 @@ main{
 .profile-playlists{
   margin-top: 40px;
 }
-
 .profile-title{
   font-size: 3.5em;
 }
-
 .profile-content{
   margin: 50px -15px 0px -15px;
 }
-
 .info-block {
   margin-bottom: 20px;
 }
 .info-block dd{
   margin: 5px 0px;
 }
-
 .info-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 2em;
   color: #666;
   margin: 0px
 }
-
 .info-block a{
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
@@ -211,7 +194,6 @@ main{
   color: #169145;
   margin-bottom: 2px;
 }
-
 .playlist-title {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -221,27 +203,22 @@ main{
   color: #888;
   padding: 5px 0px;
 }
-
 .share-btn{
   font-size: 0.9em;
 }
-
 .share-btn p{
   margin: 0;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.05em;
 }
-
 .link-space{
   height: 30px;
   text-align: center;
 }
-
 .grid {
   margin-left: -1%;
 }
-
 .inner-grid {
   list-style-type: none;
   display: inline-block;
@@ -249,11 +226,9 @@ main{
   min-height: 380px;
   overflow: hidden;
 }
-
 .media-object {
   width: 60%;
 }
-
 .top-images {
   width: 100%;
 }
@@ -261,11 +236,9 @@ main{
   width: 10vw;
   height: 3vh;
 }
-
 .btn p{
   margin:0;
 }
-
 .btn{
     min-width: 130px;
     width: 100%;
@@ -273,13 +246,11 @@ main{
     margin-left: auto;
     margin-right: auto;
 }
-
 .btn[disabled], .btn[disabled]:hover {
   background-color: grey;
   border: none;
   cursor: auto;
 }
-
 .top-art-btn{
   border: none;
   border-radius: 50%;
@@ -288,13 +259,11 @@ main{
   margin-top: 10px;
   font-size: 20px;
 }
-
 .top-art-btn:visited, .top-art-btn:focus{
   text-decoration: none;
   outline:none;
   border:none;
 }
-
 /*--------------------Footer---------------------------*/
 .footer-wrapper {
   float: left;
@@ -317,6 +286,7 @@ footer p {
   margin: 1em 0;
   width: 100%;
 }
+
 /* ----------------------------------------ABOUT view*---------------------------------------*/
 
 .line-about{
@@ -324,7 +294,6 @@ footer p {
   width: 100%;
   border-bottom: 2px solid #169145;
 }
-
 .pic-about{
   border-radius: 50%;
   width: 100%;
@@ -335,7 +304,6 @@ float: none;
 margin-left: auto;
 margin-right: auto;
 }
-
 .login-title{
 margin-top:3%;
 font-size:40px; 
@@ -369,25 +337,21 @@ text-align: center;
   width: 100%;
   overflow-y: auto;
 }
-
 .rl-h2{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 50px;
 }
-
 .rl-p{
   text-align: center;
 }
-
 .rl-rank , .rl-ratio{
   width: 10%;
 }
 .rl-name{
   width: 80%;
 }
-
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -397,7 +361,6 @@ text-align: center;
   margin-top: 5%;
   margin-bottom: 2%;
 }
-
 .rl-table a{
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
@@ -406,31 +369,25 @@ text-align: center;
   text-decoration: none;
   color: #169145;
 }
-
 .rl-table a:hover{
   text-decoration: none;
   color: #169145;
   cursor: pointer;
 }
-
 .rl-table th{
   text-align: center;
   margin-left:20px; 
-
 }
-
 .rl-table td{
   text-align: center;
   color: #777;
 }
-
 .rl-table td p{
   margin: -50px 0px -7px 0px;
   font-size: 30px;
   color: #777;
   margin-bottom: 3%;
 }
-
 .rl-row{
   width: 100%;
   overflow-x:hidden; 
@@ -447,21 +404,16 @@ text-align: center;
   height: 120px;
   width: 120px;
 }
-
 .sorry-img {
   background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
   width: 100vw;
   height: 100vh;
 }
-
 #sorry img {
   display: none;
 }
 
-/* ----------------------------------*/
-
 /*--------------------VoteingView--------------------*/
-
 
 .welcome-vote{
 margin-top:2%;
@@ -471,12 +423,10 @@ font-family:'Montserrat', sans-serif;
 font-weight: 700;
 letter-spacing: 2px;
 }
-
 .vote-bar {
 display: flex;
 align-items: center;
 }
-
 .vote-btn{
   min-width:80px;
   width: 30%;
@@ -485,12 +435,10 @@ align-items: center;
   font-size: 100%;
   margin-left: 90%;
 }
-
 .vote-btn[disabled], .vote-btn[disabled]:hover{
   background-color: #169145;
   opacity: 0.5; 
 }
-
 .track-bar {
 list-style: none;
 padding: 0;
@@ -498,7 +446,6 @@ margin: 0;
 font-family: 'Montserrat';
 color: #169145;
 }
-
 .center-bar {
 list-style: none;
 padding: 0;
@@ -508,25 +455,20 @@ justify-content: space-between;
 font-family: 'Montserrat';
 color: #169145;
 }
-
 .track-position{
   padding:2%;
 }
-
 .not-preview{
   color: #434343;  
   font-size: 90%;
 }
-
 .playlist-info {
   float: right;
 }
-
 .playlist-image {
   width: 60%;
   border-radius: 3%;
 }
-
 .line{
 height:1px;
 margin-bottom:2%;
@@ -556,101 +498,84 @@ font-size:22px;
    content: "\2605";
    position: absolute;
 }
-
-
 .track{
 margin-top:2%;
 font-size:16px;
 margin-bottom:1%;
 }
-
 .rl-table-line{
   border-top: solid 2px #1ED760;
   border-bottom: solid 2px #1ED760;
 }
-
 .rl-table-line:hover{
   background-color: black;
   color: #169145;
 }
-
 .suggest_title{
 font-size:18px;
 }
-
 .stars{
 display: inline;
 margin-top:2%;
 height:50px;
 }
-
 .stars svg{
 height:20px;
 width:20px;
-
 }
 .stars svg polygon{
 fill:transparent;
 stroke-width:"6";
 }
-
 .vote-top{
 border-bottom:2px ridge #1ED760;
 }
-
 .pl-songs{
   width: 100%;
   height: 55vh;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
-
 .scrollbar::-webkit-scrollbar-track
 {
   border-radius: 10px;
   border: none;
   background-color: #D2D1D6;
 }
-
 .scrollbar::-webkit-scrollbar
 {
   width: 12px;
   background-color: #F5F5F5;
 }
-
 .scrollbar::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #169145;
 }
-
 .bad-link {
   text-align: center;
 }
 
 /* ----------Loader-------------------Loader----------------*/
+
 #loader{
   width:128px;
   height:128px;
   margin-left:45%;
   margin-top:15%;
 }
-
 .loader{
   display: inline;
 }
-
 #loader-small{
   width:30px;
   height:30px;
 }
-
 .loading-bar{
   margin: 0 auto;
   display: block;
 }
-
 .welcome-tag{
   margin-bottom:1%;
 }
@@ -659,17 +584,13 @@ border-bottom:2px ridge #1ED760;
   height:70%;
   font-size:18px;
 }
-
 .checkoutButton a{
   color:black;
 }
-
 .checkoutButton a:hover{
   color:black;
   text-decoration: none;
 }
-
-
 /*-----------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------Modal-----------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------*/
@@ -680,17 +601,14 @@ border-bottom:2px ridge #1ED760;
     z-index: 1;
     height: 100vh;
 }
-
 .modal-content{
   max-height: 80vh;
   overflow: auto;
 }
-
 .modal-img{
   width: 14%;
   position: absolute;
 }
-
 .modal-btn{
   width: 130px;
   padding: 4px;
@@ -698,15 +616,12 @@ border-bottom:2px ridge #1ED760;
   margin-right: auto;
   float: left;
 }
-
 .modal-close{
   float: right;
 }
-
 .modal-body{
   padding: 15px 50px;
 }
-
 .modal-body-text{
   letter-spacing: 0.3px;
   text-align: justify;
@@ -714,7 +629,6 @@ border-bottom:2px ridge #1ED760;
   font-size: 17px;
   margin-bottom: 2%;
 }
-
 .modal-heading{
   margin-top: 20px;
   text-align: center;
@@ -735,7 +649,6 @@ border-bottom:2px ridge #1ED760;
   height: 100%;
   margin-top: -20%;
 }
-
 .bild {
   border-radius: 15px 50px 30px 5px;
 }
@@ -747,14 +660,12 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 }
-
 .line-separator{
   height: 1px;
   width: 110%;
   border-bottom: 2px solid #169145;
   margin-left: -15px;
 }
-
 .line-separator-rated{
   height: 1px;
   width: 90%;
