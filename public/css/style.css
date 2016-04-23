@@ -57,6 +57,7 @@ COLORS
   width: 100%;
 }
 header {
+  height: 100px;
   float: left;
   width: 100%;
   margin-top: 1%;
@@ -219,6 +220,7 @@ BUTTONS
 
 .btn[disabled], .btn[disabled]:hover {
   background-color: grey;
+  border: none;
   cursor: auto;
 }
 
@@ -795,8 +797,8 @@ border-bottom:2px ridge #1ED760;
 /*-------------------------------------------------Modal-----------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------*/
 .modal-popup{
-  padding-top: 90px;
-    margin-top: -90px;
+    padding-top: 100px;
+    margin-top: -100px;
     position: fixed;
     z-index: 1;
     height: 100vh;
