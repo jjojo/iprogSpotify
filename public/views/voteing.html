@@ -2,87 +2,60 @@
 
 <!--Voting page-->
 <main>
-	<div ng-init="getPlaylistData()"  class="container-fluid">
-		<div class="center container">
-			<div class="row">
-				<div class="playlist-info col-md-3 col-xs-12" ng-hide="loading || badLink">
-					<h3>Playlist info</h1>
-					<a href="{{spotLink}}"><img class="playlist-image" src="{{image}}"></a>
-					<p><a class="rate_title" href="{{spotLink}}">{{title}}</a></p>
-					<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
-					<h4>Playlist owner:</h4> <p>{{owner}}</p>
-				</div>
-				
-				<div class="col-md-9 col-xs-12">
-					<div class="playlist">
-						<!--Loading page-->
-						<div class="loader">
-							<h2 class="rate_title" ng-show="loading">The playlist is now loading</h2>
-							<img ng-show="loading" src="/resources/loading-bar.gif">
+	<div ng-init="getPlaylistData()"  class="container center">
+		<div class="vote-pl-info col-md-3 col-xs-12" ng-hide="loading || badLink">
+			<h3>Playlist info</h3>
+			<a href="{{spotLink}}"><img class="vote-pl-image" src="{{image}}"></a>
+			<p class="vote-pl-title">{{title}}</p>
+			<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
+			<h4>Playlist owner:</h4> <p>{{owner}}</p>
+		</div>	
+		<div class="col-md-9 col-xs-12">
+			<h2 class="vote-pl-title" ng-show="loading">The playlist is now loading</h2>
+			<img ng-show="loading" src="/resources/loading-bar.gif">
+			<div ng-hide="loading || badLink">
+				<p class="vote-pl-title">
+					{{title}}
+				</p>	
+				<div class="col-xs-12 vote-top">
+					<p class="rate-title">Place your vote here!</p>
+					<div class="col-xs-5 stars-width"ng-mouseleave="hollowStars()">
+						<div class="stars" ng-repeat="star in stars">
+							<img ng-show="star.hide" ng-mouseover="fillStar(star)" 
+							src="resources/spoti_star_hollow.png"/>
+							<img ng-show="!star.hide" ng-mouseover="hollowStar(star)" 
+							ng-click="setLock(star)" 
+							src="resources/spoti_star_filled.png"/>
 						</div>
-						<div class="vote-top col-xs-12" ng-hide="loading || badLink">
-							<ul class="center-bar">
-								<li>
-									<a class="rate_title" href="{{spotLink}}">
-										{{title}}
-									</a>
-								</li>
-								<li>
-									
-								</li>
-							</ul>
-							<ul class="center-bar">
-								<li>
-									<p class="rate-title">Place your vote here!</p>
-									<div ng-mouseleave="hollowStars()">
-										<div class="stars" ng-repeat="star in stars">
-											<img ng-show="star.hide" 
-											ng-mouseover="fillStar(star)" 
-											src="resources/spoti_star_hollow.png"/>
-											<img ng-show="!star.hide" 
-											ng-mouseover="hollowStar(star)" 
-											ng-click="setLock(star)" 
-											src="resources/spoti_star_filled.png"/>
-										</div>
-									</div>
-
-									<button type="button" ng-show="!voted" class="btn btn-success vote-btn" ng-disabled="disabled" ng-click="setVote(star)">
-                  						Vote                 					 
-               						</button>
-               						<button type="button" ng-show="voted" class="btn btn-success vote-btn" ng-click="changeVote()">
-                  						Change
-                					</button>
-								</li>
-								<li>
-								
-               					</li>
-								<li>
-									<p class="rate-title">Votes: {{playlist.votes}}</p>
-									<p class="rate-title">Rating: {{playlist.rating}}</p>
-								</li>
-							</ul>
-						</div>	
-						<div class="pl-songs scrollbar" ng-hide="badLink">
-							<div>
-								<!-- ng-repeat låtar-->
-								<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
-									<div class="track-position col-xs-12 col-md-6">
-										<p class="info-text">
-											{{track.track.artists[0].name}} - {{track.track.name}}
-										</p>
-									</div>
-									<div class="track-position col-xs-12 col-md-6" ng-hide="preview">
-										<audio ng-src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
-									</div>
-									<div class="track-position not-preview col-xs-12 col-md-6" ng-show="preview">
-										Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here!</a>
-									</div>
-								</div>						
-							</div>
-						</div>
+						<button type="button" class="btn btn-success vote-btn" ng-disabled="disabled" ng-click="setVote(star)">
+	  						<p ng-show="!voted">Vote</p>
+	  						<p ng-show="voted">Change</p>                 					 
+						</button>
+					</div>
+					<div class ="col-xs-2 vote-pl-info">
+						<p class="rate-title">Votes: {{playlist.votes}}</p>
+						<p class="rate-title">Rating: {{playlist.rating}}</p>
 					</div>
 				</div>
-			</div>
+			</div>	
+			<div class="pl-songs scrollbar" ng-hide="badLink">
+				<div>
+					<!-- ng-repeat låtar-->
+					<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
+						<div class="track-position col-xs-12 col-md-6">
+							<p class="info-text">
+								{{track.track.artists[0].name}} - {{track.track.name}}
+							</p>
+						</div>
+						<div class="track-position col-xs-12 col-md-6" ng-hide="preview">
+							<audio ng-src="{{trustSrc(track.track.preview_url)}}" controls="1"></audio>
+						</div>
+						<div class="track-position not-preview col-xs-12 col-md-6" ng-show="preview">
+							Preview not available - listen on spotify <a href="{{track.track.external_urls.spotify}}">here!</a>
+						</div>
+					</div>						
+				</div>
+			</div>	
 		</div>
 	</div>
 

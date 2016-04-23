@@ -24,7 +24,6 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		$scope.loading = true;
 		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
 			//sets all scope variables from response
-			console.log(response)
 			if (response) {
 				$scope.playlist = response
 				$scope.image = response.image
@@ -69,7 +68,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 			fbService.addVoteRating($scope.playlist);
 			$scope.voted = true;
 		} else {
-			return
+			$scope.changeVote();
 		}
 	}
 
@@ -86,6 +85,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		$scope.voted = false;
 		$scope.disabled = true;
 		locked = false;
+		$scope.hollowStars(0);
 
 	}
 
