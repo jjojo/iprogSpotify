@@ -4,10 +4,8 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.loading = true;
 	$scope.dontShowAgain = false;
 	$scope.showModal = Model.showModal();
-	$scope.disabled = true;
 	$scope.isCollapsed = true;
-	$scope.isCollapsed2 = true;
-
+	$scope.topData = {};
 	//These values are fetched and resolved by the router to be rady on load.
 	// $scope.userData = Model.profileData.userData.data;
 	// console.log(Model.profileData.playlists)
@@ -16,18 +14,32 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	if (mpd.userData !== $scope.userData) {
 		
 		mpd.userData.then(function(res){
+			
 			$scope.userData = res.data;
+			$scope.dispName = res.data.display_name;
+			$scope.userId = res.data.id;
+			if (typeof(res.data.images[0]) === 'undefined') {
+				$scope.userImg = '../resources/avatar.png';
+			}else{
+				$scope.userImg = res.data.images[0].url;
+			}
+			
 		});
 		mpd.playlists.then(function(res){
 			$scope.playlists = res.data.items;
 		});
+
 		mpd.topArtists.then(function(res){
-			$scope.topArtists = res.data.items;
+			$scope.topData.topArtists = res.data.items;
+			$scope.topData.topArtists.title = "Top Artists"
 		});
+
 		mpd.topTracks.then(function(res){
-			$scope.topTracks = res.data.items;
+			$scope.topData.topTracks = res.data.items;
+			$scope.topData.topTracks.title = "Top Tracks"
 		});
 	};
+
 
 	$scope.getUser = function() {
 		//Returns info about user
@@ -42,13 +54,11 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				playlist.shared = true;
 				playlist.link = response.voteUrl;
 				$scope.loading = false;
-				$scope.disabled = false;
 			} catch (error) {
 				/*this would catch respones = null
 				could be solved with anif-else statement as well */
 				playlist.shared = false;
 				$scope.loading = false;
-				$scope.disabled = false;
 			}
 		});
 	}
@@ -57,7 +67,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		// Generate link and adds data to database.
 		playlist.generating = true;
 		Model.getPlaylistSongs(playlist.owner.id,playlist.id).then(function (response) {
-			playlist.status = " ";
 			var data = {
 				'playlistApiUrl': playlist.href,
 				'spotifyUrl': playlist.external_urls.spotify,
@@ -75,7 +84,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 			playlist.shared = true
 			playlist.link = data.voteUrl
 			playlist.generating = false;
-
 		});
 	}
 
@@ -83,6 +91,36 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		//sets if modal is to show again and closes popup
 		Model.setShowModal(!dontShowAgain);
 		$scope.showModal = false;
+	}
+
+	$scope.buttonType = function(shared){
+		if (shared) {
+			return 'btn btn-danger'
+		}else{
+			return 'btn btn-success'
+		}
+	}
+
+	$scope.shareToggle = function (playlist) {
+		// body...
+		if (playlist.shared) {
+			playlist.shared = false
+			fbService.deletePlaylistUrl(playlist)
+		}else{
+			$scope.genLink(playlist)
+		}
+	}
+
+
+	$scope.buttonState = function (playlist) {
+		// returns button text depending on playlist status.
+		if (playlist.shared) {
+			return 'Close vote'
+		} else if (playlist.generating) {
+			return 'Generating...'
+		}else{
+			return 'Put up for vote'
+		}
 	}
 
 	$scope.stopSharing = function (playlist) {

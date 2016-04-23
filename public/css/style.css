@@ -395,14 +395,7 @@ margin-right: auto;
   margin: 5px 0px;
 }
 
-.info-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-  color: #666;
-  margin: 0px
-}
-
-.info-block a{
+.info-text{
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -412,6 +405,25 @@ margin-right: auto;
   margin-bottom: 2px;
 }
 
+.info-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: #666;
+  margin: 0px
+
+}
+
+/*.info-block a{
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  letter-spacing: 0.2px;
+  color: #169145;
+  margin-bottom: 2px;
+}*/
+
 .playlist-title {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -420,10 +432,6 @@ margin-right: auto;
   text-align: center;
   color: #888;
   padding: 5px 0px;
-}
-
-.share-btn{
-  font-size: 0.9em;
 }
 
 .share-btn p{
@@ -436,6 +444,7 @@ margin-right: auto;
 .link-space{
   height: 30px;
   text-align: center;
+  font-size: 0.9em;
 }
 
 .link-text {

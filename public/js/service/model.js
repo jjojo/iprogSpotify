@@ -86,6 +86,17 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 
+	this.getMostPlayed = function () {
+	// Returns promise with users top 3 artists
+		var topData = {
+		'topTracks' : self.getTopTracks(),
+		'topArtists': self.getTopArtists()
+		}
+		
+
+		return topData
+	}
+
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		var deferred = $q.defer();
