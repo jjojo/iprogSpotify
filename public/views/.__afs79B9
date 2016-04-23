@@ -1,0 +1,22 @@
+<header ng-controller="HeaderCtrl">
+    <a>
+    	<img src="resources/voteify.png">
+    </a>
+
+    <a>
+        <span class="glyphicon glyphicon-star"></span>
+        <p class="header-text">Vote</p>
+    </a>
+
+    <a href="#/voteabout" target="_blank" ng-style="active('sign in')">
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <p class="header-text">About</p>
+    </a>
+
+    <a href="#/" ng-style="active('/voteabout')">
+        <span class="glyphicon glyphicon-log-in"></span>
+        <p class="header-text">Visit Voteify</p> 
+    </a>    
+
+
+</header>
