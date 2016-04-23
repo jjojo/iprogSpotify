@@ -342,12 +342,14 @@ font-family: 'Montserrat', sans-serif;
 letter-spacing: 2px;
 text-align: center;
 }
+
 .bread {
   text-align: justify;
   color: #aaa;
   font-size: 17px;
   margin-bottom: 2%;
 }
+
 .bread-center {
   text-align: center;
   color: #000;
@@ -368,9 +370,11 @@ text-align: center;
   font-weight: 700;
   font-size: 50px;
 }
+
 .rl-border{
   border-bottom: solid 2px green;
 }
+
 .rl-table{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -384,11 +388,11 @@ text-align: center;
 .rl-pl-p{
   color: #777;
 }
+
 .rl-pl-title{
   font-size: 80%;
   color:grey;
   margin-top: 3%;
-
 }
 
 .rl-playlists{
@@ -401,6 +405,7 @@ text-align: center;
   width: 100%;
   overflow-x:hidden;
 }
+
 .rl-pic {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -417,10 +422,12 @@ font-family:'Montserrat', sans-serif;
 font-weight: 700;
 letter-spacing: 2px;
 }
+
 .vote-bar {
 display: flex;
 align-items: center;
 }
+
 .vote-btn{
   min-width:80px;
   width: 30%;
@@ -429,10 +436,12 @@ align-items: center;
   font-size: 100%;
   margin-left: 90%;
 }
+
 .vote-btn[disabled], .vote-btn[disabled]:hover{
   background-color: #169145;
   opacity: 0.5; 
 }
+
 .track-bar {
 list-style: none;
 padding: 0;
@@ -440,6 +449,7 @@ margin: 0;
 font-family: 'Montserrat';
 color: #169145;
 }
+
 .center-bar {
 list-style: none;
 padding: 0;
@@ -449,35 +459,44 @@ justify-content: space-between;
 font-family: 'Montserrat';
 color: #169145;
 }
+
 .track-position{
   padding:2%;
 }
+
 .not-preview{
   color: #434343;  
   font-size: 90%;
 }
+
 .playlist-info {
   float: right;
 }
+
 .playlist-image {
   width: 60%;
   border-radius: 3%;
 }
+
 .line{
 height:1px;
 margin-bottom:2%;
 border-bottom:1px solid #000;
 }
+
 .rate_title{
 font-size:22px;
 color: #169145;
 }
+
 .rate_star{
 font-size:22px;
 }
+
 .rate_current{
 font-size:22px;
 }
+
 .rate_star > span:hover:before {
    content: "\2605"; 
    position: absolute;
@@ -487,11 +506,13 @@ font-size:22px;
   unicode-bidi: bidi-override;
   direction: rtl;
 }
+
 .rate_star > span:hover:before,
 .rate_star > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
 }
+
 .track{
 margin-top:2%;
 font-size:16px;
@@ -501,28 +522,24 @@ margin-bottom:1%;
 .suggest_title{
 font-size:18px;
 }
+
 .stars{
 display: inline;
 margin-top:2%;
 height:50px;
 }
-.stars svg{
-height:20px;
-width:20px;
-}
-.stars svg polygon{
-fill:transparent;
-stroke-width:"6";
-}
+
 .vote-top{
 border-bottom:2px ridge #1ED760;
 }
+
 .pl-songs{
   width: 100%;
   height: 55vh;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
+
 .scrollbar::-webkit-scrollbar-track{
   border-radius: 10px;
   border: none;
