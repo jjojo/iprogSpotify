@@ -21,9 +21,14 @@
         </div>
 
         <div ng-hide="empty" class="rl-table col-xs-12">
-            <div class="col-xs-3" ng-repeat="head in tableHeads" ng-show="!loading">
-                <p class="rl-p-size">{{head}}</p>
-                <a><div ng-click="order(head.toLowerCase())" ng-if="$index>0" class="glyphicon glyphicon-sort"></div></a>
+            <div class="col-xs-3 rl-border" ng-repeat="head in tableHeads" ng-show="!loading">
+                <p class="rl-p-size">
+                    {{head.descript}}
+                    <a ng-click="order(head.descript.toLowerCase()); changeStatusHead(head)" ng-if="$index>0"> 
+                        <i ng-show="head.status" class="fa fa-caret-up"></i>
+                        <i ng-show="!head.status" class="fa fa-caret-down"></i>
+                    </a>
+                </p>              
                 <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}"></span>
             </div>
             <div class="rl-playlists scrollbar">
