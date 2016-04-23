@@ -4,14 +4,6 @@ Comments:
 	• Try to organize the classes in a logical chronoligical order.
 	• Try to be as general as possible and explain where and what the class is used for.
 */
-/*
-FONT
-*/
-
-/*
-COLORS
-*/
-
 /*SMALL SCREENS*/
 @media (max-width: 880px){
   .header-text{
@@ -39,21 +31,93 @@ COLORS
     display: none;
   }
 }
-
-/*
-	Put all general design below this comment
-*/
 .wrapper {
   float: left;
   height: 99vh;
   position: relative;
   width: 100%;
 }
+
+/* HomeView -------------------starterpage--------------------*/
+
+.startpage{
+  padding: 0;
+}
+
+.hero-img{
+  padding: 0;
+  margin:0;
+  border-bottom: 2px solid #169145;
+}
+
+.hero-img-header{
+    width: 100%;
+    min-height: 350px;
+    max-height: 50vh;
+}
+
+.logo{
+    width: 25%;
+    min-width: 200px;
+    display: block;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    position: absolute;
+}
+.login-info{
+  margin-top: 2%;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+.login-info h1{
+  font-size: 2em;
+}
+.sign-in-btn{
+  margin: 4%;
+  color: #169145;
+  background: none;
+  border: 2px solid #169145;
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.sign-in-btn:hover{
+  color: #169145;
+  background-color: rgba(170, 170, 170, 0.2);
+}
+.home-bread {
+  text-align: justify;
+  color: black;
+  font-size: 17px;
+  margin-bottom: 2%;
+}
+.cookie-consent {
+  border: 2px solid #169145;
+  border-radius: 30px;
+  text-align: justify;
+  display: flex;
+}
+.consent-btn {
+  margin-bottom: 1vh !important;
+  max-width: 10em;
+}
+
+.consent-text {
+  color: #000;
+  font-family:Armata;
+  font-size:12px;
+}
+.link-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: #169145;
+}
+
+/*Headerview ------------------- HeaderView-----------------*/
 .header-wrapper {
-/*
-		Put this on all the header include tags
-		to keep header at top
-	*/
   width: 100%;
 }
 header {
@@ -94,25 +158,6 @@ header a:visited, a:focus{
   color: #169145;
 }
 
-.cookie-consent {
-  border: 2px solid #169145;
-  border-radius: 30px;
-  text-align: justify;
-  display: flex;
-}
-
-
-.consent-btn {
-  margin-bottom: 1vh !important;
-  max-width: 10em;
-}
-
-.consent-text {
-  color: #000;
-  font-family:Armata;
-  font-size:12px;
-}
-
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -122,256 +167,11 @@ a{
   color: #169145;
 }
 
+/* ------------ProfileView------------------------*/
 main{
-/*
-		This is where all the content shoud go
-	*/
   float: left;
   width: 100%;
 }
-.footer-wrapper {
-/*
-		Put this on all the header include tags
-		to keep footer at bottom
-	*/
-  float: left;
-  width: 100%;
-}
-footer {
-  color: rgba(0,0,0,0.4);
-  font-size: 1.2em;
-  padding: 0.6em;
-  text-align: right;
-  width: 100%;
-}
-footer p {
-  font-family: fnt-theme-italic;
-  letter-spacing: 1px;
-  margin-right: 3%;
-}
-.float-wrapper {
-  float: left;
-  margin: 1em 0;
-  width: 100%;
-}
-/*
-BUTTONS
-*/
-.sign-in-btn{
-  margin: 4%;
-  color: #169145;
-  background: none;
-  border: 2px solid #169145;
-  border-radius: 30px;
-  padding: 5px 20px;
-}
-
-.sign-in-btn:hover{
-  color: #169145;
-  background-color: rgba(170, 170, 170, 0.2);
-}
-/*-------------------------------------------------startpage start------------------------------------*/
-
-.startpage{
-  padding: 0;
-}
-
-.hero-img{
-  padding: 0;
-  margin:0;
-  border-bottom: 2px solid #169145;
-}
-
-.hero-img-header{
-    width: 100%;
-    min-height: 350px;
-    max-height: 50vh;
-}
-
-.logo{
-    width: 25%;
-    min-width: 200px;
-    display: block;
-    left: 50%;
-    z-index: 2;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    position: absolute;
-}
-
-
-/*-------------------------------------------------profileView button start------------------------------------*/
-#put-up-vote {
-  width: 10vw;
-  height: 3vh;
-}
-
-.btn p{
-  margin:0;
-}
-
-.btn{
-    min-width: 130px;
-    width: 100%;
-    padding: 4px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn[disabled], .btn[disabled]:hover {
-  background-color: grey;
-  border: none;
-  cursor: auto;
-}
-
-.top-art-btn{
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin-top: 10px;
-  font-size: 20px;
-}
-
-.top-art-btn:visited, .top-art-btn:focus{
-  text-decoration: none;
-  outline:none;
-  border:none;
-}
-
-
-/*-------------------------------------------------profileView button slut------------------------------------*/
-/*
-LOADER
-*/
-/*
-	Put all general design above this comment
-*/
-/*
-	Put all specific design below this comment
-*/
-
-
-.search-window {
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-.backgroundimg {
-  background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  margin-top: -20%;
-}
-
-.bread {
-  text-align: justify;
-  color: #aaa;
-  font-size: 17px;
-  margin-bottom: 2%;
-}
-
-.home-bread {
-  text-align: justify;
-  color: black;
-  font-size: 17px;
-  margin-bottom: 2%;
-}
-
-.bread-center {
-  text-align: center;
-  color: #000;
-  font-family:Armata;
-  border-radius: 15px 50px 30px 5px;
-  width: 50%;
-  padding: 1.8%;
-  font-size:17px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.bild {
-  border-radius: 15px 50px 30px 5px;
-}
-
-.date { 
-    margin: 20px;
-    margin-bottom: 0px;
-    color: white;
-    display: inline-block;
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
-}
-
-.login{
-  margin: 0;
-}
-
-.login-title{
-margin-top:3%;
-font-size:40px; 
-color:#000000;
-font-family: 'Montserrat', sans-serif;
-letter-spacing: 2px;
-text-align: center;
-}
-
-.login-info{
-  margin-top: 2%;
-  font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
-
-.login-info h1{
-  font-size: 2em;
-}
-
-.center {
-float: none;
-margin-left: auto;
-margin-right: auto;
-}
-
-.login-button {
-display: block;
-margin-left: auto;
-margin-right: auto;
-}
-
-.line-separator{
-  height: 1px;
-  width: 110%;
-  border-bottom: 2px solid #169145;
-  margin-left: -15px;
-}
-
-.line-separator-rated{
-  height: 1px;
-  width: 90%;
-  border-bottom: 2px solid #169145;
-  margin-top:1%;
-  margin-left:4%;
-  object-position: relative;
-}
-/* ----------------------------------------ABOUT view*---------------------------------------*/
-
-.line-about{
-  height: 1px;
-  width: 100%;
-  border-bottom: 2px solid #169145;
-}
-
-.pic-about{
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-
-/*-------------------------------------------------profileView start------------------------------------*/
 .profileView {
   display: flex;
   align-items: center;
@@ -438,12 +238,6 @@ margin-right: auto;
   text-align: center;
 }
 
-.link-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9em;
-  color: #169145;
-}
-
 .grid {
   margin-left: -1%;
 }
@@ -463,14 +257,113 @@ margin-right: auto;
 .top-images {
   width: 100%;
 }
+#put-up-vote {
+  width: 10vw;
+  height: 3vh;
+}
 
-/*-------------------------------------------------profileView slut------------------------------------*/
+.btn p{
+  margin:0;
+}
 
-/* HEADER */
+.btn{
+    min-width: 130px;
+    width: 100%;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.btn[disabled], .btn[disabled]:hover {
+  background-color: grey;
+  border: none;
+  cursor: auto;
+}
 
-/*---------*/
-/* Ratedlists (RL) */
+.top-art-btn{
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.top-art-btn:visited, .top-art-btn:focus{
+  text-decoration: none;
+  outline:none;
+  border:none;
+}
+
+/*--------------------Footer---------------------------*/
+.footer-wrapper {
+  float: left;
+  width: 100%;
+}
+footer {
+  color: rgba(0,0,0,0.4);
+  font-size: 1.2em;
+  padding: 0.6em;
+  text-align: right;
+  width: 100%;
+}
+footer p {
+  font-family: fnt-theme-italic;
+  letter-spacing: 1px;
+  margin-right: 3%;
+}
+.float-wrapper {
+  float: left;
+  margin: 1em 0;
+  width: 100%;
+}
+
+/* ----------------------------------------ABOUT view*---------------------------------------*/
+
+.line-about{
+  height: 1px;
+  width: 100%;
+  border-bottom: 2px solid #169145;
+}
+
+.pic-about{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.center {
+float: none;
+margin-left: auto;
+margin-right: auto;
+}
+
+.login-title{
+margin-top:3%;
+font-size:40px; 
+color:#000000;
+font-family: 'Montserrat', sans-serif;
+letter-spacing: 2px;
+text-align: center;
+}
+.bread {
+  text-align: justify;
+  color: #aaa;
+  font-size: 17px;
+  margin-bottom: 2%;
+}
+.bread-center {
+  text-align: center;
+  color: #000;
+  font-family:Armata;
+  border-radius: 15px 50px 30px 5px;
+  width: 50%;
+  padding: 1.8%;
+  font-size:17px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*--------------------------------- Ratedlists (RL) -------------------- */
 
 .rated-list{
   height: 60vh;
@@ -543,6 +436,33 @@ margin-right: auto;
   width: 100%;
   overflow-x:hidden; 
 }
+.ratedPic {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  height: 120px;
+  width: 120px;
+}
+.ratedPic {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  height: 120px;
+  width: 120px;
+}
+
+.sorry-img {
+  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
+  width: 100vw;
+  height: 100vh;
+}
+
+#sorry img {
+  display: none;
+}
+
+/* ----------------------------------*/
+
+/*--------------------VoteingView--------------------*/
+
 
 .welcome-vote{
 margin-top:2%;
@@ -674,8 +594,7 @@ width:20px;
 fill:transparent;
 stroke-width:"6";
 }
-/*---------*/
-/*playlistsongs*/
+
 .vote-top{
 border-bottom:2px ridge #1ED760;
 }
@@ -711,48 +630,7 @@ border-bottom:2px ridge #1ED760;
   text-align: center;
 }
 
-.playlist-search{
-  margin-top: 30px;
-  border-radius: 20px;
-  height: 40px;
-  border: none;
-  color: #169145;
-  background-color: #f9f9f9;
-
-}
-
-.playlist-search[placeholder]{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    opacity: 0.8;
-    margin-left: 3%;
-    float: left;
-    width: 21%;
-    min-width: 160px;
-}
-
-.playlist-search:focus{
-  outline: none;
-}
-/*
-/*ratedlist*/
-.ratedPic {
-  margin-top: 15%;
-  margin-bottom: 15%;
-  height: 120px;
-  width: 120px;
-}
-
-.sorry-img {
-  background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
-  width: 100vw;
-  height: 100vh;
-}
-
-#sorry img {
-  display: none;
-}
-
+/* ----------Loader-------------------Loader----------------*/
 #loader{
   width:128px;
   height:128px;
@@ -842,6 +720,51 @@ border-bottom:2px ridge #1ED760;
   margin-top: 20px;
   text-align: center;
 }
+
+/*GeneralCode------ All View--------------------------*/
+
+.search-window {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.backgroundimg {
+  background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  margin-top: -20%;
+}
+
+.bild {
+  border-radius: 15px 50px 30px 5px;
+}
+.login{
+  margin: 0;
+}
+.login-button {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.line-separator{
+  height: 1px;
+  width: 110%;
+  border-bottom: 2px solid #169145;
+  margin-left: -15px;
+}
+
+.line-separator-rated{
+  height: 1px;
+  width: 90%;
+  border-bottom: 2px solid #169145;
+  margin-top:1%;
+  margin-left:4%;
+  object-position: relative;
+}
+
 /*
 	Put all specific design above this comment
 
