@@ -251,22 +251,6 @@ LOADER
 	Put all specific design below this comment
 */
 
-
-.search-window {
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-.backgroundimg {
-  background: url("http://i.imgur.com/JZCrHDF.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  margin-top: -20%;
-}
-
 .bread {
   text-align: justify;
   color: #aaa;
@@ -545,17 +529,17 @@ margin-right: auto;
 }
 
 .welcome-vote{
-margin-top:2%;
-font-size:40px; 
-color:#000000;
-font-family:'Montserrat', sans-serif;
-font-weight: 700;
-letter-spacing: 2px;
+  margin-top:2%;
+  font-size:40px; 
+  color:#000000;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .vote-bar {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .vote-btn{
@@ -573,21 +557,21 @@ align-items: center;
 }
 
 .track-bar {
-list-style: none;
-padding: 0;
-margin: 0;
-font-family: 'Montserrat';
-color: #169145;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat';
+  color: #169145;
 }
 
 .center-bar {
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-justify-content: space-between;
-font-family: 'Montserrat';
-color: #169145;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat';
+  color: #169145;
 }
 
 .track-position{
@@ -609,23 +593,23 @@ color: #169145;
 }
 
 .line{
-height:1px;
-margin-bottom:2%;
-border-bottom:1px solid #000;
+  height:1px;
+  margin-bottom:2%;
+  border-bottom:1px solid #000;
 }
 .rate_title{
-font-size:22px;
-color: #169145;
+  font-size:22px;
+  color: #169145;
 }
 .rate_star{
-font-size:22px;
+  font-size:22px;
 }
 .rate_current{
-font-size:22px;
+  font-size:22px;
 }
 .rate_star > span:hover:before {
-   content: "\2605"; 
-   position: absolute;
+  content: "\2605"; 
+  position: absolute;
 }
 
 .rate_star {
@@ -634,15 +618,15 @@ font-size:22px;
 }
 .rate_star > span:hover:before,
 .rate_star > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+  content: "\2605";
+  position: absolute;
 }
 
 
 .track{
-margin-top:2%;
-font-size:16px;
-margin-bottom:1%;
+  margin-top:2%;
+  font-size:16px;
+  margin-bottom:1%;
 }
 
 .rl-table-line{
@@ -655,29 +639,25 @@ margin-bottom:1%;
   color: #169145;
 }
 
-.suggest_title{
-font-size:18px;
-}
-
 .stars{
-display: inline;
-margin-top:2%;
-height:50px;
+  display: inline;
+  margin-top:2%;
+  height:50px;
 }
 
 .stars svg{
-height:20px;
-width:20px;
-
+  height:20px;
+  width:20px;
 }
+
 .stars svg polygon{
-fill:transparent;
-stroke-width:"6";
+  fill:transparent;
+  stroke-width:"6";
 }
 /*---------*/
 /*playlistsongs*/
 .vote-top{
-border-bottom:2px ridge #1ED760;
+  border-bottom:2px ridge #1ED760;
 }
 
 .pl-songs{
@@ -687,21 +667,18 @@ border-bottom:2px ridge #1ED760;
   overflow-x: hidden; 
 }
 
-.scrollbar::-webkit-scrollbar-track
-{
+.scrollbar::-webkit-scrollbar-track {
   border-radius: 10px;
   border: none;
   background-color: #D2D1D6;
 }
 
-.scrollbar::-webkit-scrollbar
-{
+.scrollbar::-webkit-scrollbar {
   width: 12px;
   background-color: #F5F5F5;
 }
 
-.scrollbar::-webkit-scrollbar-thumb
-{
+.scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #169145;
@@ -722,19 +699,20 @@ border-bottom:2px ridge #1ED760;
 }
 
 .playlist-search[placeholder]{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    opacity: 0.8;
-    margin-left: 3%;
-    float: left;
-    width: 21%;
-    min-width: 160px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  opacity: 0.8;
+  margin-left: 3%;
+  float: left;
+  width: 21%;
+  min-width: 160px;
 }
 
 .playlist-search:focus{
   outline: none;
 }
 /*
+
 /*ratedlist*/
 .ratedPic {
   margin-top: 15%;
@@ -747,10 +725,6 @@ border-bottom:2px ridge #1ED760;
   background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
   width: 100vw;
   height: 100vh;
-}
-
-#sorry img {
-  display: none;
 }
 
 #loader{
@@ -797,11 +771,11 @@ border-bottom:2px ridge #1ED760;
 /*-------------------------------------------------Modal-----------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------*/
 .modal-popup{
-    padding-top: 100px;
-    margin-top: -100px;
-    position: fixed;
-    z-index: 1;
-    height: 100vh;
+  padding-top: 100px;
+  margin-top: -100px;
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
 }
 
 .modal-content{
@@ -844,5 +818,4 @@ border-bottom:2px ridge #1ED760;
 }
 /*
 	Put all specific design above this comment
-
 */

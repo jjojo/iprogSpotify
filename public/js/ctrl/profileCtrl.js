@@ -86,7 +86,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	}
 
 	$scope.stopSharing = function (playlist) {
-		// body...
+		//removes a playlist from voting and clears votes
 		playlist.shared = false
 		fbService.deletePlaylistUrl(playlist)
 	}
