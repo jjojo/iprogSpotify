@@ -25,8 +25,15 @@ COLORS
     max-width: 28%;
     margin-bottom: 1%;
   }
-  .pl-songs, .rated-list{
-    height: 100% !important; 
+  .pl-songs, .rl-playlists{
+    height: 100% !important;
+  }
+  .rl-p-size{
+    font-size: 3vw;
+  }
+  .ratedPic-small{
+    height: 10vh !important;
+    width: 10vw !important;
   }
 }
 
@@ -465,13 +472,6 @@ margin-right: auto;
 
 /*---------*/
 /* Ratedlists (RL) */
-
-.rated-list{
-  height: 60vh;
-  width: 100%;
-  overflow-y: auto;
-}
-
 .rl-h2{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -515,27 +515,21 @@ margin-right: auto;
   cursor: pointer;
 }
 
-.rl-table th{
-  text-align: center;
-  margin-left:20px; 
 
-}
-
-.rl-table td{
-  text-align: center;
+.rl-pl-title{
+  font-size: 80%;
   color: #777;
+  margin-top:4%;
 }
-
-.rl-table td p{
-  margin: -50px 0px -7px 0px;
-  font-size: 30px;
-  color: #777;
-  margin-bottom: 3%;
+.rl-playlists{
+  height: 50vh;
+  width: 100%;
+  overflow-y: auto; 
 }
 
 .rl-row{
   width: 100%;
-  overflow-x:hidden; 
+  overflow-x:hidden;
 }
 
 .welcome-vote{

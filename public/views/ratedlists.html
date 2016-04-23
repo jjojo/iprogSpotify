@@ -1,61 +1,57 @@
 <ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
-<main>
-  <!--he-->
-  <div class="container">
 
-    <h2 class="rl-h2">Your Rated Playlists</h2>      
-    <div ng-show="loading">
-      <h1 class="header-text">Checking shared playlists...</h1>
-      <img src="/resources/loading-bar.gif">
-    </div> 
-    <div class="rated-list scrollbar" ng-show="!loading">
-         <div class="bread" ng-show="empty">
-          <h1 class="login-title">
-            Oooops, you don't have any music up for vote!
-            Go ahead and publish some playlists from your 
-            <a href="#/profile/{{access_token}}" ng-style="active('profile')">
-              profile!
-            </a>
-          </h1>
+<main>
+    <div class="container">
+        <h2 class="rl-h2">Your Rated Playlists</h2>      
+        <div ng-show="loading">
+            <h1 class="header-text">Checking shared playlists...</h1>
+            <img src="/resources/loading-bar.gif">
+        </div> 
+
+        <div class="bread" ng-show="empty">
+            <h1 class="login-title">
+                <p>Oooops, you don't have any music up for vote!
+                Go ahead and publish some playlists from your </p>
+                <a href="#/profile/{{access_token}}" ng-style="active('profile')">
+                    profile!
+                </a>
+            </h1>
         </div>
 
-      <table ng-hide="empty" class="rl-table col-xs-12">
-        <tr>
-          <th>Cover</th>
-          <th class="col-xs-3" ng-repeat="head in tableHeads">
-            {{head}}
-            <a><div ng-click="order(head.toLowerCase())" class="glyphicon glyphicon-sort"></div></a>
-            <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}">
-            </span>
-          </th>
-        </tr>
-        <tr class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:!reverse">
-          <td class="col-xs-3">
-            <img class="ratedPic" ng-src="{{list.image}}">
-          </td>
-          <td class="col-xs-3">
-            {{list.name}}
-          </td>
-          <td class="col-xs-3">
-          <!-- change 5 to what ever object we are loopin.rating -->
-           <p ng-hide="list.rating"><br><i class="fa fa-question-circle-o"></i></p>
-            <div ng-show="list.rating">
-              <p class="rating"><br>{{list.rating}}</p>
-               <div class="rating-stars">
-                  <img ng-repeat="i in range(list.rating) track by $index" src="resources/spoti_star_filled.png">
-                  <img class="hollow-star" ng-repeat="i in range(5-list.rating) track by $index" src="resources/spoti_star_hollow.png">
-              </div>    
+        <div ng-hide="empty" class="rl-table col-xs-12">
+            <div class="col-xs-3" ng-repeat="head in tableHeads" ng-show="!loading">
+                <p class="rl-p-size">{{head}}</p>
+                <a><div ng-click="order(head.toLowerCase())" ng-if="$index>0" class="glyphicon glyphicon-sort"></div></a>
+                <span class="sortorder" ng-show="predicate === head" ng-class="{reverse:reverse}"></span>
             </div>
-          </td>
-          <td class="col-xs-3" ng-show="list.rating">
-            <p><br>{{list.votes}}</p>
-          </td>
-          <td class="col-xs-3" ng-hide="list.rating">
-            <p><br><i class="fa fa-frown-o"></i></p>
-          </td>
-        </tr>
-      </table>
+            <div class="rl-playlists scrollbar">
+                <div class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:!reverse">
+                    <div class="col-xs-3">
+                        <img class="ratedPic ratedPic-small" ng-src="{{list.image}}">
+                    </div>
+                    <div class="col-xs-3 rl-pl-title">
+                        <p class="rl-p-size">{{list.name}}</p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p ng-hide="list.rating"><br><i class="fa fa-question-circle-o"></i></p>
+                        <div ng-show="list.rating">
+                            <p class="rating"><br>{{list.rating}}</p>
+                            <div class="rating-stars">
+                                <img ng-repeat="i in range(list.rating) track by $index" src="resources/spoti_star_filled.png">
+                                <img class="hollow-star" ng-repeat="i in range(5-list.rating) track by $index" src="resources/spoti_star_hollow.png">
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="col-xs-3" ng-show="list.rating">
+                        <p><br>{{list.votes}}</p>
+                    </div>
+                    <div class="col-xs-3" ng-hide="list.rating">
+                        <p><br><i class="fa fa-frown-o"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </div>
 </main>
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
