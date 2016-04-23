@@ -32,10 +32,12 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 			resolve: {
 					auth: authenticatetion
        				},
-
 		}).
 		when('/error', {
 			templateUrl: 	"views/error.html",
+		}).
+		when('/sorry', {
+			templateUrl: 	"views/sorry.html",
 		}).
 		when('/about', {
 			templateUrl: 	"views/about.html",

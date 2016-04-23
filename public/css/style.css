@@ -317,7 +317,6 @@ footer p {
   margin: 1em 0;
   width: 100%;
 }
-
 /* ----------------------------------------ABOUT view*---------------------------------------*/
 
 .line-about{
@@ -763,8 +762,7 @@ margin-right: auto;
   margin-top:1%;
   margin-left:4%;
   object-position: relative;
-}
-
+} 
 /*
 	Put all specific design above this comment
 

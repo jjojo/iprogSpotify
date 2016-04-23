@@ -1,15 +1,13 @@
 <ng-include src="'views/header.html'" class="header-wrapper"></ng-include>
 <main>
-  <!--he-->
   <div class="container">
-
     <h2 class="rl-h2">Your Rated Playlists</h2>      
     <div ng-show="loading">
       <h1 class="header-text">Checking shared playlists...</h1>
       <img src="/resources/loading-bar.gif">
     </div> 
     <div class="rated-list scrollbar" ng-show="!loading">
-         <div class="bread" ng-show="empty">
+        <div class="bread" ng-show="empty">
           <h1 class="login-title">
             Oooops, you don't have any music up for vote!
             Go ahead and publish some playlists from your 

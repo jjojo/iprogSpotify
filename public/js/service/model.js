@@ -1,14 +1,13 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 	
+	//initiates variables for error handling
 	var self = this;
-
 	this.profileData = {
 		topTracks: null,
 		topArtists: null,
 		userData: null,
 		playlists: null
 	}
-
 
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
@@ -19,7 +18,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			headers: {'Authorization': 'Bearer ' + access_token}
 			});
 	}
-
 
 	var refreshToken = function () {
 		// refreshes acess_token
@@ -32,7 +30,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
-
 	this.authenticatetion = function(){
 		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
 		var user = $cookies.get("voteifyUser");
@@ -44,7 +41,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			return
 		}
 	} 
-
 
 	this.setUserCred = function () {
 		// stores username, access_token and refresh_token to session cookies.
@@ -63,12 +59,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-
 	this.getUser = function () {
 		//returns current user
 		return $cookies.get("voteifyUser")	
 	}
-
 
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
@@ -85,7 +79,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         return deferred.promise;
 	}
 
-
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		var deferred = $q.defer();
@@ -95,12 +88,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
             }
         });
         return deferred.promise;
 	}
-
 
 	this.getTopTracks = function () {
 		// Returns promise with users top 3 tracks
@@ -111,12 +102,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
                 console.log(response, "ERROR");
             } else {
                 deferred.resolve(response);
-                //console.log("SUCCESS")
             }
         });
         return deferred.promise;
 	}
-
 
 	this.getPlaylists = function () {
 		// Returns a promise containing users playlists
@@ -131,7 +120,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
         return deferred.promise;
 	}
-
 
 	this.getPlaylistSongs = function(userID,playlistID) {
 		//Returns a spesific playlist's tracks.
@@ -195,8 +183,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$cookies.remove("refresh_token")
 	}
 
-
+	//runs initial functions
 	this.init();
-	
 	return this;
 });
