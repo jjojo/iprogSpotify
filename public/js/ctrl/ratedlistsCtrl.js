@@ -2,6 +2,7 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 
 	//tab names
 	$scope.tableHeads = [
+	"Cover",
 	"Name",
 	"Rating",
 	"Votes"]
