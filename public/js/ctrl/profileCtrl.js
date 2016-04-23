@@ -7,7 +7,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.topData = {};
 	$scope.voteifyAvatar = '../resources/avatar.png';
 
-	if(Object.keys(Model.profileData).length === 0){
+	if(Object.keys(Model.profileData).length === 1){
 		Model.init().then(function(){
 			$scope.profileData = Model.profileData;
 		})

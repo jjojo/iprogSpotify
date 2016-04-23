@@ -138,6 +138,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		var playlists = self.getPlaylists().then(function(res){
 			self.profileData.playlists = res;
 		});
+		
+		return $q.all([userData, topTracks, topArtists, playlists])
 	}
 
 	this.setShowModal = function (bool) {
