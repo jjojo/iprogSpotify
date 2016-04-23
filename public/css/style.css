@@ -222,6 +222,7 @@ BUTTONS
 
 .btn[disabled], .btn[disabled]:hover {
   background-color: grey;
+  border: none;
   cursor: auto;
 }
 
