@@ -1,9 +1,11 @@
 spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 
+	//tab names
 	$scope.tableHeads = [
-	"Name",
-	"Rating",
-	"Votes"]
+	{"descript":"Cover","status":true},
+	{"descript":"Name","status":true},
+	{"descript":"Rating","status":true},
+	{"descript":"Votes","status":true}]
 
 	//scopes for sorting rating, voting etc
 	$scope.predicate = 'rating';
@@ -11,6 +13,15 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
   	$scope.order = function(predicate) {
     	$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
     	$scope.predicate = predicate;
+    }
+
+    $scope.changeStatusHead =function(head){
+    	for(i=0;i<$scope.tableHeads.length;i++){
+    		if($scope.tableHeads[i].descript == head.descript){
+    			$scope.tableHeads[i].status = !$scope.tableHeads[i].status;
+    			return
+    		}
+    	}
     }
 
 	var getRatingList = function(){

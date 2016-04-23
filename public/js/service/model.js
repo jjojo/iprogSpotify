@@ -1,11 +1,10 @@
 spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval, $location) {
 	
+	//initiates variables for error handling
 	var self = this;
-
 	this.profileData = {
 		topData:{}
 	};
-
 
 	var req = function (url) {
 		// returns a "spotify-ready" http request from the url argument
@@ -16,7 +15,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			headers: {'Authorization': 'Bearer ' + access_token}
 			});
 	}
-
 
 	var refreshToken = function () {
 		// refreshes acess_token
@@ -29,7 +27,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
-
 	this.authenticatetion = function(){
 		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
 		var user = $cookies.get("voteifyUser");
@@ -41,7 +38,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			return
 		}
 	} 
-
 
 	this.setUserCred = function () {
 		// stores username, access_token and refresh_token to session cookies.
@@ -66,7 +62,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		return $cookies.get("voteifyUser")	
 	}
 
-
 	this.getUserData = function () {
 		// Returns a promise with user data from spotifyAPI
 		// and sets votefyUser-cookie
@@ -79,7 +74,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
-
 	this.getTopArtists = function () {
 		// Returns promise with users top 3 artists
 		return req('/me/top/artists?limit=5').then(function(res) {
@@ -91,7 +85,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
-
 	this.getTopTracks = function () {
 		// Returns promise with users top 3 tracks
 		return req('/me/top/tracks?limit=5').then(function(res) {
@@ -102,7 +95,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
             }
         });
 	}
-
 
 	this.getPlaylists = function () {
 		// Returns a promise containing users playlists
@@ -187,8 +179,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		$cookies.remove("refresh_token")
 	}
 
-
+	//runs initial functions
 	this.init();
-	
 	return this;
 });

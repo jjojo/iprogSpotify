@@ -55,3 +55,4 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 		$scope.showModal = false;
 	}
 });
+
