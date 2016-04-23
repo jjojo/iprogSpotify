@@ -22,7 +22,7 @@ Comments:
   .rl-p-size{
     font-size: 3vw;
   }
-  .ratedPic-small{
+  .rl-pic-small{
     width: 10vw !important;
   }
 }
@@ -359,25 +359,11 @@ text-align: center;
 
 /*--------------------------------- Ratedlists (RL) -------------------- */
 
-.rated-list{
-  height: 60vh;
-  width: 100%;
-  overflow-y: auto;
-}
 .rl-h2{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 50px;
-}
-.rl-p{
-  text-align: center;
-}
-.rl-rank , .rl-ratio{
-  width: 10%;
-}
-.rl-name{
-  width: 80%;
 }
 .rl-border{
   border-bottom: solid 2px green;
@@ -412,16 +398,13 @@ text-align: center;
   width: 100%;
   overflow-x:hidden;
 }
-.ratedPic {
+.rl-pic {
   margin-top: 15%;
   margin-bottom: 15%;
   width: 120px;
 }
-.ratedPic {
-  margin-top: 15%;
-  margin-bottom: 15%;
-  width: 120px;
-}
+
+/* end of RatedLists */
 .sorry-img {
   background-image: url(http://cdn2.hubspot.net/hubfs/53/spotify-404-page.png);
   width: 100vw;
@@ -521,14 +504,7 @@ margin-top:2%;
 font-size:16px;
 margin-bottom:1%;
 }
-.rl-table-line{
-  border-top: solid 2px #1ED760;
-  border-bottom: solid 2px #1ED760;
-}
-.rl-table-line:hover{
-  background-color: black;
-  color: #169145;
-}
+
 .suggest_title{
 font-size:18px;
 }

@@ -34,7 +34,7 @@
             <div class="rl-playlists scrollbar">
                 <div class="rl-row" ng-repeat="list in userRatingList | orderBy:predicate:!reverse">
                     <div class="col-xs-3">
-                        <img class="ratedPic ratedPic-small" ng-src="{{list.image}}">
+                        <img class="rl-pic rl-pic-small" ng-src="{{list.image}}">
                     </div>
                     <div class="col-xs-3 rl-pl-title">
                         <p class="rl-p-size">{{list.name}}</p>
