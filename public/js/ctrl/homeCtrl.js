@@ -1,6 +1,6 @@
 spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies, $resource, Model) {
 
-	//Booleans for loading consent
+	//Variable for loading users cookie consent
 	$scope.cookieConsent = Model.showConsent();
 
 	$scope.clearCookies = function () {
@@ -10,8 +10,8 @@ spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies, $resource, 
 		$cookies.remove("refresh_token");
 	}
 
-	$scope.submitConsent = function (dontShowAgain) {
-		//sets if modal is to show again and closes popup
+	$scope.submitConsent = function () {
+		//sets cookie policy to hidden during session
 		Model.setConsent();
 		$scope.cookieConsent = true;
 	}
