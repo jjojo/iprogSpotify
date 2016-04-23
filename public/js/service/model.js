@@ -174,20 +174,17 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.setConsent = function (bool) {
-		// sets if modal shows next time user visits
-		// and makes sure we only see the popup once in session.
-		localStorage.consent = bool;
-		sessionStorage.consent = false;
+	this.setConsent = function () {
+		// sets cookie policy hide
+		sessionStorage.consent = true;
 	}
 
 	this.showConsent = function () {
-		// Returns if modal should be showing or not.
-		if (localStorage.consent === 'false' 
-		|| sessionStorage.consent === 'false') {
-			return false;
-		}else{
+		// Returns if cookie policy should be showing or not.
+		if (sessionStorage.consent === 'true') {
 			return true;
+		}else{
+			return false;
 		}
 	}
 

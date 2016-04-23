@@ -97,6 +97,7 @@ header a:visited, a:focus{
   border: 2px solid #169145;
   border-radius: 30px;
   text-align: justify;
+  display: flex;
 }
 
 
@@ -263,10 +264,18 @@ LOADER
   height: 100%;
   margin-top: -20%;
 }
+
 .bread {
   text-align: justify;
-    color: #aaa;
-    font-size: 17px;
+  color: #aaa;
+  font-size: 17px;
+  margin-bottom: 2%;
+}
+
+.home-bread {
+  text-align: justify;
+  color: black;
+  font-size: 17px;
   margin-bottom: 2%;
 }
 
