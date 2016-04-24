@@ -19,7 +19,7 @@
 				</p>	
 				<div class="col-xs-12 vote-top">
 					<p class="rate-title">Place your vote here!</p>
-					<div class="col-xs-5 stars-width"ng-mouseleave="hollowStars()">
+					<div class="col-xs-5 stars-width" ng-mouseleave="hollowStars()">
 						<div class="stars" ng-repeat="star in stars">
 							<img ng-show="star.hide" ng-mouseover="fillStar(star)" 
 							src="resources/spoti_star_hollow.png"/>
@@ -27,9 +27,9 @@
 							ng-click="setLock(star)" 
 							src="resources/spoti_star_filled.png"/>
 						</div>
-						<button type="button" class="btn btn-success vote-btn" ng-disabled="disabled" ng-click="setVote(star)">
-	  						<p ng-show="!voted">Vote</p>
-	  						<p ng-show="voted">Change</p>                 					 
+						<button type="button" class="btn btn-success vote-btn" ng-disabled="disabled && !vote" ng-click="setVote(star)">
+	  						<p ng-show="!vote">Vote</p>
+	  						<p ng-show="vote && disabled">Change</p>                 					 
 						</button>
 					</div>
 					<div class ="col-xs-2 vote-pl-info">
