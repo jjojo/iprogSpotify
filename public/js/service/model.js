@@ -31,8 +31,8 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
 		var user = $cookies.get("voteifyUser");
 
-		if(!user){
-			$location.path("/error"); 
+		if(!user && $location.path() !== '/'){
+			$location.path("/error");
 		}else{
 			refreshToken();
 			return
@@ -123,7 +123,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	this.init = function () {
 		// initilize app with data made from API calls
 		self.setUserCred();
-
+		self.authenticatetion();
 		var userData = self.getUserData().then(function(res){
 			self.profileData.userData = res;
 		});
@@ -138,7 +138,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		var playlists = self.getPlaylists().then(function(res){
 			self.profileData.playlists = res;
 		});
-		
+
 		return $q.all([userData, topTracks, topArtists, playlists])
 	}
 
@@ -181,6 +181,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	//runs initial functions
+
 	this.init();
 	return this;
 });
