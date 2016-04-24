@@ -2,11 +2,8 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	
 	//scope variables to initiate proper view
 	var locked = false;
-	//$scope.voted = false;
-	//$scope.vote = parseInt(Model.getVote($routeParams.playlistId));
 	$scope.disabled = true;
 	var playlist;
-
 
 	$scope.stars = [{
 		value: 1,
@@ -20,6 +17,19 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		{value: 5,
 		hide : true},	
 	]
+
+	var checkVoting = function() {
+		// loads vote from current session
+		if(Model.getVote($routeParams.playlistId) === false){
+			$scope.voted = false;
+		}else{
+			$scope.vote = parseInt(Model.getVote($routeParams.playlistId));
+			$scope.fillStar($scope.vote);
+			$scope.voted = true;
+			locked = true;
+		}
+	}
+
 
 	$scope.getPlaylistData = function () {
 	// fetches specific playlist data from firebase
@@ -52,73 +62,53 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 
 	$scope.setLock = function (star) {
 	// locks stars so they won't change when clicked
-		locked = true;
-		$scope.voteValue = star.value;
-		// $scope.lockedStar = star
-		$scope.disabled = false;
+		if (!$scope.voted) {
+			locked = true;
+			$scope.voteValue = star.value;
+			$scope.disabled = false;
+			$scope.fillStar(star.value, true);
+			$scope.hollowStar(star, true);
+		}
 	}
 
 
 	$scope.setVote = function () {
 	// sets Vote by sending voteValue and playlist to fbService addVoteRating.
 	// also tells model this session has voted once
+		$scope.voted = true;
+
 		fbService.addVoteRating($scope.pl, $scope.voteValue);
 		Model.setVote($scope.pl.$id, $scope.voteValue);
-		$scope.voted = true;
 	}
 
 
 	$scope.changeVote = function (){
 		//Removes vote from FB
+		var oldVote = parseInt(Model.getVote($scope.pl.$id));
 		locked = false;
+		
 		$scope.hollowStars();
+		$scope.voted = false;
+		$scope.disabled = true;
 
-		console.log($scope.pl + " scope.vote " + $scope.vote)
-		console.log($scope.pl + " scope.voteValue " + $scope.voteValue)
-
-		var oldVote = parseInt(Model.getVote($scope.pl.$id))
-		
 		fbService.deleteVoteRating($scope.pl, oldVote);
-
-		
-		// $scope.pl.totalRating -= $scope.vote;
-		// $scope.pl.votes -= 1;
-		// if($scope.pl.votes !== 0){
-		// 	$scope.pl.rating = Math.round(($scope.pl.totalRating/($scope.pl.votes)) * 100) / 100; 
-		// }else{
-		// 	$scope.pl.rating =0;
-		// }
-		// fbService.addVoteRating($scope.pl);
-		// Model.setVote(0);
-		// $scope.vote = 0;
-		// $scope.disabled = true;
-		
-		// $scope.voted = false;
-		// //$scope.starValue = 0;
-		// $scope.hollowStars();
+		Model.clearVote($scope.pl.$id)
 	}
 
 
 	$scope.hollowStars = function () {
 		// sets all stars to hide = true
-		// if ($scope.starValue) {
-		// 	$scope.fillStar($scope.starValue);
-		// 	$scope.hollowStar($scope.chosenStar);
-		// } else {
 		if (!locked) {
 			for (var i = 0; i < $scope.stars.length; i++) {
 				$scope.stars[i].hide = true;
 			};
 		};
-				
-		//}
 	}
 
 
-	$scope.hollowStar = function (star) {
+	$scope.hollowStar = function (star, unlock) {
 		// hollows the stars to the right if lit and you hover stars to the left
-		//locked = false;
-		if (!locked) {
+		if (!locked || unlock) {
 			for (var i = star.value; i < $scope.stars.length; i++) {
 				$scope.stars[i].hide = true;
 			};
@@ -126,37 +116,14 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	}
 
 
-	$scope.fillStar = function(starValue){
+	$scope.fillStar = function(starValue, unlock){
 		//fills stars to the left of hovered star
-		if (!locked) {
+		if (!locked || unlock) {
 			for (var i = 0; i < starValue; i++) {
 				$scope.stars[i].hide = false;
 			};
 		}
 	}
 
-
-	var checkVoting = function() {
-		// loads vote from current session
-		if(Model.getVote($routeParams.playlistId) === false){
-			$scope.voted = false;
-			console.log("no previous vote")
-		}else{
-			$scope.vote = parseInt(Model.getVote($routeParams.playlistId));
-			$scope.fillStar($scope.vote);
-			$scope.voted = true;
-			locked = true;
-			console.log("voted earlier with " + $scope.vote)
-		}
-		// if ($scope.vote) {
-		// 	$scope.starValue = $scope.vote;
-		// 	$scope.chosenStar = Model.showVote();
-		// 	$scope.fillStar(Model.showVote());
-		// 	$scope.voted = true;
-		// } else {
-		// 	return
-		// }
-	}
-
-	window.onload = checkVoting();
+	checkVoting();
 });
