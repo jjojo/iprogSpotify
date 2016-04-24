@@ -8,7 +8,7 @@
         		<div class="col-lg-offset-1 col-md-offset-0 col-md-3 col-sm-offset-1 col-sm-11 col-xs-12">
                 <h1 class="col-xs-12">{{profileData.userData.display_name || profileData.userData.id}}</h1>
                 <a href="{{profileData.userData.external_urls.spotify}}" target="_blank">
-                    <img class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" ng-src="{{profileData.userData.images[0].url || voteifyAvatar}}" alt="No image found">
+                    <img ng-hide="imgLoading" class="col-xs-5 col-sm-offset-0 col-sm-5 col-md-9" ng-src="{{profileData.userData.images[0].url || voteifyAvatar}}" alt="No image found">
                 </a>
 
                 <div class="col-xs-12 col-sm-5 col-md-12 info-block" ng-repeat="top in profileData.topData">
