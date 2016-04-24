@@ -29,7 +29,6 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				$scope.loading = false;
 			} catch (error) {
 				// this would catch respones = null could be solved with an if-else statement as well
-				console.log(error)
 				playlist.shared = false;
 				playlist.btnStyle = 'btn btn-success'
 				$scope.loading = false;

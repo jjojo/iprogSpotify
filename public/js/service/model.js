@@ -7,7 +7,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	};
 
 	var req = function (url) {
-		// returns a "spotify-ready" http request from the url argument
+	// returns a "spotify-ready" http request from the url argument
 		var access_token = $cookies.get("access_token");
 
 		return $http({ 
@@ -17,7 +17,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	var refreshToken = function () {
-		// refreshes acess_token
+	// refreshes acess_token
 		var refresh_token = $cookies.get("refresh_token");
 		
 		$http.get('/refresh_token/?refresh_token=' + refresh_token)
@@ -27,8 +27,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
+
 	this.init = function () {
-		// initilize app with data made from API calls
+	// initilize app with data made from API calls
 		if ($location.path().substring(0,5) === '/vote' || 
 			$location.path() === '/'){return;}
 
@@ -51,10 +52,11 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		return $q.all([userData, topTracks, topArtists, playlists])
 	}
 
+
 	this.authenticatetion = function(){
-		/* A synchronus call is made from the route resolve to 
-		make sure user is signed in befor granting access to route
-		if not signed in redericts user to error page */
+	/* A synchronus call is made from the route resolve to 
+	make sure user is signed in befor granting access to route
+	if not signed in redericts user to error page */
 		var user = $cookies.get("voteifyUser");
 
 		if(!user){
@@ -65,8 +67,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	} 
 
+
 	this.setUserCred = function () {
-		// stores username, access_token and refresh_token to session cookies.
+	// stores username, access_token and refresh_token to session cookies.
 		if (typeof($cookies.get("voteifyUser")) === 'undefined'){
 			var tokens = $location.search();
 			
@@ -82,14 +85,16 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
+
 	this.getUserId = function () {
-		//returns current user
+	//returns current user
 		return $cookies.get("voteifyUser")	
 	}
 
+
 	this.getUserData = function () {
-		// Returns a promise with user data from spotifyAPI
-		// and sets votefyUser-cookie
+	// Returns a promise with user data from spotifyAPI
+	// and sets votefyUser-cookie
 		return req('/me').then(function(res) {
             if (!res || res.error) {
             	console.log(res.error);
@@ -100,8 +105,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
+
 	this.getTopArtists = function () {
-		// Returns promise with users top 3 artists
+	// Returns promise with users top 3 artists
 		return req('/me/top/artists?limit=5').then(function(res) {
             if (!res || res.error) {
                 console.log(res.error);
@@ -112,8 +118,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
+
 	this.getTopTracks = function () {
-		// Returns promise with users top 3 tracks
+	// Returns promise with users top 3 tracks
 		return req('/me/top/tracks?limit=5').then(function(res) {
             if (!res || res.error) {
             	console.log(res.error);
@@ -124,8 +131,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
+
 	this.getPlaylists = function () {
-		// Returns a promise containing users playlists
+	// Returns a promise containing users playlists
 		return req('/me/playlists').then(function(res) {
             if (!res || res.error) {
             	console.log(res.error);
@@ -138,7 +146,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 
 	this.getPlaylistSongs = function(playlist) {
-		//Returns a spesific playlist's tracks.
+	//Returns a spesific playlist's tracks.
 		var userInfo = '/users/' + playlist.owner.id + '/playlists/' + playlist.id + '/tracks'
 		return req(userInfo).then(function(res) {
             if (!res || res.error) {
@@ -151,16 +159,16 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	
-
 	this.setShowModal = function (bool) {
-		// sets if modal shows next time user visits
-		// and makes sure we only see the popup once in session.
+	// sets if modal shows next time user visits
+	// and makes sure we only see the popup once in session.
 		localStorage.showModal = bool;
 		sessionStorage.showModal = false;
 	}
 
+
 	this.showModal = function () {
-		// Returns if modal should be showing or not.
+	// Returns if modal should be showing or not.
 		if (localStorage.showModal === 'false' 
 		|| sessionStorage.showModal === 'false') {
 			return false;
@@ -170,12 +178,13 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.setConsent = function () {
-		// sets cookie policy hide
+	// sets cookie policy hide
 		sessionStorage.consent = 'true';
 	}
 
+
 	this.showConsent = function () {
-		// Returns if cookie policy should be showing or not.
+	// Returns if cookie policy should be showing or not.
 		if (sessionStorage.consent === 'true') {
 			return true;
 		}else{
@@ -183,22 +192,35 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.setVote = function (voteValue) {
-		// stores the vote during session
-		sessionStorage.vote = voteValue;
+
+	this.setVote = function (playlistId,voteValue) {
+		// sets cookie so that you can only get 1 vote/day.
+		var tomorrow  = new Date(+new Date() + 86400000);
+		$cookies.put(playlistId,voteValue,{
+		  expires: tomorrow
+		});
 	}
 
-	this.showVote = function () {
-		// Returns if user can vote or not
-		if (typeof(sessionStorage.vote) === 'undefined') {
-			return 0;
+
+	this.clearVote = function(playlistId){
+	//clears old vote cookie
+		$cookies.remove(playlistId);
+	}
+
+
+	this.getVote = function(playlistId){
+	//returns vote if any made in the last 24h
+		var vote = $cookies.get(playlistId)
+		if (vote) {
+			return vote;
 		}else{
-			return sessionStorage.vote;
+			return false;
 		}
 	}
 
+
 	this.clearCookies = function () {
-		//removes all cookies on sign out
+	//removes all cookies on sign out
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
