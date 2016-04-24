@@ -183,9 +183,26 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.setVote = function (voteValue) {
-		// stores the vote during session
-		sessionStorage.vote = voteValue;
+	this.setVote = function (playlistId,voteValue) {
+		// sets cookie so that you can only get 1 vote/day.
+		console.log(playlistId)
+		var tomorrow  = new Date(+new Date() + 86400000);
+		$cookies.put(playlistId,voteValue,{
+		  expires: tomorrow
+		});
+
+		var cookie = $cookies.get(playlistId);
+		console.log(cookie);
+	}
+
+	this.getVote = function(playlistId){
+	//returns vote if any made in the last 24h
+		var vote = $cookies.get(playlistId)
+		if (vote) {
+			return vote;
+		}else{
+			return false;
+		}
 	}
 
 	this.showVote = function () {
