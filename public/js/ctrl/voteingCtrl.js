@@ -1,4 +1,4 @@
-spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce, Model) {
+spotifyApp.controller('VoteingCtrl', function ($scope, $sce, $routeParams, fbService, Model) {
 	
 	//scope variables to initiate proper view
 	var locked = false;
@@ -38,7 +38,6 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 				$scope.loading = false;
 				$scope.badLink = true;
 			}
-
 		})
 	}
 

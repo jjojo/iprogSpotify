@@ -1,4 +1,4 @@
-spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
+spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location) {
 
 	$scope.active = function(linkname){
 		//highlights current tab

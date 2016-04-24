@@ -1,4 +1,4 @@
-spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
+spotifyApp.controller('RatedlistsCtrl', function ($scope, fbService) {
 
 	//table heading names
 	$scope.tableHeads = [

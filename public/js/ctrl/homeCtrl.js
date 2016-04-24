@@ -1,4 +1,4 @@
-spotifyApp.controller('HomeCtrl', function ($scope, $http, $cookies, $resource, Model) {
+spotifyApp.controller('HomeCtrl', function ($scope, Model) {
 
 	//Variable for loading users cookie consent
 	$scope.cookieConsent = Model.showConsent();
