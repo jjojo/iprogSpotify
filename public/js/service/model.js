@@ -28,10 +28,12 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.authenticatetion = function(){
-		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
+		/* A synchronus call is made from the route resolve to 
+		make sure user is signed in befor granting access to route
+		if not signed in redericts user to error page */
 		var user = $cookies.get("voteifyUser");
 
-		if(!user && $location.path() !== '/'){
+		if(!user){
 			$location.path("/error");
 		}else{
 			refreshToken();
@@ -122,8 +124,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.init = function () {
 		// initilize app with data made from API calls
+		if ($location.path().substring(0,5) === '/vote' || 
+			$location.path() === '/'){return;}
+
 		self.setUserCred();
-		self.authenticatetion();
 		var userData = self.getUserData().then(function(res){
 			self.profileData.userData = res;
 		});

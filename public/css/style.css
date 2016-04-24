@@ -672,7 +672,14 @@ border-bottom:1px solid #000;
   text-align: center;
 }
 
+/*------ Error page --------------------------*/
+.error-header-link{
+  margin: 0;
+}
+
 /*GeneralCode------ All View--------------------------*/
+
+
 
 .search-window {
   padding-left: 5vw;

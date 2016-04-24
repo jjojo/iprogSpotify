@@ -10,20 +10,17 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 	//scopes for sorting rating, voting etc
 	$scope.predicate = 'rating';
   	$scope.reverse = false;
-
+	$scope.loading = true;
 
 	var getRatingList = function(){
 	// Fetches users shared playlists, runs on load
-		$scope.loading = true;
 		fbService.getUsersPlaylists().then(function(res){
-			var userLists = res;
-			
-			if (userLists.length === 0) {
+			if (res.length === 0) {
 				$scope.empty = true;
 			} else {
 				$scope.empty = false;
 			}
-			$scope.userRatingList = userLists;
+			$scope.userRatingList = res;
 			$scope.loading = false;
 		});
 	}
