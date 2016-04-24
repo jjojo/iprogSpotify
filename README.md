@@ -17,3 +17,6 @@ Clone the project from this repository. Jump to the root folder and type npm ins
 
 ## Known bugs
 This project isn't flawless, we list known issues and bugs in the repository issues. We work on this as soon as possible but we are aware of them at least. If you find any of your own, please add them.
+
+## Project Wiki
+Here you find small chapters on how to work with git and some codeing style guides for this project.
