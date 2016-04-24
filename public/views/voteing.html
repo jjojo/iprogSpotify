@@ -5,17 +5,17 @@
 	<div class="container center" ng-init="getPlaylistData()">
 		<div class="vote-pl-info col-md-3 col-xs-12" ng-hide="loading || badLink">
 			<h3>Playlist info</h3>
-			<a ng-href="{{spotLink}}"><img class="vote-pl-image" ng-src="{{image}}"></a>
+			<a ng-href="{{pl.spotifyUrl}}"><img class="vote-pl-image" ng-src="{{pl.image}}"></a>
 			<p class="vote-pl-title">{{title}}</p>
-			<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
-			<h4>Playlist owner:</h4> <p>{{owner}}</p>
+			<h4>Number of tracks:</h4> <p>{{pl.totalTracks}}</p>
+			<h4>Playlist owner:</h4> <p>{{pl.owner}}</p>
 		</div>	
 		<div class="col-md-9 col-xs-12">
 			<h2 class="vote-pl-title" ng-show="loading">The playlist is now loading</h2>
 			<img ng-show="loading" src="/resources/loading-bar.gif">
 			<div ng-hide="loading || badLink">
 				<p class="vote-pl-title">
-					{{title}}
+					{{pl.name}}
 				</p>	
 				<div class="col-xs-12 vote-top">
 					<p class="rate-title" ng-hide="voted">Place your vote here!</p>
@@ -44,7 +44,7 @@
 			<div class="pl-songs scrollbar" ng-hide="badLink">
 				<div>
 					<!-- ng-repeat låtar-->
-					<div class="track-bar col-xs-12" ng-repeat="track in playlistSongs">
+					<div class="track-bar col-xs-12" ng-repeat="track in pl.playlistSongs.items">
 						<div class="track-position col-xs-12 col-md-6">
 							<p class="info-text">
 								{{track.track.artists[0].name}} - {{track.track.name}}
@@ -70,4 +70,3 @@
 </main>
 
 <ng-include src="'views/footer.html'" class="footer-wrapper"></ng-include>
-

@@ -1,4 +1,4 @@
-spotifyApp.controller('VoteingCtrl', function ($scope, $sce, $routeParams, fbService, Model) {
+spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, $sce, Model) {
 	
 	//scope variables to initiate proper view
 	var locked = false;
@@ -23,21 +23,16 @@ spotifyApp.controller('VoteingCtrl', function ($scope, $sce, $routeParams, fbSer
 	$scope.getPlaylistData = function () {
 		// fetches specific playlist data from firebase
 		$scope.loading = true;
-		fbService.getPlaylist($routeParams.playlistId).then(function (response) {
+		fbService.getPlaylist($routeParams.playlistId).then(function (res) {
 			//sets all scope variables from response
-			if (response) {
-				$scope.playlist = response
-				$scope.image = response.image
-				$scope.totalTracks = response.totalTracks
-				$scope.owner = response.owner
-				$scope.title = response.name
-				$scope.spotLink = response.spotifyUrl
-				$scope.playlistSongs = response.playlistSongs.items	
+			if (res) {
+				$scope.pl = res
 				$scope.loading = false;
 			} else {
 				$scope.loading = false;
 				$scope.badLink = true;
 			}
+
 		})
 	}
 
