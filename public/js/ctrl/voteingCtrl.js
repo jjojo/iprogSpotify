@@ -67,28 +67,6 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		$scope.voted = true;
 	}
 
-	// var average = function(total, votes){
-	// 	console.log( total + " adn votes " + votes)
-	// 	return Math.round((total/(votes)) * 100) / 100;
-	// }
-
-	// $scope.setVote = function (voteValue) {
-	// 	// sets vote value to the current star value
-
-	// 	if (!$scope.vote) {
-	// 		$scope.pl.totalRating += $scope.lockedStar.value;
-	// 		$scope.pl.votes += 1
-	// 		$scope.pl.rating = Math.round(($scope.pl.totalRating/($scope.pl.votes)) * 100) / 100 
-	// 		;
-	// 		Model.setVote($scope.lockedStar.value);
-	// 		$scope.vote = $scope.lockedStar.value;
-	// 		$scope.voted = true;
-	// 	} else {
-	// 		console.log(star)
-	// 		$scope.changeVote();
-	// 	}
-	// }
-
 
 	$scope.changeVote = function (){
 		//Removes vote from FB
