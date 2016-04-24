@@ -1,60 +1,59 @@
 spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
 
-	//tab names
+	//table heading names
 	$scope.tableHeads = [
-	{"descript":"Cover","status":true},
-	{"descript":"Name","status":true},
-	{"descript":"Rating","status":true},
-	{"descript":"Votes","status":true}]
+		{"descript":"Cover","status":true},
+		{"descript":"Name","status":true},
+		{"descript":"Rating","status":true},
+		{"descript":"Votes","status":true}]
 
 	//scopes for sorting rating, voting etc
 	$scope.predicate = 'rating';
   	$scope.reverse = false;
-  	$scope.order = function(predicate) {
-    	$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
-    	$scope.predicate = predicate;
-    }
 
-    $scope.changeStatusHead =function(head){
-    	for(i=0;i<$scope.tableHeads.length;i++){
-    		if($scope.tableHeads[i].descript == head.descript){
-    			$scope.tableHeads[i].status = !$scope.tableHeads[i].status;
-    			return
-    		}
-    	}
-    }
 
 	var getRatingList = function(){
-		//console.log(Model.user)
-		// This solution is not valid for refresh requests! When refreching this function trys to fetch 
-		// Model.user even thoug Model.user is not set after refresh. A better way might be setting a user-cookie 
-		// on login. This way we can retrive it even on refresh.
+	// Fetches users shared playlists, runs on load
 		$scope.loading = true;
-		fbService.getUsersPlaylists(Model.user).then(function(response){
-
-			var user_lists = [];
-			var keys = Object.keys(response);
-			for(i=0; i<keys.length-1; i++){
-				if(response[keys[i]].sharedBy === Model.getUserId()){
-					user_lists.push(response[keys[i]]);
-					$scope.loading = false;
-				}
-				else{
-					$scope.loading = false;
-				}	
-			}
-			$scope.loading = false;
-			if (user_lists.length === 0) {
+		fbService.getUsersPlaylists().then(function(res){
+			var userLists = res;
+			
+			if (userLists.length === 0) {
 				$scope.empty = true;
 			} else {
 				$scope.empty = false;
 			}
-			$scope.userRatingList = user_lists;
-		})
+			$scope.userRatingList = userLists;
+			$scope.loading = false;
+		});
 	}
 
 
+  	$scope.order = function(predicate) {
+  	// decides how to order depending on predicate then sets predicate to current sorting
+  		if ($scope.predicate === predicate) {
+  			$scope.reverse = !$scope.reverse;
+  		}else{
+  			$scope.revers = false;
+  		}
+    	$scope.predicate = predicate;
+    }
+
+
+    $scope.changeStatusHead = function(head) {
+    // sets status of table head. Which is sorted by and not.
+    	for(i = 0; i < $scope.tableHeads.length; i++){
+    		if($scope.tableHeads[i].descript == head.descript){
+    			$scope.tableHeads[i].status = !$scope.tableHeads[i].status;
+    			return;
+    		}
+    	}
+    }
+
+
 	$scope.range = function(n) {
+	/* generates an array of lengt to used to set number 
+	of stars filled/hollowed dynamically */
 		if(typeof(n) === 'undefined'){
 			n = 0;
 		}
@@ -62,5 +61,5 @@ spotifyApp.controller('RatedlistsCtrl', function ($scope, Model, fbService) {
         return new Array(num);
     };
 
-    window.onload = getRatingList();
+    getRatingList();
 });

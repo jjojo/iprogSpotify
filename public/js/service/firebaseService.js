@@ -45,13 +45,6 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	    playVoteRef.remove();
 	}
 
-	this.getAllSharedPlaylists = function() {
-    	//returns all of the userds voteable playlists from firebase
-    	return playVoteRef.$loaded().then(function (response) {
-    		return response
-    	})
-	}
-
 	this.getPlaylist = function(playlistId) {
     	//takes a playlistId as input and returns specific playlist data.
     	return playVoteRef.$loaded().then(function (response){
@@ -60,12 +53,20 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
     	})
 	}
 	
-	this.getUsersPlaylists = function(user) {
-		//returns a user playlists that are stored in fb
-		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/");
+	this.getUsersPlaylists = function() {
+		//returns current users playlists that are up for vote
+		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls");
 		var playVoteRef = $firebaseArray(playVoteRef);
-		return playVoteRef.$loaded().then(function (response){
-			return playVoteRef.$getRecord("playVoteUrls")
+		
+		return playVoteRef.$loaded().then(function (res){
+			var usersPlaylists = [];
+			
+			angular.forEach(res, function(value, key) {
+				if (value.sharedBy === Model.getUserId()) {
+					usersPlaylists.push(value);
+				};
+       		});
+			return usersPlaylists;
     	})
 	}
 
