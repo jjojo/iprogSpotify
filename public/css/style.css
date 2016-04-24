@@ -4,6 +4,11 @@ Comments:
 	• Try to organize the classes in a logical chronoligical order.
 	• Try to be as general as possible and explain where and what the class is used for.
 */
+
+
+
+
+
 /*SMALL SCREENS*/
 @media (max-width: 880px){
   .header-text{
@@ -39,8 +44,19 @@ Comments:
   width: 100%;
 }
 
+.hollow-star{
+    margin-left: -5px;
+    margin-right: 5px;
+}
+
 /* HomeView -------------------starterpage--------------------*/
 
+.compatibility{
+  margin-bottom:3%;
+  margin-top:-2%;
+  padding-left: 5%;
+
+}
 .startpage{
   padding: 0;
 }
@@ -152,6 +168,17 @@ header a:visited, a:focus{
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 45px;
+}
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+h3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 }
 a{
   color: #169145;
@@ -170,9 +197,7 @@ main{
 .profile-playlists{
   margin-top: 40px;
 }
-.profile-title{
-  font-size: 3.5em;
-}
+
 .profile-content{
   margin: 50px -15px 0px -15px;
 }
@@ -331,14 +356,6 @@ float: none;
 margin-left: auto;
 margin-right: auto;
 }
-.login-title{
-margin-top:3%;
-font-size:40px; 
-color:#000000;
-font-family: 'Montserrat', sans-serif;
-letter-spacing: 2px;
-text-align: center;
-}
 
 .bread {
   text-align: justify;
@@ -361,12 +378,6 @@ text-align: center;
 
 /*--------------------------------- Ratedlists (RL) -------------------- */
 
-.rl-h2{
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 50px;
-}
 
 .rl-border{
   border-bottom: solid 2px green;
@@ -668,7 +679,14 @@ border-bottom:1px solid #000;
   text-align: center;
 }
 
+/*------ Error page --------------------------*/
+.error-header-link{
+  margin: 0;
+}
+
 /*GeneralCode------ All View--------------------------*/
+
+
 
 .search-window {
   padding-left: 5vw;

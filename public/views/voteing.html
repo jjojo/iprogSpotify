@@ -5,7 +5,7 @@
 	<div ng-init="getPlaylistData()"  class="container center">
 		<div class="vote-pl-info col-md-3 col-xs-12" ng-hide="loading || badLink">
 			<h3>Playlist info</h3>
-			<a href="{{spotLink}}"><img class="vote-pl-image" src="{{image}}"></a>
+			<a href="{{spotLink}}"><img class="vote-pl-image" ng-src="{{image}}"></a>
 			<p class="vote-pl-title">{{title}}</p>
 			<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
 			<h4>Playlist owner:</h4> <p>{{owner}}</p>
@@ -64,7 +64,7 @@
 
 	<!--Bad link page-->
 	<div ng-show="badLink">
-		<h1 class="bad-link col-xs-8 col-xs-offset-2">The link you followed did not result in any playlist, look again or head home to <a class="info-text" href="#/" ng-style="active('home')">Voteify</a>!</h1>
+		<h1 class="text-center col-xs-8 col-xs-offset-2">The link you followed did not result in any playlist, maybe the user dosen't share it anymore, share one yourself insted at <a href="#/">Voteify</a>!</h1>
 	</div>
 
 </main>

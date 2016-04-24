@@ -28,11 +28,13 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.authenticatetion = function(){
-		//Checks if the user is signed in. If not, redirects to error-page. Else refresh the users token.
+		/* A synchronus call is made from the route resolve to 
+		make sure user is signed in befor granting access to route
+		if not signed in redericts user to error page */
 		var user = $cookies.get("voteifyUser");
 
 		if(!user){
-			$location.path("/error"); 
+			$location.path("/error");
 		}else{
 			refreshToken();
 			return
@@ -66,6 +68,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// and sets votefyUser-cookie
 		return req('/me').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
                 return "ERROR";
             } else {
                 return res.data;
@@ -77,9 +80,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns promise with users top 3 artists
 		return req('/me/top/artists?limit=5').then(function(res) {
             if (!res || res.error) {
+                console.log(res.error);
                 return "ERROR";
             } else {
-               return res.data;
+               	return res.data;
             }
         });
 	}
@@ -88,6 +92,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns promise with users top 3 tracks
 		return req('/me/top/tracks?limit=5').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
                 return "ERROR";
             } else {
                 return res.data;
@@ -99,6 +104,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns a promise containing users playlists
 		return req('/me/playlists').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
             	return "ERROR";
             } else {
                 return res.data;
@@ -122,8 +128,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.init = function () {
 		// initilize app with data made from API calls
-		self.setUserCred();
+		if ($location.path().substring(0,5) === '/vote' || 
+			$location.path() === '/'){return;}
 
+		self.setUserCred();
 		var userData = self.getUserData().then(function(res){
 			self.profileData.userData = res;
 		});
@@ -138,7 +146,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		var playlists = self.getPlaylists().then(function(res){
 			self.profileData.playlists = res;
 		});
-		
+
 		return $q.all([userData, topTracks, topArtists, playlists])
 	}
 
@@ -161,7 +169,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.setConsent = function () {
 		// sets cookie policy hide
-		sessionStorage.consent = true;
+		sessionStorage.consent = 'true';
 	}
 
 	this.showConsent = function () {
@@ -188,13 +196,14 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.signOut = function (argument) {
-		//removes all cookies
+		//removes all cookies on sign out
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
 	}
 
 	//runs initial functions
+
 	this.init();
 	return this;
 });

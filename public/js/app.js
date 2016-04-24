@@ -1,4 +1,4 @@
-var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies', 'ui.bootstrap']);
+var spotifyApp = angular.module('spotifyApp', ['ngRoute', 'ngResource', 'ngSanitize', 'firebase', 'ngCookies']);
 
 spotifyApp.config(['$routeProvider', function ($routeProvider) {
 
@@ -37,7 +37,6 @@ spotifyApp.config(['$routeProvider', function ($routeProvider) {
 		}).
 		when('/about', {
 			templateUrl: 	"views/about.html",
-			controller: 	"HeaderCtrl",
 			resolve: {
 					auth: authenticatetion
        				},
