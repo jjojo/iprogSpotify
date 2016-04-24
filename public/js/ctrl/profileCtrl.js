@@ -2,6 +2,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	
 	$scope.showModal = Model.showModal();
 	$scope.loading = true;
+	$scope.imgLoading = true;
 	$scope.dontShowAgain = false;
 	$scope.isCollapsed = true;
 	$scope.topData = {};
@@ -9,7 +10,8 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 
 	//loads user data if data is not in model it runs init() in model to det it
 	if(Object.keys(Model.profileData).length === 1){
-		Model.init().then(function(res){
+		Model.init().then(function(){
+			$scope.imgLoading = false;
 			$scope.profileData = Model.profileData;
 		})
 	}else{

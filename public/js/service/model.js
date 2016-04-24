@@ -183,6 +183,20 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
+	this.setVote = function (voteValue) {
+		// stores the vote during session
+		sessionStorage.vote = voteValue;
+	}
+
+	this.showVote = function () {
+		// Returns if user can vote or not
+		if (typeof(sessionStorage.vote) === 'undefined') {
+			return 0;
+		}else{
+			return sessionStorage.vote;
+		}
+	}
+
 	this.signOut = function (argument) {
 		//removes all cookies on sign out
 		$cookies.remove("voteifyUser")
