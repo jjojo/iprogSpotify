@@ -8,14 +8,9 @@ spotifyApp.controller('HeaderCtrl', function ($scope, Model, $location, Model) {
 		return {'opacity':0.5};
 	}
 
-	$scope.clearCookie = function() {
-		//clears all cookies
-		Model.clearCookie();
-	}
-
 	$scope.signOut = function () {
 		// signing out
-		Model.signOut();
+		Model.clearCookies();
 	}
 	$scope.getConsent = function () {
 		// gets cookie consent
