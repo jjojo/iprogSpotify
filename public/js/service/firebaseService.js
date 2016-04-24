@@ -4,7 +4,6 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls");
 	var playVoteRef = $firebaseArray(playVoteRef);
 
-
 	this.addVoteRating = function(playlist, rating) {
 	//updates the playlist votes in fb
 		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + playlist.$id);
@@ -16,11 +15,9 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	};
 
 	this.deleteVoteRating = function(playlist, rating) {
-	//delete rating from fb
-	console.log(rating)
-		if (playlist.votes === 0) {
-			votes = 1;
-			playlist.totalRating = rating;
+	//updates the playlist votes in fb
+		if (playlist.votes === 1) {
+			votes = 2;
 		}else{
 			votes = playlist.votes;
 		}
@@ -28,7 +25,7 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	    playVoteRef.update ({
 	    	'votes': playlist.votes -= 1,
 	    	'totalRating' : playlist.totalRating -= rating,
-	    	'rating' : Math.round(((playlist.totalRating - rating)/(votes)) * 100) / 100
+	    	'rating' : Math.round(((playlist.totalRating - rating)/(votes -= 1)) * 100) / 100
 		})
 	};
 	

@@ -76,11 +76,10 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		console.log($scope.pl + " scope.vote " + $scope.vote)
 		console.log($scope.pl + " scope.voteValue " + $scope.voteValue)
 
-		if (typeof($scope.vote) === 'undefined') {
-			fbService.deleteVoteRating($scope.pl, $scope.voteValue);
-		}else{
-			fbService.deleteVoteRating($scope.pl, $scope.vote);
-		}
+		var oldVote = parseInt(Model.getVote($scope.pl.$id))
+		
+		fbService.deleteVoteRating($scope.pl, oldVote);
+
 		
 		// $scope.pl.totalRating -= $scope.vote;
 		// $scope.pl.votes -= 1;
