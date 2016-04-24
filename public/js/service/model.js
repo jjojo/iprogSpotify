@@ -68,6 +68,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// and sets votefyUser-cookie
 		return req('/me').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
                 return "ERROR";
             } else {
                 return res.data;
@@ -79,9 +80,10 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns promise with users top 3 artists
 		return req('/me/top/artists?limit=5').then(function(res) {
             if (!res || res.error) {
+                console.log(res.error);
                 return "ERROR";
             } else {
-               return res.data;
+               	return res.data;
             }
         });
 	}
@@ -90,6 +92,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns promise with users top 3 tracks
 		return req('/me/top/tracks?limit=5').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
                 return "ERROR";
             } else {
                 return res.data;
@@ -101,6 +104,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		// Returns a promise containing users playlists
 		return req('/me/playlists').then(function(res) {
             if (!res || res.error) {
+            	console.log(res.error);
             	return "ERROR";
             } else {
                 return res.data;
@@ -165,7 +169,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 
 	this.setConsent = function () {
 		// sets cookie policy hide
-		sessionStorage.consent = true;
+		sessionStorage.consent = 'true';
 	}
 
 	this.showConsent = function () {
@@ -178,7 +182,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	this.signOut = function (argument) {
-		//removes all cookies
+		//removes all cookies on sign out
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
 		$cookies.remove("refresh_token")
