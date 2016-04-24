@@ -5,7 +5,7 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	var playVoteRef = $firebaseArray(playVoteRef);
 
 	this.addVoteRating = function(playlist) {
-		//updates the playlist votes in fb
+	//updates the playlist votes in fb
 		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + playlist.$id);
 	    playVoteRef.update ({
 	    	'votes': playlist.votes,
@@ -15,7 +15,7 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 	};
 	
 	this.addPlayVoteUrl = function(playlist, userId) {
-		
+	// Adds playlist data to firebase, takes playlist and a user id.
 		var playVoteRef = new Firebase("https://spotifyapplication.firebaseio.com/playVoteUrls/" + playlist.id);
 		
 		Model.getPlaylistSongs(playlist).then(function (res) {
@@ -36,7 +36,6 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 		    	'totalTracks' : playlist.tracks.total
 		    });
 		});
-	    //the object in ref should be replaced totally with the parameter object data! When rating is initialized
 	}
 
 	this.deletePlaylistUrl = function(data) {
@@ -47,9 +46,8 @@ spotifyApp.factory('fbService', function ($resource, $firebaseArray, Model) {
 
 	this.getPlaylist = function(playlistId) {
     	//takes a playlistId as input and returns specific playlist data.
-    	return playVoteRef.$loaded().then(function (response){
-    		return playVoteRef.$getRecord(playlistId)
-
+    	return playVoteRef.$loaded().then(function (res){
+    		return playVoteRef.$getRecord(playlistId);
     	})
 	}
 	

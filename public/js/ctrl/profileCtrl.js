@@ -7,8 +7,9 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 	$scope.topData = {};
 	$scope.voteifyAvatar = '../resources/avatar.png';
 
+	//loads user data if data is not in model it runs init() in model to det it
 	if(Object.keys(Model.profileData).length === 1){
-		Model.init().then(function(){
+		Model.init().then(function(res){
 			$scope.profileData = Model.profileData;
 		})
 	}else{
@@ -26,6 +27,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 				$scope.loading = false;
 			} catch (error) {
 				// this would catch respones = null could be solved with an if-else statement as well
+				console.log(error)
 				playlist.shared = false;
 				playlist.btnStyle = 'btn btn-success'
 				$scope.loading = false;

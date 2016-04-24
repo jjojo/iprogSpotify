@@ -2,10 +2,10 @@
 
 <!--Voting page-->
 <main>
-	<div ng-init="getPlaylistData()"  class="container center">
+	<div class="container center" ng-init="getPlaylistData()">
 		<div class="vote-pl-info col-md-3 col-xs-12" ng-hide="loading || badLink">
 			<h3>Playlist info</h3>
-			<a href="{{spotLink}}"><img class="vote-pl-image" ng-src="{{image}}"></a>
+			<a ng-href="{{spotLink}}"><img class="vote-pl-image" ng-src="{{image}}"></a>
 			<p class="vote-pl-title">{{title}}</p>
 			<h4>Number of tracks:</h4> <p>{{totalTracks}}</p>
 			<h4>Playlist owner:</h4> <p>{{owner}}</p>
@@ -19,7 +19,7 @@
 				</p>	
 				<div class="col-xs-12 vote-top">
 					<p class="rate-title">Place your vote here!</p>
-					<div class="col-xs-5 stars-width"ng-mouseleave="hollowStars()">
+					<div class="col-xs-5 stars-width" ng-mouseleave="hollowStars()">
 						<div class="stars" ng-repeat="star in stars">
 							<img ng-show="star.hide" ng-mouseover="fillStar(star)" 
 							src="resources/spoti_star_hollow.png"/>

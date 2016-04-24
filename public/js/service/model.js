@@ -27,6 +27,30 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 			});
 	}
 
+	this.init = function () {
+		// initilize app with data made from API calls
+		if ($location.path().substring(0,5) === '/vote' || 
+			$location.path() === '/'){return;}
+
+		self.setUserCred();
+		var userData = self.getUserData().then(function(res){
+			self.profileData.userData = res;
+		});
+		var topTracks = self.getTopTracks().then(function(res){
+			self.profileData.topData.topTracks = res;
+			self.profileData.topData.topTracks.title = 'Top Tracks';
+		});
+		var topArtists = self.getTopArtists().then(function(res){
+			self.profileData.topData.topArtists = res;
+			self.profileData.topData.topArtists.title = 'Top Artists';
+		});
+		var playlists = self.getPlaylists().then(function(res){
+			self.profileData.playlists = res;
+		});
+
+		return $q.all([userData, topTracks, topArtists, playlists])
+	}
+
 	this.authenticatetion = function(){
 		/* A synchronus call is made from the route resolve to 
 		make sure user is signed in befor granting access to route
@@ -126,29 +150,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
         });
 	}
 
-	this.init = function () {
-		// initilize app with data made from API calls
-		if ($location.path().substring(0,5) === '/vote' || 
-			$location.path() === '/'){return;}
-
-		self.setUserCred();
-		var userData = self.getUserData().then(function(res){
-			self.profileData.userData = res;
-		});
-		var topTracks = self.getTopTracks().then(function(res){
-			self.profileData.topData.topTracks = res;
-			self.profileData.topData.topTracks.title = 'Top Tracks';
-		});
-		var topArtists = self.getTopArtists().then(function(res){
-			self.profileData.topData.topArtists = res;
-			self.profileData.topData.topArtists.title = 'Top Artists';
-		});
-		var playlists = self.getPlaylists().then(function(res){
-			self.profileData.playlists = res;
-		});
-
-		return $q.all([userData, topTracks, topArtists, playlists])
-	}
+	
 
 	this.setShowModal = function (bool) {
 		// sets if modal shows next time user visits
@@ -189,7 +191,6 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 	}
 
 	//runs initial functions
-
 	this.init();
 	return this;
 });
