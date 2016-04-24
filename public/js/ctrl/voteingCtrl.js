@@ -2,6 +2,7 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	
 	//scope variables to initiate proper view
 	var locked = false;
+	$scope.voted = false;
 	$scope.vote = parseInt(Model.showVote());
 	$scope.disabled = true;
 	$scope.hide = true;
@@ -56,6 +57,9 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		// locks stars so they won't change when mouse leaves
 		$scope.starValue = star.value;
 		$scope.disabled = false;
+		$scope.hollowStar(star);
+		$scope.fillStar(star.value);
+		$scope.chosenStar = star;
 		locked = true;
 	}
 
@@ -66,8 +70,9 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 			$scope.playlist.votes += 1
 			$scope.playlist.rating = Math.round(($scope.playlist.totalRating/($scope.playlist.votes)) * 100) / 100 
 			fbService.addVoteRating($scope.playlist);
-			Model.setVoted($scope.starValue);
+			Model.setVote($scope.starValue);
 			$scope.vote = $scope.starValue;
+			$scope.voted = true;
 		} else {
 			$scope.changeVote();
 		}
@@ -75,42 +80,66 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 
 	$scope.changeVote = function (){
 		//Removes vote from FB
-		$scope.playlist.totalRating -= $scope.starValue;
+		$scope.playlist.totalRating -= $scope.vote;
 		$scope.playlist.votes -= 1;
-		if($scope.playlist.votes != 0){
+		if($scope.playlist.votes !== 0){
 			$scope.playlist.rating = Math.round(($scope.playlist.totalRating/($scope.playlist.votes)) * 100) / 100; 
 		}else{
 			$scope.playlist.rating =0;
 		}
 		fbService.addVoteRating($scope.playlist);
+		Model.setVote(0);
 		$scope.vote = 0;
 		$scope.disabled = true;
 		locked = false;
-		$scope.hollowStars(0);
+		$scope.voted = false;
+		$scope.starValue = 0;
+		$scope.hollowStars();
 	}
 
-	$scope.hollowStars = function (star) {
+	$scope.hollowStars = function () {
 		// sets all stars to hide = true
-		if (!locked) {
+		if ($scope.starValue) {
+			$scope.fillStar($scope.starValue);
+			$scope.hollowStar($scope.chosenStar);
+		} else {
 			for (var i = 0; i < $scope.stars.length; i++) {
 				$scope.stars[i].hide = true;
-			};
+			};	
 		}
 	}
 
 	$scope.hollowStar = function (star) {
-		// hollows the star to the right if lit and you hover stars to the left
-		if (!locked && star.value < $scope.stars.length) {
-			$scope.stars[star.value].hide = true;
+		// hollows the stars to the right if lit and you hover stars to the left
+		locked = false;
+		if (!locked && star.value < $scope.stars.length && !$scope.voted) {
+			for (var i = star.value; i < $scope.stars.length; i++) {
+				$scope.stars[i].hide = true;
+			};
 		};
 	}
 
-	$scope.fillStar = function(star){
+	$scope.fillStar = function(starValue){
 		//fills stars to the left of hovered star
-		if (!locked) {
-			for (var i = 0; i < star.value; i++) {
+		locked = false;
+		if (!locked  && !$scope.voted) {
+			for (var i = 0; i < starValue; i++) {
 				$scope.stars[i].hide = false;
 			};
 		}
 	}
+
+	var checkVoting = function() {
+		// loads vote from current session
+		if ($scope.vote) {
+			$scope.starValue = $scope.vote;
+			$scope.chosenStar = Model.showVote();
+			$scope.fillStar(Model.showVote());
+			$scope.voted = true;
+		} else {
+			return
+		}
+	}
+
+	window.onload = checkVoting();
 });

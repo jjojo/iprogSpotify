@@ -173,10 +173,9 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.setVoted = function (voteValue) {
+	this.setVote = function (voteValue) {
 		// stores the vote during session
 		sessionStorage.vote = voteValue;
-		console.log(sessionStorage.vote)
 	}
 
 	this.showVote = function () {
