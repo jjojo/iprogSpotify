@@ -197,7 +197,7 @@ spotifyApp.factory('Model', function ($resource, $http, $q, $cookies, $interval,
 		}
 	}
 
-	this.signOut = function (argument) {
+	this.clearCookies = function () {
 		//removes all cookies on sign out
 		$cookies.remove("voteifyUser")
 		$cookies.remove("access_token")
