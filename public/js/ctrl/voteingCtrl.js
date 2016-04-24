@@ -3,7 +3,6 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 	//scope variables to initiate proper view
 	var locked = false;
 	$scope.disabled = true;
-	var playlist;
 
 	$scope.stars = [{
 		value: 1,
@@ -37,13 +36,14 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 		fbService.getPlaylist($routeParams.playlistId)
 			.then(function (res) {
 				if (res) {
+					if (res.votes === 0) { Model.clearVote(res.$id) }
 					$scope.pl = res;
-					playlist = res;
 					$scope.loading = false;
 				} else {
 					$scope.loading = false;
 					$scope.badLink = true;
 				}
+				checkVoting();
 			});
 	}
 
@@ -124,6 +124,4 @@ spotifyApp.controller('VoteingCtrl', function ($scope, fbService, $routeParams, 
 			};
 		}
 	}
-
-	checkVoting();
 });
