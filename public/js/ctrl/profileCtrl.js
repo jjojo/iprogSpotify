@@ -1,5 +1,5 @@
 spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
-	
+
 	$scope.showModal = Model.showModal();
 	$scope.loading = true;
 	$scope.imgLoading = true;
@@ -15,6 +15,7 @@ spotifyApp.controller('ProfileCtrl', function ($scope, Model, fbService) {
 			$scope.profileData = Model.profileData;
 		})
 	}else{
+		$scope.imgLoading = false;
 		$scope.profileData = Model.profileData;
 	}
 
