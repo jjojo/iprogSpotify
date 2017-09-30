@@ -1,7 +1,8 @@
 # iprogProject
-Project for the course DH2642 
+Project for the course DH2642 spring of 2016
+Demo:
+
 http://voteify.jonasjohansson.net/#/
-spring of 2016
 
 ## Project members
 David Aaron <br>
